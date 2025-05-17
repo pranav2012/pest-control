@@ -34,8 +34,8 @@ const PromotionalBanner = () => {
       <div className="container mx-auto h-full">
         <div className="flex items-center justify-between h-full px-4 relative">
           {/* Left Side - Offer */}
-          <div className="flex items-center space-x-3">
-            <div className="shrink-0">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <div className="shrink-0 hidden sm:block">
               <div className="relative">
                 <div className="w-8 h-8 bg-[#25D366]/10 rounded-lg rotate-12 absolute" />
                 <div className="w-8 h-8 bg-[#25D366]/20 rounded-lg -rotate-6 absolute" />
@@ -60,14 +60,14 @@ const PromotionalBanner = () => {
                   >
                     20% OFF
                   </motion.span>
-                  <span className="text-xs">across all services</span>
+                  <span className="text-xs whitespace-nowrap">across all services</span>
                 </span>
               </div>
             </div>
           </div>
 
           {/* Right Side - Timer */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="hidden sm:flex items-center space-x-2">
               <svg className="w-4 h-4 text-[#075e54]" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />

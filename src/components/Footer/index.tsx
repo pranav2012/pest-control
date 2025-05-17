@@ -46,19 +46,19 @@ const PaymentMethodIcon = ({ method }: { method: string }) => {
   const getIcon = () => {
     switch (method.toLowerCase()) {
       case 'upi':
-        return <IndianRupee className="w-5 h-5" />;
+        return <IndianRupee className="w-4 h-4" />;
       case 'visa':
       case 'mastercard':
-        return <CreditCard className="w-5 h-5" />;
+        return <CreditCard className="w-4 h-4" />;
       case 'cash':
-        return <Banknote className="w-5 h-5" />;
+        return <Banknote className="w-4 h-4" />;
       default:
-        return <CircleDollarSign className="w-5 h-5" />;
+        return <CircleDollarSign className="w-4 h-4" />;
     }
   };
 
   return (
-    <div className="inline-flex items-center justify-center w-10 h-10 bg-white/10 rounded-md hover:bg-white/20 transition-colors duration-300">
+    <div className="inline-flex items-center justify-center w-8 h-8 bg-white/10 rounded-md hover:bg-white/20 transition-colors duration-300">
       {getIcon()}
     </div>
   );
@@ -68,30 +68,30 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white relative">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-12 lg:py-16">
         {/* Top Section - Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 pb-16 border-b border-gray-800">
-          <div className="flex items-center space-x-4 bg-[#25D366]/5 p-6 rounded-xl">
-            <div className="bg-[#25D366]/10 p-3 rounded-lg">
-              <Clock className="w-6 h-6 text-[#25D366]" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 mb-12 pb-12 border-b border-gray-800">
+          <div className="flex items-center space-x-4 bg-[#25D366]/5 p-4 lg:p-6 rounded-xl">
+            <div className="bg-[#25D366]/10 p-2.5 rounded-lg">
+              <Clock className="w-5 h-5 text-[#25D366]" />
             </div>
             <div>
               <h4 className="font-semibold text-[#25D366]">24/7 Support</h4>
               <p className="text-sm text-gray-400">Always here to help you</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4 bg-[#25D366]/5 p-6 rounded-xl">
-            <div className="bg-[#25D366]/10 p-3 rounded-lg">
-              <Shield className="w-6 h-6 text-[#25D366]" />
+          <div className="flex items-center space-x-4 bg-[#25D366]/5 p-4 lg:p-6 rounded-xl">
+            <div className="bg-[#25D366]/10 p-2.5 rounded-lg">
+              <Shield className="w-5 h-5 text-[#25D366]" />
             </div>
             <div>
               <h4 className="font-semibold text-[#25D366]">Licensed & Insured</h4>
               <p className="text-sm text-gray-400">Professional service guaranteed</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4 bg-[#25D366]/5 p-6 rounded-xl">
-            <div className="bg-[#25D366]/10 p-3 rounded-lg">
-              <Award className="w-6 h-6 text-[#25D366]" />
+          <div className="flex items-center space-x-4 bg-[#25D366]/5 p-4 lg:p-6 rounded-xl sm:col-span-2 lg:col-span-1">
+            <div className="bg-[#25D366]/10 p-2.5 rounded-lg">
+              <Award className="w-5 h-5 text-[#25D366]" />
             </div>
             <div>
               <h4 className="font-semibold text-[#25D366]">Expert Team</h4>
@@ -101,21 +101,21 @@ const Footer = () => {
         </div>
 
         {/* Main Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 mb-12">
           {/* Company Info */}
-          <div className="md:col-span-5 space-y-6">
-            <h2 className="text-2xl font-bold text-[#25D366]">Alpha Beneficent Care</h2>
-            <p className="text-gray-400 text-sm leading-relaxed">
+          <div className="lg:col-span-5 space-y-4 lg:space-y-6">
+            <h2 className="text-xl lg:text-2xl font-bold text-[#25D366]">Alpha Beneficent Care</h2>
+            <p className="text-sm text-gray-400 leading-relaxed">
               {footerData.company_info.description}
             </p>
-            <div className="flex items-center space-x-4 pt-4">
+            <div className="flex items-center space-x-3 pt-2">
               {footerData.company_info.social_links.map((social: SocialLink) => (
                 <Link
                   key={social.platform}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#25D366]/10 p-3 rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300"
+                  className="bg-[#25D366]/10 p-2.5 rounded-lg text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300"
                 >
                   <SocialIcon platform={social.platform} />
                 </Link>
@@ -124,11 +124,11 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="md:col-span-3 space-y-6">
-            <h3 className="text-xl font-semibold text-[#25D366]">
+          <div className="lg:col-span-3 space-y-4">
+            <h3 className="text-lg lg:text-xl font-semibold text-[#25D366]">
               {footerData.quick_links.title}
             </h3>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-2">
               {footerData.quick_links.links.map((link) => (
                 <li key={link.text}>
                   <Link
@@ -145,18 +145,18 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="md:col-span-4 space-y-6">
-            <h3 className="text-xl font-semibold text-[#25D366]">
+          <div className="lg:col-span-4 space-y-4">
+            <h3 className="text-lg lg:text-xl font-semibold text-[#25D366]">
               {footerData.contact_info.title}
             </h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4 p-4 bg-[#25D366]/5 rounded-lg group hover:bg-[#25D366]/10 transition-colors duration-300">
-                <MapPin className="w-5 h-5 text-[#25D366] shrink-0" />
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3 p-3 bg-[#25D366]/5 rounded-lg group hover:bg-[#25D366]/10 transition-colors duration-300">
+                <MapPin className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
                 <span className="text-gray-400 text-sm">
                   {footerData.contact_info.address}
                 </span>
               </div>
-              <div className="flex items-center space-x-4 p-4 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
+              <div className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
                 <Phone className="w-5 h-5 text-[#25D366]" />
                 <a
                   href={`tel:${footerData.contact_info.phone}`}
@@ -165,11 +165,11 @@ const Footer = () => {
                   {footerData.contact_info.phone}
                 </a>
               </div>
-              <div className="flex items-center space-x-4 p-4 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
+              <div className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
                 <Mail className="w-5 h-5 text-[#25D366]" />
                 <a
                   href={`mailto:${footerData.contact_info.email}`}
-                  className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm"
+                  className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm break-all"
                 >
                   {footerData.contact_info.email}
                 </a>
@@ -179,17 +179,17 @@ const Footer = () => {
         </div>
 
         {/* Payment Methods Section */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-2">
+        <div className="border-t border-gray-800 pt-6">
+          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-between sm:items-center sm:space-y-0">
+            <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-3">
               <span className="text-sm text-gray-400">Accepted Payments:</span>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2">
                 {footerData.bottom_bar.payment_methods.map((method) => (
                   <PaymentMethodIcon key={method} method={method} />
                 ))}
               </div>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-right">
               {footerData.bottom_bar.copyright}
             </p>
           </div>
@@ -201,7 +201,7 @@ const Footer = () => {
         href={`https://wa.me/${footerData.contact_info.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 hover:scale-110 z-50"
       >
         <WhatsAppIcon className="w-6 h-6" />
       </Link>

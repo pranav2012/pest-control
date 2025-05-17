@@ -124,15 +124,24 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {servicesData.services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              service={service}
-              onClick={() => handleServiceClick(service)}
-            />
-          ))}
+        {/* Services Grid with Horizontal Scroll for Mobile */}
+        <div className="relative">
+          {/* Mobile Scroll Indicators */}
+          <div className="absolute left-0 right-0 bottom-0 h-1 bg-gradient-to-r from-[#25D366]/20 to-[#128C7E]/20 rounded-full lg:hidden">
+            <div className="h-full w-1/3 bg-gradient-to-r from-[#25D366] to-[#128C7E] rounded-full" />
+          </div>
+          
+          {/* Services Container */}
+          <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto pb-6 lg:pb-0 lg:overflow-x-visible snap-x snap-mandatory scrollbar-hide">
+            {servicesData.services.map((service) => (
+              <div key={service.title} className="w-[85vw] sm:w-[400px] flex-shrink-0 snap-center lg:w-auto">
+                <ServiceCard
+                  service={service}
+                  onClick={() => handleServiceClick(service)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

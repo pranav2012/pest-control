@@ -17,12 +17,12 @@ export default function Loading() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-[#e7f5e8] flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-6xl">
         {/* Animated logo/spinner */}
         <div className="flex justify-center mb-8">
           <motion.div
-            className="h-16 w-16 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]"
+            className="h-16 w-16 rounded-full bg-gradient-to-r from-[#075e54] to-[#25D366] shadow-lg"
             animate={{
               rotate: 360,
               scale: [1, 1.1, 1],
@@ -41,7 +41,7 @@ export default function Loading() {
             initial={{ opacity: 0.6 }}
             animate={{ opacity: 1 }}
             transition={pulseTransition}
-            className="h-12 bg-[var(--card)] rounded-lg w-3/4 mx-auto"
+            className="h-12 bg-white rounded-lg w-3/4 mx-auto shadow-md"
           />
           
           {/* Content skeletons */}
@@ -52,14 +52,14 @@ export default function Loading() {
                 initial={{ opacity: 0.6 }}
                 animate={{ opacity: 1 }}
                 transition={{ ...pulseTransition, delay: i * 0.1 }}
-                className="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--card)]"
+                className="rounded-xl overflow-hidden border border-[#25D366]/20 bg-white shadow-md"
               >
-                <div className="h-48 w-full bg-[var(--accent)]/10" />
+                <div className="h-48 w-full bg-[#25D366]/10" />
                 <div className="p-5 space-y-3">
-                  <div className="h-4 w-1/3 bg-[var(--accent)]/10 rounded" />
-                  <div className="h-6 w-full bg-[var(--accent)]/10 rounded" />
-                  <div className="h-4 w-full bg-[var(--accent)]/10 rounded" />
-                  <div className="h-4 w-2/3 bg-[var(--accent)]/10 rounded" />
+                  <div className="h-4 w-1/3 bg-[#075e54]/10 rounded" />
+                  <div className="h-6 w-full bg-[#075e54]/10 rounded" />
+                  <div className="h-4 w-full bg-[#075e54]/10 rounded" />
+                  <div className="h-4 w-2/3 bg-[#075e54]/10 rounded" />
                 </div>
               </motion.div>
             ))}
@@ -69,7 +69,7 @@ export default function Loading() {
         {/* Loading text */}
         <div className="mt-8 text-center">
           <motion.p 
-            className="text-[var(--muted-foreground)] text-lg"
+            className="text-[#075e54] text-lg font-medium"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ repeat: Infinity, duration: 2 }}
           >

@@ -75,7 +75,7 @@ export default function RootLayout({ children }: ChildrenProps) {
               <div className="flex-1 flex flex-col w-full">
                 <PromotionalBanner />
                 <Header />
-                <main className="flex-1 w-full overflow-x-hidden pt-[126px]">
+                <main className="flex-1 w-full overflow-x-hidden pt-[112px]">
                   {children}
                 </main>
                 <MainFooter />
