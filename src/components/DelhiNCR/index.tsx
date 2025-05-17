@@ -104,7 +104,7 @@ const DelhiNCR = () => {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/images/pest-control-service-1.jpg"
+                src="/images/hero2.png"
                 alt="Professional Pest Control Service in Delhi NCR"
                 fill
                 className="object-cover"
