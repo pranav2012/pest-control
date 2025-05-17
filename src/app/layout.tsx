@@ -3,7 +3,7 @@ import { Inter, Poppins } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
 import MainFooter from '@/components/Footer';
-import MainNavbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import { QueryProvider } from '@/providers/query';
 import { ThemeProvider } from '@/providers/theme';
 import '@/styles/globals.css';
@@ -24,64 +24,28 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Next.js Boilerplate | Professional Starter Template',
+  title: 'Alpha Beneficent Care - Best Pest Control Services in Delhi NCR',
   description:
-    'A highly opinionated and production-ready Next.js 15 boilerplate with TypeScript, Tailwind CSS, ESLint, Prettier, Husky, and comprehensive SEO optimization.',
+    'Professional pest control services in Delhi NCR. We offer general pest control, termite control, mosquito control, and more with eco-friendly solutions.',
   keywords:
-    'next.js, boilerplate, typescript, tailwind css, eslint, prettier, husky, seo, nextjs 15, react, web development',
-  authors: [{ name: 'Anwar Hossain' }],
-  creator: 'Anwar Hossain',
-  metadataBase: new URL('https://your-domain.com'),
+    'pest control, delhi ncr, termite control, mosquito control, bed bugs control, sanitization services',
+  metadataBase: new URL('https://alphabenificentcare.com'),
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://your-domain.com',
-    title: 'Next.js Boilerplate | Professional Starter Template',
+    locale: 'en_IN',
+    url: 'https://alphabenificentcare.com',
+    title: 'Alpha Beneficent Care - Best Pest Control Services in Delhi NCR',
     description:
-      'Production-ready Next.js 15 boilerplate with all the essential tools',
-    siteName: 'Next.js Boilerplate',
+      'Professional pest control services in Delhi NCR with eco-friendly solutions',
+    siteName: 'Alpha Beneficent Care',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Next.js Boilerplate',
+    title: 'Alpha Beneficent Care - Pest Control Services',
     description:
-      'Production-ready Next.js 15 boilerplate with all the essential tools',
-    creator: '@anwarhossainsr',
+      'Professional pest control services in Delhi NCR with eco-friendly solutions',
   },
 };
-
-function RootLayoutContent({ children }: ChildrenProps) {
-  return (
-    
-      <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}
-      >
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <QueryProvider>
-          <div className="flex min-h-screen bg-[var(--background)] w-full overflow-x-hidden">
-            <div className="flex-1 flex flex-col w-full">
-              <MainNavbar />
-              <main className="flex-1 w-full overflow-x-hidden">
-                {children}
-              </main>
-              <MainFooter />
-            </div>
-          </div>
-          <Toaster
-            position="bottom-right"
-            toastOptions={{
-              className:
-                'bg-[var(--card)] text-[var(--foreground)] border-[var(--border)]',
-              duration: 3000,
-            }}
-          />
-        </QueryProvider>
-          </ThemeProvider>
-        </body>
-      </html>
-  );
-}
 
 export default function RootLayout({ children }: ChildrenProps) {
   return (
@@ -89,7 +53,27 @@ export default function RootLayout({ children }: ChildrenProps) {
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}
       >
-        <RootLayoutContent>{children}</RootLayoutContent>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <QueryProvider>
+            <div className="flex min-h-screen bg-[var(--background)] w-full overflow-x-hidden">
+              <div className="flex-1 flex flex-col w-full">
+                <Header />
+                <main className="flex-1 w-full overflow-x-hidden pt-[160px]">
+                  {children}
+                </main>
+                <MainFooter />
+              </div>
+            </div>
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                className:
+                  'bg-[var(--card)] text-[var(--foreground)] border-[var(--border)]',
+                duration: 3000,
+              }}
+            />
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

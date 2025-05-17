@@ -1,0 +1,29 @@
+{
+  "section_title": "Four Stage Pest Control Services",
+  "steps": [
+    {
+      "title": "Contact Us",
+      "description": "You just need to call us and book our professionals to make sure your pest problem.",
+      "icon": "/images/call.png"
+    },
+    {
+      "title": "Survey",
+      "description": "Our professional will come and do inspesction and then he will discuss the pest problem and provide a quotation.",
+      "icon": "/images/loupe.png"
+    },
+    {
+      "title": "Treatment",
+      "description": "If you are satisfied with the professional and quotation then, he will start with the treatment.",
+      "icon": "/images/exterminator.png"
+    },
+    {
+      "title": "After Care",
+      "description": "Our dedicated team of customer care will keep in touch with you and provide the best to your query.",
+      "icon": "/images/customer-care.png"
+    }
+  ],
+  "side_image": {
+    "src": "/images/pest-control-service-1.jpg",
+    "alt": "Best pest control services in delhi ncr"
+  }
+} 

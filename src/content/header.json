@@ -1,0 +1,75 @@
+{
+  "promotion_banner": {
+    "text": "All Services up to 20% off.",
+    "background_color": "#075e54"
+  },
+  "logo": {
+    "src": "https://alphabeneficentcare.com/wp-content/uploads/2023/10/cropped-WhatsApp-Image-2023-10-09-at-1.28.43-PM-300x223.jpeg",
+    "alt": "Alpha Beneficent Care Logo",
+    "width": 300,
+    "height": 223
+  },
+  "navigation": {
+    "main_menu": [
+      {
+        "title": "Home",
+        "link": "/"
+      },
+      {
+        "title": "Services",
+        "link": "/",
+        "submenu": [
+          {
+            "title": "General Pest Control Services",
+            "link": "/general-pest-control-services/"
+          },
+          {
+            "title": "Termite Control Services",
+            "link": "/best-termite-control-services-in-delhi/"
+          },
+          {
+            "title": "Post Construction Termite Control",
+            "link": "/post-construction-termite-control/"
+          },
+          {
+            "title": "Bed Bugs Pest Control Services",
+            "link": "/bed-bugs-pest-control-services-in-delhi/"
+          },
+          {
+            "title": "Mosquito Pest Control Services",
+            "link": "/mosquito-pest-control-services/"
+          },
+          {
+            "title": "Wood Borer Pest Control Services",
+            "link": "/wood-borer-pest-control-services-in-delhi-ncr/"
+          },
+          {
+            "title": "Sanitization Services",
+            "link": "/sanitization-services-in-delhi-ncr/"
+          }
+        ]
+      },
+      {
+        "title": "About us",
+        "link": "/about/"
+      },
+      {
+        "title": "Contact",
+        "link": "/contact/"
+      },
+      {
+        "title": "Payment",
+        "link": "/payment/"
+      },
+      {
+        "title": "Blog",
+        "link": "/fungus-remove/"
+      }
+    ]
+  },
+  "cta_button": {
+    "text": "WhatsApp Chat",
+    "link": "https://api.whatsapp.com/send?phone=918882002546&",
+    "type": "whatsapp"
+  }
+} 

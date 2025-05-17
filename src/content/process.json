@@ -1,0 +1,29 @@
+{
+  "section_title": "Our Process",
+  "steps": [
+    {
+      "title": "Inspection",
+      "description": "Our experts thoroughly inspect your property to identify pest types, infestation levels, and entry points.",
+      "icon": "https://placehold.co/200x200/25D366/ffffff/png?text=1.+Inspection"
+    },
+    {
+      "title": "Planning",
+      "description": "We develop a customized treatment plan based on the inspection findings and your specific requirements.",
+      "icon": "https://placehold.co/200x200/25D366/ffffff/png?text=2.+Planning"
+    },
+    {
+      "title": "Treatment",
+      "description": "Our trained professionals execute the treatment plan using eco-friendly and effective pest control solutions.",
+      "icon": "https://placehold.co/200x200/25D366/ffffff/png?text=3.+Treatment"
+    },
+    {
+      "title": "Prevention",
+      "description": "We provide ongoing monitoring and preventive measures to ensure long-lasting protection against pests.",
+      "icon": "https://placehold.co/200x200/25D366/ffffff/png?text=4.+Prevention"
+    }
+  ],
+  "side_image": {
+    "src": "https://placehold.co/800x600/25D366/ffffff/png?text=Professional+Pest+Control",
+    "alt": "Professional Pest Control Service"
+  }
+} 

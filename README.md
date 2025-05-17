@@ -1,104 +1,62 @@
-# Next.js 15 Modern Starter Template
+# Alpha Beneficent Care Pest Control Website
 
-A modern, feature-rich Next.js 15 starter template with the latest tech stack and best practices.
-
-## Features
-
-- ⚡️ Next.js 15 with TurboPack
-- 🎨 Tailwind CSS v4 for styling
-- 📱 Responsive design out of the box
-- 🔍 TanStack React Query v5 for data fetching
-- 🌙 Dark mode with next-themes
-- 🎭 Framer Motion for animations
-- 🔒 ESLint and Prettier configured
-- 📦 Absolute imports with `@/*` alias
-- 🚀 Fast refresh and hot reloading
-- 🎯 TypeScript support
-- 🔄 Husky & lint-staged for Git hooks
-- 📝 Commitlint for conventional commits
-- 🎁 React Icons and Lucide React for icons
-- 🔥 React Hot Toast for notifications
-
-## Prerequisites
-
-- Node.js 20.0 or later
-- pnpm (recommended package manager)
-
-## Getting Started
-
-1. Clone this repository:
-```bash
-git clone [your-repo-url]
-cd next-template
-```
-
-2. Install dependencies:
-```bash
-pnpm install
-```
-
-3. Run the development server:
-```bash
-pnpm dev
-```
-
-The development server will start with TurboPack enabled. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A modern pest control services website built with best practices for performance and user experience.
 
 ## Project Structure
 
 ```
-├── src/                 # Source directory
-│   ├── app/            # Next.js 15 App Router
-│   ├── components/     # React components
-│   ├── lib/           # Utility functions
-│   └── styles/        # Global styles
-├── public/            # Static assets
-└── config/           # Configuration files
+├── assets/
+│   ├── images/
+│   ├── css/
+│   └── js/
+├── components/
+│   ├── Header/
+│   ├── Hero/
+│   ├── Services/
+│   ├── Process/
+│   ├── Features/
+│   └── Footer/
+└── pages/
+    └── Home/
 ```
 
-## Available Scripts
+## Content Structure
 
-- `pnpm dev` - Start development server with TurboPack
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint and Prettier
-- `pnpm format` - Format code and fix linting issues
-- `pnpm eslint` - Run ESLint only
-- `pnpm prettier` - Run Prettier only
-- `pnpm ngrok` - Start ngrok tunnel (for testing)
+1. Header
+- Promotional Banner
+- Navigation
+- Contact Buttons
 
-## Code Quality Tools
+2. Hero Section
+- Main Content
+- Contact Form
 
-- ESLint with Next.js config
-- Prettier for code formatting
-- TypeScript for type safety
-- Husky for Git hooks
-- lint-staged for pre-commit checks
-- Commitlint for commit message standards
+3. Services Grid
+- 6 Key Services
 
-## Dependencies
+4. Process Section
+- 4-Step Process
+- Visual Elements
 
-### Core
-- Next.js 15.3.2
-- React 19.1.0
-- TanStack React Query 5.76.1
-- Tailwind CSS 4.1.7
-- Framer Motion 12.12.1
+5. Features Section
+- 3 Key Features
 
-### Development
-- TypeScript 5.8.3
-- ESLint 9.27.0
-- Prettier 3.5.3
-- Husky 9.1.7
+6. Footer
+- Company Info
+- Navigation
+- Contact Details
 
-## Contributing
+## Key Features
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes following conventional commits
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- Mobile Responsive Design
+- WhatsApp Integration
+- Call Now Button
+- Contact Form
+- SEO Optimized
+- Fast Loading Images
 
-## License
+## Getting Started
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Clone the repository
+2. Install dependencies
+3. Run development server

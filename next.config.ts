@@ -4,7 +4,7 @@ import type { NextConfig } from 'next';
 // Wrap your Next.js config with the bundle analyzer
 const nextConfig: NextConfig = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-})( {
+})({
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -15,6 +15,14 @@ const nextConfig: NextConfig = withBundleAnalyzer({
       {
         protocol: "https",
         hostname: "images.pexels.com",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
+      {
+        protocol: "https",
+        hostname: "alphabeneficentcare.com",
       },
     ],
   },

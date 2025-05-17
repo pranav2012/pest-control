@@ -1,0 +1,63 @@
+{
+  "section_title": "PEST CONTROL SERVICES",
+  "services": [
+    {
+      "title": "General Pest Control",
+      "description": "In general Pest Control Services, we offer Pest Control Services for cockroach, rat, ants and lizard. Our professional staff is trained enough to manage ants, rats, lizards, cockroaches and similar kind of pests.",
+      "image": {
+        "src": "/images/general-pest-control.jpg",
+        "alt": "General Pest Control Services"
+      },
+      "link": "/general-pest-control-services/"
+    },
+    {
+      "title": "Mosquitoes & Flies Control",
+      "description": "Mosquitoes and flies are the transferors of the appalling diseases like typhoid, dengue, malaria and many kinds of viral flu. That is why it is important to protect your home and office from these flies and mosquitoes.",
+      "image": {
+        "src": "/images/mosquitoes-and-flies-pest-control.jpg",
+        "alt": "mosquito pest control Services"
+      },
+      "link": "/mosquito-pest-control-services/"
+    },
+    {
+      "title": "Termite Control",
+      "description": "We offer pre and post termite control treatment for home, offices, shops etc. With our effective termite control treatment service, you can peacefully stay without any tension of termite attack.",
+      "image": {
+        "src": "/images/termite-pest-control.jpg",
+        "alt": "Best Termite Control Services in Delhi"
+      },
+      "link": "/best-termite-control-services-in-delhi/"
+    },
+    {
+      "title": "Bed Bug Treatment",
+      "description": "You must have experienced a major resurgence of the small, parasitic insects. They mostly found in beds. You need a bed bug control program. Our bed bug treatment products are safe for children and adults.",
+      "image": {
+        "src": "/images/bed-bugs-pest-control.jpg",
+        "alt": "Bed Bugs Pest Control Services in Delhi"
+      },
+      "link": "/bed-bugs-pest-control-services-in-delhi/"
+    },
+    {
+      "title": "Wood Borer Treatment",
+      "description": "Wood boring insects are a range of arthropods that cause damage to wooden structures. We offer excellent wood borer solutions at the reasonable rates with high end techniques and eco-friendly solutions",
+      "image": {
+        "src": "/images/wood-bore-pest-control.jpg",
+        "alt": "Wood Borer Pest Control Services in delhi Ncr"
+      },
+      "link": "/wood-borer-pest-control-services-in-delhi-ncr/"
+    },
+    {
+      "title": "Sanitization Services",
+      "description": "We have effective sanitization treatment. We provide environment-friendly, anti-bacterial and anti-viral deep cleaning and sanitization services for residential premises as well as for commercial property.",
+      "image": {
+        "src": "/images/Sanitization-Services-in-Delhi-Ncr.jpeg",
+        "alt": "Sanitization Services in Delhi Ncr"
+      },
+      "link": "/sanitization-services-in-delhi-ncr/"
+    }
+  ],
+  "cta_button": {
+    "text": "Click here to WhatsApp Us",
+    "link": "https://api.whatsapp.com/send?phone=918882002546&"
+  }
+} 

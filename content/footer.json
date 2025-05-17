@@ -1,0 +1,73 @@
+{
+  "company_info": {
+    "description": "Living with an infestation can be stressful. Every noise or even the touch of your own hair on the back of your neck can leave you feeling anxious and stressed out. Fortunately, we are here to help bring you peace of mind! At Alpha Beneficent Care Pvt. Ltd. we provide our valued customers with best pest and insect control services in the Delhi. We offer warranties for most of our services.",
+    "social_links": [
+      {
+        "platform": "Facebook",
+        "link": "#",
+        "icon": "facebook"
+      },
+      {
+        "platform": "Instagram",
+        "link": "#",
+        "icon": "instagram"
+      },
+      {
+        "platform": "Twitter",
+        "link": "#",
+        "icon": "twitter"
+      },
+      {
+        "platform": "LinkedIn",
+        "link": "#",
+        "icon": "linkedin"
+      }
+    ]
+  },
+  "information_menu": {
+    "title": "Information",
+    "links": [
+      {
+        "text": "General Pest Control Services",
+        "url": "/general-pest-control-services/"
+      },
+      {
+        "text": "Mosquito Pest Control Services",
+        "url": "/mosquito-pest-control-services/"
+      },
+      {
+        "text": "Bugs Pest Control Services",
+        "url": "/bed-bugs-pest-control-services-in-delhi/"
+      },
+      {
+        "text": "Termite Control Services",
+        "url": "/best-termite-control-services-in-delhi/"
+      },
+      {
+        "text": "Post Construction Termite Control",
+        "url": "/post-construction-termite-control/"
+      },
+      {
+        "text": "Wood Borer Pest Control Services",
+        "url": "/wood-borer-pest-control-services-in-delhi-ncr/"
+      },
+      {
+        "text": "Sanitization Services",
+        "url": "/sanitization-services-in-delhi-ncr/"
+      }
+    ]
+  },
+  "contact_info": {
+    "title": "Locate Us",
+    "address": "M-5, gate no 2 Near Green Park Metro station pin code – 110016"
+  },
+  "bottom_bar": {
+    "copyright": "© 2025 Alpha Beneficent Care Pvt. Ltd. Powered by Raotto Infotech",
+    "payment_methods": [
+      "visa",
+      "mastercard",
+      "discover",
+      "apple-pay"
+    ]
+  }
+} 
