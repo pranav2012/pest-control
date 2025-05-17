@@ -1,11 +1,9 @@
 'use client';
 
-import PostCard from '@/components/PostCard';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Post, usePosts } from '@/hooks/usePosts';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -25,16 +23,9 @@ export default function PostsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('newest');
   const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
-
-  const {
-    data: posts,
-    isLoading,
-    error,
-  } = usePosts(
-    debouncedQuery,
-    selectedCategory !== 'All' ? selectedCategory : undefined,
-    sortBy
-  );
+  const [posts, setPosts] = useState<[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   // Debounce search query
   useEffect(() => {
@@ -235,41 +226,9 @@ export default function PostsPage() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence>
-              {posts.map(
-                (
-                  post: Post & {
-                    category?: string;
-                    tags?: string[];
-                    excerpt?: string;
-                    coverImage?: string;
-                    authorName?: string;
-                    authorImage?: string;
-                    readTime?: number;
-                    commentCount?: number;
-                    viewCount?: number;
-                  }
-                ) => (
-                  <PostCard
-                    key={post.id}
-                    id={post.id}
-                    title={post.title}
-                    content={post.content}
-                    excerpt={
-                      post.excerpt || post.content.substring(0, 120) + '...'
-                    }
-                    authorId={post.authorId}
-                    authorName={post.authorName}
-                    authorImage={post.authorImage}
-                    createdAt={post.createdAt}
-                    coverImage={post.coverImage}
-                    category={post.category}
-                    tags={post.tags}
-                    readTime={post.readTime || 3}
-                    commentCount={post.commentCount || 0}
-                    viewCount={post.viewCount || 0}
-                  />
-                )
-              )}
+              {posts?.map((post: any, index: number) => (
+                <div key={index}>{ post.title }</div>
+              ))}
             </AnimatePresence>
           </motion.div>
         )}

@@ -3,11 +3,8 @@
 'use client';
 
 import Link from 'next/link';
-import type { FC } from 'react';
 
-import type { CurrentUserProps } from '@/types';
-
-const Header: FC<CurrentUserProps> = () => {
+const Header = () => {
   return (
     <header className="px-8 py-8 flex justify-between bg-gray-900 text-violet-50">
       <Link href="/">

@@ -1,6 +1,5 @@
 'use client';
 
-import { SignInButton, SignOutButton, useUser } from '@clerk/nextjs';
 import { Github, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -9,7 +8,6 @@ import ThemeToggle from './ThemeToggle';
 
 export default function MainNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isSignedIn, user } = useUser();
 
   const handleToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -26,19 +24,12 @@ export default function MainNavbar() {
 
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            href="/posts"
+            href="/blogs"
             className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
-            Posts
+            Blogs
           </Link>
-          {isSignedIn && (
-            <Link
-              href="/dashboard"
-              className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
-            >
-              Dashboard
-            </Link>
-          )}
+        
           <Link
             href="https://github.com/AnwarHossainSR/nextjs-15-template"
             target="_blank"
@@ -47,25 +38,7 @@ export default function MainNavbar() {
           >
             <Github className="h-5 w-5" />
           </Link>
-          {isSignedIn ? (
-            <>
-              <span className="text-sm font-medium text-[var(--foreground)]">
-                {user?.firstName || user?.emailAddresses[0].emailAddress}
-              </span>
-              <SignOutButton>
-                <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
-                  Sign Out
-                </button>
-              </SignOutButton>
-            </>
-          ) : (
-            <SignInButton mode="modal">
-              <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
-                Sign In
-              </button>
-            </SignInButton>
-          )}
-          <ThemeToggle />
+             <ThemeToggle />
         </nav>
 
         <button
@@ -84,21 +57,12 @@ export default function MainNavbar() {
           <div className="fixed inset-x-0 top-16 z-50 bg-[var(--background)] border-b border-[var(--border)] shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
             <div className="container py-6 flex flex-col space-y-4 px-4 sm:px-6 max-w-full">
               <Link
-                href="/posts"
+                href="/blogs"
                 className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
                 onClick={handleToggle}
               >
-                Posts
+                Blogs
               </Link>
-              {isSignedIn && (
-                <Link
-                  href="/dashboard"
-                  className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
-                  onClick={handleToggle}
-                >
-                  Dashboard
-                </Link>
-              )}
               <div className="flex items-center justify-between">
                 <Link
                   href="https://github.com/AnwarHossainSR/nextjs-15-template"
@@ -109,24 +73,6 @@ export default function MainNavbar() {
                 >
                   <Github className="h-5 w-5" />
                 </Link>
-                {isSignedIn ? (
-                  <>
-                    <span className="text-sm font-medium text-[var(--foreground)]">
-                      {user?.firstName || user?.emailAddresses[0].emailAddress}
-                    </span>
-                    <SignOutButton>
-                      <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
-                        Sign Out
-                      </button>
-                    </SignOutButton>
-                  </>
-                ) : (
-                  <SignInButton mode="modal">
-                    <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
-                      Sign In
-                    </button>
-                  </SignInButton>
-                )}
                 <ThemeToggle />
               </div>
             </div>
