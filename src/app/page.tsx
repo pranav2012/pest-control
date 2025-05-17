@@ -9,7 +9,8 @@ import Link from 'next/link';
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Process from '@/components/Process'
-import Features from '@/components/Features'
+import DelhiNCR from '@/components/DelhiNCR'
+import Branches from '@/components/Branches'
 
 export default function Home() {
   const fadeIn = {
@@ -21,8 +22,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <Services />
+      <DelhiNCR />
       <Process />
-      <Features />
+      <Branches />
     </main>
   );
 }
