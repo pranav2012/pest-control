@@ -1,6 +1,8 @@
 // app/layout.tsx
 import { Inter, Poppins } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
+import type { Metadata } from 'next';
+import Script from 'next/script';
 
 import MainFooter from '@/components/Footer';
 import Header from '@/components/Header';
@@ -23,7 +25,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Alpha Beneficent Care - Best Pest Control Services in Delhi NCR',
   description:
     'Professional pest control services in Delhi NCR. We offer general pest control, termite control, mosquito control, and more with eco-friendly solutions.',
@@ -50,6 +52,12 @@ export const metadata = {
 export default function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+      <head>
+        <Script
+          src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"
+          strategy="lazyOnload"
+        />
+      </head>
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}
       >
@@ -58,7 +66,7 @@ export default function RootLayout({ children }: ChildrenProps) {
             <div className="flex min-h-screen bg-[var(--background)] w-full overflow-x-hidden">
               <div className="flex-1 flex flex-col w-full">
                 <Header />
-                <main className="flex-1 w-full overflow-x-hidden pt-[160px]">
+                <main className="flex-1 w-full overflow-x-hidden pt-[110px]">
                   {children}
                 </main>
                 <MainFooter />

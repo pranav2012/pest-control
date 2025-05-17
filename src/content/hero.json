@@ -13,7 +13,12 @@
         "link": "tel:918882002546",
         "type": "phone"
       }
-    ]
+    ],
+    "google_reviews": {
+      "rating": 4.9,
+      "total_reviews": 189,
+      "url": "https://www.google.com/maps/place/Alpha+Beneficent+Care+Pvt.+Ltd.+Pest+Control+Services/@28.5246378,77.1822044,17z/data=!4m8!3m7!1s0x390d1f66d177066d:0x8686294ea8036d58!8m2!3d28.5246378!4d77.1822044!9m1!1b1!16s%2Fg%2F11rqjbst2t"
+    }
   },
   "contact_form": {
     "title": "Get in Touch",

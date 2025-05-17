@@ -70,38 +70,100 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-[85vh] bg-gradient-to-br from-[#075e54] to-[#25D366] overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-[#075e54] to-[#25D366] overflow-hidden py-8 lg:py-12">
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none -z-10" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M36 34c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4' stroke='rgba(255,255,255,0.1)' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E")`,
         opacity: 0.1
       }}></div>
 
-      <div className="container mx-auto px-4 py-12 lg:py-16">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12 pt-8">
           {/* Left Column: Content */}
           <motion.div 
             initial="initial"
             animate="animate"
-            className="flex-1 text-white"
+            className="flex-1 text-white max-w-2xl lg:max-w-none lg:flex-[0.6]"
           >
             <motion.div 
               variants={fadeInUp}
-              className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm mb-6"
+              className="mb-6"
+            >
+              <div className="relative w-full max-w-[600px] h-[280px] mx-auto lg:mx-0">
+                {/* First Image - Left */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-[220px] h-[240px] rounded-2xl overflow-hidden shadow-xl transform -rotate-2 hover:rotate-0 transition-all duration-300"
+                >
+                  <Image
+                    src="/images/hero1.png"
+                    alt="Pest Control Service"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#075e54]/30 to-transparent"></div>
+                </motion.div>
+
+                {/* Second Image - Center */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[220px] h-[260px] rounded-2xl overflow-hidden shadow-xl transform rotate-1 hover:rotate-0 transition-all duration-300 z-10"
+                >
+                  <Image
+                    src="/images/hero3.png"
+                    alt="Professional Pest Control"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#075e54]/30 to-transparent"></div>
+                </motion.div>
+
+                {/* Third Image - Right */}
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-[220px] h-[240px] rounded-2xl overflow-hidden shadow-xl transform rotate-2 hover:rotate-0 transition-all duration-300"
+                >
+                  <Image
+                    src="/images/hero2.png"
+                    alt="Professional Pest Control"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#075e54]/30 to-transparent"></div>
+                </motion.div>
+
+                {/* Add subtle decorative elements */}
+                <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-24 h-24 bg-[#25D366]/10 rounded-full blur-2xl"></div>
+                <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-24 h-24 bg-[#075e54]/10 rounded-full blur-2xl"></div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              className="inline-block px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm mb-4"
             >
               <span className="text-sm font-medium">🛡️ #1 Rated Pest Control Service</span>
             </motion.div>
 
             <motion.h1 
               variants={fadeInUp}
-              className="text-4xl lg:text-6xl font-bold mb-6 leading-tight"
+              className="text-3xl lg:text-5xl font-bold mb-4 leading-tight"
             >
               {heroData.main_content.title}
             </motion.h1>
 
             <motion.p 
               variants={fadeInUp}
-              className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl"
+              className="text-lg text-white/90 mb-6 leading-relaxed max-w-2xl"
             >
               {heroData.main_content.subtitle}
             </motion.p>
@@ -161,12 +223,24 @@ const Hero = () => {
               variants={fadeInUp}
               className="flex flex-wrap items-center gap-6 text-white/80"
             >
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              <Link
+                href={heroData.main_content.google_reviews.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 transition-all duration-200"
+              >
+                <div className="flex items-center gap-1.5">
+                  <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                  <span className="font-semibold">{heroData.main_content.google_reviews.rating}</span>
+                </div>
+                <div className="h-4 w-px bg-white/20"></div>
+                <span className="text-sm">{heroData.main_content.google_reviews.total_reviews} Reviews</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-                <span>4.9/5 Rating</span>
-              </div>
+              </Link>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -189,22 +263,22 @@ const Hero = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-full lg:w-[400px] shrink-0"
+            className="w-full lg:w-[380px] shrink-0 lg:flex-[0.4] self-start"
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="bg-white rounded-2xl shadow-2xl p-5">
+              <h2 className="text-xl font-bold text-gray-900 mb-1">
                 {heroData.contact_form.title}
               </h2>
-              <p className="text-gray-600 mb-6">Get your free quote today!</p>
+              <p className="text-sm text-gray-600 mb-4">Get your free quote today!</p>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2.5">
                 {heroData.contact_form.fields.map((field) => (
                   <motion.div
                     key={field.name}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="space-y-1.5"
+                    className="space-y-1"
                   >
                     <label
                       htmlFor={field.name}
@@ -220,7 +294,7 @@ const Hero = () => {
                         id={field.name}
                         name={field.name}
                         required={field.required}
-                        className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all duration-200"
+                        className="block w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all duration-200"
                         onChange={(e) => handleInputChange(field, e.target.value)}
                         value={formData[field.name] || ''}
                       >
@@ -237,8 +311,8 @@ const Hero = () => {
                         name={field.name}
                         required={field.required}
                         placeholder={field.placeholder}
-                        className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all duration-200 resize-none"
-                        rows={4}
+                        className="block w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all duration-200 resize-none"
+                        rows={2}
                         onChange={(e) => handleInputChange(field, e.target.value)}
                         value={formData[field.name] || ''}
                       />
@@ -250,7 +324,7 @@ const Hero = () => {
                         required={field.required}
                         placeholder={field.placeholder}
                         pattern={field.pattern}
-                        className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all duration-200"
+                        className="block w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all duration-200"
                         onChange={(e) => handleInputChange(field, e.target.value)}
                         value={formData[field.name] || ''}
                       />
@@ -262,7 +336,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-6 rounded-lg transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl mt-2 ${
+                  className={`w-full py-2.5 px-6 rounded-lg transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl ${
                     isSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed' 
                       : 'bg-[#075e54] hover:bg-[#25D366] text-white'
@@ -293,7 +367,7 @@ const Hero = () => {
               </form>
 
               {/* Form Trust Indicators */}
-              <div className="mt-6 pt-4 border-t border-gray-100">
+              <div className="mt-4 pt-3 border-t border-gray-100">
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <svg className="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
@@ -311,7 +385,7 @@ const Hero = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="absolute right-0 bottom-0 w-[600px] h-[600px] -mr-32 -mb-32 opacity-10 pointer-events-none -z-10"
+        className="absolute right-0 bottom-0 w-[500px] h-[500px] -mr-32 -mb-32 opacity-10 pointer-events-none -z-10"
       >
         <Image
           src="https://images.unsplash.com/photo-1635340749439-aa9c6df1ddd9"
