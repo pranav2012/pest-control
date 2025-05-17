@@ -1,6 +1,6 @@
 {
   "company_info": {
-    "description": "Living with an infestation can be stressful. Every noise or even the touch of your own hair on the back of your neck can leave you feeling anxious and stressed out. Fortunately, we are here to help bring you peace of mind! At Alpha Beneficent Care Pvt. Ltd. we provide our valued customers with best pest and insect control services in the Delhi. We offer warranties for most of our services.",
+    "description": "At Alpha Beneficent Care Pvt. Ltd., we are your trusted partner in pest control services across Delhi NCR. With our expert team and eco-friendly solutions, we ensure your space remains pest-free and healthy.",
     "social_links": [
       {
         "platform": "Facebook",
@@ -13,61 +13,48 @@
         "icon": "instagram"
       },
       {
-        "platform": "Twitter",
+        "platform": "WhatsApp",
         "link": "#",
-        "icon": "twitter"
-      },
-      {
-        "platform": "LinkedIn",
-        "link": "#",
-        "icon": "linkedin"
+        "icon": "whatsapp"
       }
     ]
   },
-  "information_menu": {
-    "title": "Information",
+  "quick_links": {
+    "title": "Quick Links",
     "links": [
       {
-        "text": "General Pest Control Services",
-        "url": "/general-pest-control-services/"
+        "text": "Home",
+        "url": "/"
       },
       {
-        "text": "Mosquito Pest Control Services",
-        "url": "/mosquito-pest-control-services/"
+        "text": "About Us",
+        "url": "/#about"
       },
       {
-        "text": "Bugs Pest Control Services",
-        "url": "/bed-bugs-pest-control-services-in-delhi/"
+        "text": "Services",
+        "url": "/#services"
       },
       {
-        "text": "Termite Control Services",
-        "url": "/best-termite-control-services-in-delhi/"
-      },
-      {
-        "text": "Post Construction Termite Control",
-        "url": "/post-construction-termite-control/"
-      },
-      {
-        "text": "Wood Borer Pest Control Services",
-        "url": "/wood-borer-pest-control-services-in-delhi-ncr/"
-      },
-      {
-        "text": "Sanitization Services",
-        "url": "/sanitization-services-in-delhi-ncr/"
+        "text": "Contact",
+        "url": "/#contact"
       }
     ]
   },
   "contact_info": {
-    "title": "Locate Us",
-    "address": "M-5, gate no 2 Near Green Park Metro station pin code – 110016"
+    "title": "Contact Us",
+    "address": "M-5, gate no 2 Near Green Park Metro station, New Delhi - 110016",
+    "phone": "+91 98XXXXXXXX",
+    "email": "contact@alphabenificentcare.com",
+    "whatsapp": "+91 98XXXXXXXX"
   },
   "bottom_bar": {
-    "copyright": "© 2025 Alpha Beneficent Care Pvt. Ltd. Powered by Raotto Infotech",
+    "copyright": "© 2024 Alpha Beneficent Care Pvt. Ltd. All rights reserved.",
     "payment_methods": [
+      "upi",
       "visa",
       "mastercard",
-      "discover",
-      "apple-pay"
+      "cash"
     ]
   }
+} 
 } 

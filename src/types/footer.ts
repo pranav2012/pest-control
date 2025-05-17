@@ -14,7 +14,7 @@ export interface FooterLink {
     url: string
 }
 
-export interface InformationMenu {
+export interface QuickLinks {
     title: string
     links: FooterLink[]
 }
@@ -22,6 +22,9 @@ export interface InformationMenu {
 export interface ContactInfo {
     title: string
     address: string
+    phone: string
+    email: string
+    whatsapp: string
 }
 
 export interface BottomBar {
@@ -31,7 +34,7 @@ export interface BottomBar {
 
 export interface FooterData {
     company_info: CompanyInfo
-    information_menu: InformationMenu
+    quick_links: QuickLinks
     contact_info: ContactInfo
     bottom_bar: BottomBar
 } 
