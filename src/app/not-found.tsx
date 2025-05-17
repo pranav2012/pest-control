@@ -25,33 +25,12 @@ const NotFoundContent = () => {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center px-4 bg-[var(--background)] text-[var(--foreground)] overflow-hidden relative">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center px-4 bg-gradient-to-br from-[#075e54] to-[#25D366] text-white overflow-hidden relative">
       {/* Animated background particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-[var(--primary)]/[0.15]"
-            style={{
-              width: `${Math.random() * 50 + 20}px`,
-              height: `${Math.random() * 50 + 20}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.3, 0.5, 0.3],
-              x: [0, Math.random() * 100 - 50],
-              y: [0, Math.random() * 100 - 50],
-            }}
-            transition={{
-              duration: Math.random() * 20 + 15,
-              repeat: Infinity,
-              repeatType: 'loop',
-            }}
-          />
-        ))}
-      </div>
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M36 34c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4' stroke='rgba(255,255,255,0.1)' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E")`,
+        opacity: 0.1
+      }}></div>
 
       {/* Main content */}
       <motion.div
@@ -60,16 +39,16 @@ const NotFoundContent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* 404 Text with Glitch Effect */}
+        {/* 404 Text */}
         <motion.h1
-          className="text-8xl md:text-9xl font-bold font-poppins tracking-tighter bg-gradient-to-b from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent relative"
+          className="text-8xl md:text-9xl font-bold font-poppins tracking-tighter text-white relative"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
         >
           404
           <motion.span
-            className="absolute inset-0 text-[var(--primary)] opacity-20"
+            className="absolute inset-0 text-white/20"
             animate={{
               x: [0, 2, -2, 0],
               y: [0, 1, -1, 0],
@@ -91,11 +70,11 @@ const NotFoundContent = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--foreground)]">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white">
             Oops, Page Not Found
           </h2>
-          <p className="text-[var(--muted-foreground)] max-w-md mx-auto">
-            The page you&apos;re looking for seems to have vanished. Let&apos;s get you back on track!
+          <p className="text-white/90 max-w-md mx-auto">
+            The page you're looking for seems to have vanished. Let's get you back on track!
           </p>
         </motion.div>
 
@@ -106,8 +85,8 @@ const NotFoundContent = () => {
           animate={{ scale: 1, rotate: 0 }}
           transition={{ delay: 0.5, duration: 0.5, type: 'spring' }}
         >
-          <div className="p-4 rounded-full bg-[var(--primary)]/[0.1]">
-            <AlertTriangle className="h-12 w-12 text-[var(--primary)]" />
+          <div className="p-4 rounded-full bg-white/10 backdrop-blur-sm">
+            <AlertTriangle className="h-12 w-12 text-white" />
           </div>
         </motion.div>
 
@@ -120,35 +99,20 @@ const NotFoundContent = () => {
         >
           <button
             onClick={() => router.push('/')}
-            className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] font-semibold shadow-lg hover:bg-[var(--primary)]/[0.9] transition-all duration-300 hover:scale-105"
+            className="group relative overflow-hidden bg-[#25D366] rounded-xl px-6 py-3 text-base font-semibold transition-transform duration-300 hover:scale-105 shadow-lg inline-flex items-center justify-center"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
             <Home className="h-5 w-5 mr-2" />
             Back to Home
           </button>
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center justify-center h-12 px-6 rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] font-semibold shadow-sm hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-all duration-300 hover:scale-105"
+            className="group relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 text-base font-semibold transition-transform duration-300 hover:scale-105 shadow-lg inline-flex items-center justify-center"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
             <ArrowLeft className="h-5 w-5 mr-2" />
             Go Back
           </button>
-        </motion.div>
-
-        {/* Documentation Link */}
-        <motion.div
-          className="text-sm text-[var(--muted-foreground)]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
-        >
-          <span>Need help? Visit our </span>
-          <button
-            onClick={() => router.push('/docs')}
-            className="text-[var(--primary)] hover:underline font-medium"
-          >
-            documentation
-          </button>
-          <span>.</span>
         </motion.div>
       </motion.div>
     </div>

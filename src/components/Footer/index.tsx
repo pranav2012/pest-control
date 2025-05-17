@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import footerData from '@/content/footer.json';
 import { SocialLink } from '@/types/footer';
+import { handleSectionNavigation } from '@/utils/navigation';
 
 const WhatsAppIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
   <svg 
@@ -132,6 +133,7 @@ const Footer = () => {
                 <li key={link.text}>
                   <Link
                     href={link.url}
+                    onClick={(e) => link.url.startsWith('/#') && handleSectionNavigation(e, link.url)}
                     className="text-gray-400 hover:text-[#25D366] transition-all duration-300 text-sm flex items-center group"
                   >
                     <span className="h-1.5 w-1.5 bg-[#25D366] rounded-full mr-2 group-hover:scale-150 transition-transform duration-300"></span>

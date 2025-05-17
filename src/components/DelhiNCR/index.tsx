@@ -48,7 +48,7 @@ const features = [
 
 const DelhiNCR = () => {
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-white to-gray-50">
+    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-white to-gray-50" id="about-us">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#25D366_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.15]" />
       

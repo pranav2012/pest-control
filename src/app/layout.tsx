@@ -6,6 +6,7 @@ import Script from 'next/script';
 
 import MainFooter from '@/components/Footer';
 import Header from '@/components/Header';
+import PromotionalBanner from '@/components/PromotionalBanner';
 import { QueryProvider } from '@/providers/query';
 import { ThemeProvider } from '@/providers/theme';
 import '@/styles/globals.css';
@@ -72,8 +73,9 @@ export default function RootLayout({ children }: ChildrenProps) {
           <QueryProvider>
             <div className="flex min-h-screen bg-[var(--background)] w-full overflow-x-hidden">
               <div className="flex-1 flex flex-col w-full">
+                <PromotionalBanner />
                 <Header />
-                <main className="flex-1 w-full overflow-x-hidden pt-[110px]">
+                <main className="flex-1 w-full overflow-x-hidden pt-[126px]">
                   {children}
                 </main>
                 <MainFooter />

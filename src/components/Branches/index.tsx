@@ -19,7 +19,7 @@ const Branches = () => {
   const [hoveredBranch, setHoveredBranch] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-gray-50" id="branches">
+    <section className="py-20 bg-gray-50" id="locate-us">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div

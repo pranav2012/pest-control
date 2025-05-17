@@ -28,15 +28,23 @@
       },
       {
         "text": "About Us",
-        "url": "/#about"
+        "url": "/#about-us"
       },
       {
         "text": "Services",
         "url": "/#services"
       },
       {
-        "text": "Contact",
-        "url": "/#contact"
+        "text": "Locate Us",
+        "url": "/#locate-us"
+      },
+      {
+        "text": "Payment",
+        "url": "/payment/"
+      },
+      {
+        "text": "Blog",
+        "url": "/blog/"
       }
     ]
   },
@@ -52,9 +60,7 @@
     "payment_methods": [
       "upi",
       "visa",
-      "mastercard",
       "cash"
     ]
   }
-} 
 } 

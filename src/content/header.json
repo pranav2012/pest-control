@@ -4,10 +4,10 @@
     "background_color": "#075e54"
   },
   "logo": {
-    "src": "https://alphabeneficentcare.com/wp-content/uploads/2023/10/cropped-WhatsApp-Image-2023-10-09-at-1.28.43-PM-300x223.jpeg",
-    "alt": "Alpha Beneficent Care Logo",
-    "width": 300,
-    "height": 223
+    "src": "/images/logo.png",
+    "alt": "alpha beneficent care",
+    "width": 94,
+    "height": 70
   },
   "navigation": {
     "main_menu": [
@@ -16,16 +16,16 @@
         "link": "/"
       },
       {
+        "title": "About Us",
+        "link": "/#about-us"
+      },
+      {
         "title": "Services",
         "link": "/#services"
       },
       {
-        "title": "About us",
-        "link": "/about/"
-      },
-      {
-        "title": "Contact",
-        "link": "/contact/"
+        "title": "Locate Us",
+        "link": "/#locate-us"
       },
       {
         "title": "Payment",
@@ -33,7 +33,7 @@
       },
       {
         "title": "Blog",
-        "link": "/fungus-remove/"
+        "link": "/blog/"
       }
     ]
   },

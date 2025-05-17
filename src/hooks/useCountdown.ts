@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
 
 const useCountdown = () => {
-    const [timeLeft, setTimeLeft] = useState(() => {
-        // Get stored end time or set new 24h countdown
-        const storedEndTime = localStorage.getItem('promotionEndTime');
-        if (storedEndTime) {
-            const timeLeft = parseInt(storedEndTime) - Date.now();
-            return timeLeft > 0 ? timeLeft : 24 * 60 * 60 * 1000;
-        }
-        return 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-    });
+    const [timeLeft, setTimeLeft] = useState<number>(24 * 60 * 60 * 1000); // Default to 24 hours
 
     useEffect(() => {
+        // Only access localStorage after component mounts
+        const storedEndTime = window.localStorage.getItem('promotionEndTime');
+        if (storedEndTime) {
+            const remainingTime = parseInt(storedEndTime) - Date.now();
+            setTimeLeft(remainingTime > 0 ? remainingTime : 24 * 60 * 60 * 1000);
+        }
+
         // Set end time in localStorage
         const endTime = Date.now() + timeLeft;
-        localStorage.setItem('promotionEndTime', endTime.toString());
+        window.localStorage.setItem('promotionEndTime', endTime.toString());
 
         const timer = setInterval(() => {
             setTimeLeft(prevTime => {
@@ -22,7 +21,7 @@ const useCountdown = () => {
                 if (newTime <= 0) {
                     // Reset to 24 hours when countdown ends
                     const newEndTime = Date.now() + 24 * 60 * 60 * 1000;
-                    localStorage.setItem('promotionEndTime', newEndTime.toString());
+                    window.localStorage.setItem('promotionEndTime', newEndTime.toString());
                     return 24 * 60 * 60 * 1000;
                 }
                 return newTime;
@@ -30,7 +29,7 @@ const useCountdown = () => {
         }, 1000);
 
         return () => clearInterval(timer);
-    }, []);
+    }, []); // Empty dependency array since we only want this to run once on mount
 
     const hours = Math.floor(timeLeft / (60 * 60 * 1000));
     const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));

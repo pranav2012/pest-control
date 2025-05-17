@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import headerData from '@/content/header.json'
 import { HeaderData, MenuItem, SubMenuItem } from '@/types/header'
 import useCountdown from '@/hooks/useCountdown'
+import { handleSectionNavigation } from '@/utils/navigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -68,80 +69,14 @@ const Header = () => {
     <motion.header 
       initial="initial"
       animate="animate"
-      className={`w-full fixed top-0 z-50 transition-all duration-300 ${
+      className={`w-full fixed top-[42px] z-40 transition-all duration-300 ${
         isScrolled ? 'shadow-lg' : ''
       }`}
     >
-      {/* Promotion Banner */}
-      <motion.div 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="w-full bg-[#e7f5e8] border-b border-[#25D366]/20"
-      >
-        <div className="container mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between py-2.5 px-4 relative">
-            {/* Left Side - Offer */}
-            <div className="flex items-center space-x-3">
-              <div className="shrink-0">
-                <div className="relative">
-                  <div className="w-10 h-10 bg-[#25D366]/10 rounded-lg rotate-12 absolute" />
-                  <div className="w-10 h-10 bg-[#25D366]/20 rounded-lg -rotate-6 absolute" />
-                  <div className="w-10 h-10 bg-[#25D366]/30 rounded-lg flex items-center justify-center relative">
-                    <svg className="w-5 h-5 text-[#075e54]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 6a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 100 4v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2a2 2 0 100-4V6z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="flex items-center space-x-2">
-                  <span className="text-[#075e54] text-sm font-medium flex items-center space-x-2">
-                    <motion.span
-                      animate={{ scale: [1, 1.03, 1] }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className="bg-[#25D366] text-white rounded-full px-3 py-1 font-bold tracking-wide shadow-sm whitespace-nowrap inline-block"
-                    >
-                      20% OFF
-                    </motion.span>
-                    <span>across all services</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Timer */}
-            <div className="mt-2 sm:mt-0 flex items-center space-x-4">
-              <div className="hidden sm:flex items-center space-x-2">
-                <svg className="w-4 h-4 text-[#075e54]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                </svg>
-                <span className="text-xs font-semibold text-[#075e54] uppercase tracking-wide">Limited Time</span>
-              </div>
-              <CountdownTimer />
-            </div>
-
-            {/* Decorative Dots */}
-            <div className="absolute left-0 top-0 h-full w-20 opacity-20" style={{ 
-              backgroundImage: 'radial-gradient(circle, #25D366 1px, transparent 1px)',
-              backgroundSize: '10px 10px'
-            }} />
-            <div className="absolute right-0 top-0 h-full w-20 opacity-20" style={{ 
-              backgroundImage: 'radial-gradient(circle, #25D366 1px, transparent 1px)',
-              backgroundSize: '10px 10px'
-            }} />
-          </div>
-        </div>
-      </motion.div>
-
       {/* Main Header */}
       <div className={`w-full bg-[#075e54] shadow-md`}>
         <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between h-[84px]">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -196,7 +131,7 @@ const Header = () => {
                   ) : (
                     <Link
                       href={item.link}
-                      onClick={(e) => handleNavigation(e, item.link)}
+                      onClick={(e) => item.link.startsWith('/#') && handleSectionNavigation(e, item.link, () => setIsMenuOpen(false))}
                       className="text-white hover:text-[#25D366] font-medium transition-colors duration-200"
                     >
                       {item.title}
