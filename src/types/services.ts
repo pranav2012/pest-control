@@ -3,11 +3,20 @@ export interface ServiceImage {
     alt: string
 }
 
+export interface ServiceDetails {
+    pests_covered?: string[]
+    areas_covered?: string[]
+    service_features: string[]
+    treatment_process: string[]
+    warranty: string
+    service_area: string
+}
+
 export interface Service {
     title: string
     description: string
     image: ServiceImage
-    link: string
+    details: ServiceDetails
 }
 
 export interface CTAButton {

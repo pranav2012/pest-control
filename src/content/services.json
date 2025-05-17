@@ -8,7 +8,23 @@
         "src": "https://placehold.co/600x400/25D366/ffffff/png?text=General+Pest+Control",
         "alt": "General Pest Control Services"
       },
-      "link": "/general-pest-control-services/"
+      "details": {
+        "pests_covered": ["Cockroaches", "Rats", "Ants", "Lizards"],
+        "service_features": [
+          "Complete inspection of infested areas",
+          "Eco-friendly treatment methods",
+          "Safe for children and pets",
+          "Long-lasting protection"
+        ],
+        "treatment_process": [
+          "Initial inspection and assessment",
+          "Targeted application of pest control solutions",
+          "Preventive measures implementation",
+          "Follow-up inspection"
+        ],
+        "warranty": "3 months service warranty",
+        "service_area": "Delhi NCR"
+      }
     },
     {
       "title": "Mosquitoes & Flies Control",
@@ -17,7 +33,23 @@
         "src": "https://placehold.co/600x400/25D366/ffffff/png?text=Mosquito+Control",
         "alt": "mosquito pest control Services"
       },
-      "link": "/mosquito-pest-control-services/"
+      "details": {
+        "pests_covered": ["Mosquitoes", "Flies", "Gnats", "Midges"],
+        "service_features": [
+          "Advanced fogging treatment",
+          "Breeding site elimination",
+          "Residual spray application",
+          "Natural repellent solutions"
+        ],
+        "treatment_process": [
+          "Breeding site identification",
+          "Larvicide application",
+          "Adult mosquito control",
+          "Prevention recommendations"
+        ],
+        "warranty": "2 months service warranty",
+        "service_area": "Delhi NCR"
+      }
     },
     {
       "title": "Termite Control",
@@ -26,7 +58,23 @@
         "src": "https://placehold.co/600x400/25D366/ffffff/png?text=Termite+Control",
         "alt": "Best Termite Control Services in Delhi"
       },
-      "link": "/best-termite-control-services-in-delhi/"
+      "details": {
+        "pests_covered": ["Subterranean Termites", "Drywood Termites"],
+        "service_features": [
+          "Chemical barrier treatment",
+          "Wood treatment",
+          "Colony elimination",
+          "Structural protection"
+        ],
+        "treatment_process": [
+          "Thorough inspection",
+          "Treatment plan development",
+          "Chemical application",
+          "Preventive measures"
+        ],
+        "warranty": "5 years service warranty",
+        "service_area": "Delhi NCR"
+      }
     },
     {
       "title": "Bed Bug Treatment",
@@ -35,7 +83,23 @@
         "src": "https://placehold.co/600x400/25D366/ffffff/png?text=Bed+Bug+Control",
         "alt": "Bed Bugs Pest Control Services in Delhi"
       },
-      "link": "/bed-bugs-pest-control-services-in-delhi/"
+      "details": {
+        "pests_covered": ["Bed Bugs", "Eggs", "Nymphs"],
+        "service_features": [
+          "Heat treatment",
+          "Chemical treatment",
+          "Mattress encasement",
+          "Preventive measures"
+        ],
+        "treatment_process": [
+          "Inspection of infested areas",
+          "Treatment application",
+          "Follow-up treatment",
+          "Prevention guidance"
+        ],
+        "warranty": "3 months service warranty",
+        "service_area": "Delhi NCR"
+      }
     },
     {
       "title": "Wood Borer Treatment",
@@ -44,7 +108,23 @@
         "src": "https://placehold.co/600x400/25D366/ffffff/png?text=Wood+Borer+Control",
         "alt": "Wood Borer Pest Control Services in delhi Ncr"
       },
-      "link": "/wood-borer-pest-control-services-in-delhi-ncr/"
+      "details": {
+        "pests_covered": ["Powder Post Beetles", "Furniture Beetles", "Carpenter Ants"],
+        "service_features": [
+          "Deep wood penetration treatment",
+          "Surface protection",
+          "Preventive treatment",
+          "Wood preservation"
+        ],
+        "treatment_process": [
+          "Wood inspection",
+          "Treatment selection",
+          "Application process",
+          "Preventive coating"
+        ],
+        "warranty": "2 years service warranty",
+        "service_area": "Delhi NCR"
+      }
     },
     {
       "title": "Sanitization Services",
@@ -53,7 +133,23 @@
         "src": "https://placehold.co/600x400/25D366/ffffff/png?text=Sanitization+Services",
         "alt": "Sanitization Services in Delhi Ncr"
       },
-      "link": "/sanitization-services-in-delhi-ncr/"
+      "details": {
+        "areas_covered": ["Homes", "Offices", "Commercial Spaces", "Vehicles"],
+        "service_features": [
+          "Hospital-grade disinfection",
+          "EPA approved chemicals",
+          "Complete surface coverage",
+          "Odor elimination"
+        ],
+        "treatment_process": [
+          "Area assessment",
+          "Surface preparation",
+          "Disinfectant application",
+          "Ventilation period"
+        ],
+        "warranty": "Single service",
+        "service_area": "Delhi NCR"
+      }
     }
   ],
   "cta_button": {

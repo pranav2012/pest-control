@@ -31,6 +31,28 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    if (link.startsWith('/#')) {
+      e.preventDefault()
+      const targetId = link.replace('/#', '')
+      const targetElement = document.getElementById(targetId)
+      
+      if (targetElement) {
+        const headerOffset = 96 // Adjust this value based on your header height
+        const elementPosition = targetElement.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+
+        // Close mobile menu if open
+        setIsMenuOpen(false)
+      }
+    }
+  }
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const toggleDropdown = (title: string) => {
     setActiveDropdown(activeDropdown === title ? null : title)
@@ -174,6 +196,7 @@ const Header = () => {
                   ) : (
                     <Link
                       href={item.link}
+                      onClick={(e) => handleNavigation(e, item.link)}
                       className="text-white hover:text-[#25D366] font-medium transition-colors duration-200"
                     >
                       {item.title}
@@ -337,7 +360,7 @@ const Header = () => {
                               <Link
                                 href={subItem.link}
                                 className="block py-2.5 text-sm text-white/80 hover:text-white transition-colors duration-200"
-                                onClick={toggleMenu}
+                                onClick={(e) => handleNavigation(e, subItem.link)}
                               >
                                 {subItem.title}
                               </Link>
@@ -350,7 +373,7 @@ const Header = () => {
                     <Link
                       href={item.link}
                       className="block py-3 text-white font-medium hover:text-[#25D366] transition-colors duration-200"
-                      onClick={toggleMenu}
+                      onClick={(e) => handleNavigation(e, item.link)}
                     >
                       {item.title}
                     </Link>
