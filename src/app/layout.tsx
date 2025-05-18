@@ -69,8 +69,8 @@ export default function RootLayout({ children }: ChildrenProps) {
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <QueryProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <QueryProvider>
             <div className="flex min-h-screen bg-[var(--background)] w-full overflow-x-hidden">
               <div className="flex-1 flex flex-col w-full">
                 <PromotionalBanner />
