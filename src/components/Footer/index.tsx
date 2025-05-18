@@ -166,28 +166,89 @@ const Footer = () => {
               {footerData.contact_info.title}
             </h3>
             <div className="space-y-3">
-              <div className="flex items-start space-x-3 p-3 bg-[#25D366]/5 rounded-lg group hover:bg-[#25D366]/10 transition-colors duration-300">
+              {/* Desktop view */}
+              <div className="hidden md:flex items-start space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
                 <MapPin className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
-                <span className="text-gray-400 text-sm">
-                  {footerData.contact_info.address}
-                </span>
-              </div>
-              <div className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
-                <Phone className="w-5 h-5 text-[#25D366]" />
                 <a
-                  href={`tel:${footerData.contact_info.phone}`}
+                  href="https://maps.google.com/?q=Alpha+Beneficent+Care+M5+Green+Park+Near+Metro"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm"
                 >
-                  {footerData.contact_info.phone}
+                  {footerData.contact_info.address}
                 </a>
               </div>
-              <div className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
+              {/* Mobile view */}
+              <div className="md:hidden">
+                <a
+                  href="https://maps.google.com/?q=Alpha+Beneficent+Care+M5+Green+Park+Near+Metro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <div className="flex items-start space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
+                    <MapPin className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
+                    <span className="text-gray-400 text-sm">
+                      {footerData.contact_info.address}
+                    </span>
+                  </div>
+                </a>
+              </div>
+              {/* Desktop view */}
+              <div className="hidden md:flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
+                <Phone className="w-5 h-5 text-[#25D366]" />
+                <div className="flex flex-col space-y-1">
+                  <a
+                    href="tel:+918882002546"
+                    className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm"
+                  >
+                    +91 8882002546
+                  </a>
+                  <a
+                    href="tel:+919958138256"
+                    className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm"
+                  >
+                    +91 9958138256
+                  </a>
+                </div>
+              </div>
+              {/* Mobile view */}
+              <div className="md:hidden flex flex-col space-y-2">
+                <a
+                  href="tel:+918882002546"
+                  className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300"
+                >
+                  <Phone className="w-5 h-5 text-[#25D366]" />
+                  <span className="text-gray-400 text-sm">+91 8882002546</span>
+                </a>
+                <a
+                  href="tel:+919958138256"
+                  className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300"
+                >
+                  <Phone className="w-5 h-5 text-[#25D366]" />
+                  <span className="text-gray-400 text-sm">+91 9958138256</span>
+                </a>
+              </div>
+              {/* Desktop view */}
+              <div className="hidden md:flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
                 <Mail className="w-5 h-5 text-[#25D366]" />
                 <a
-                  href={`mailto:${footerData.contact_info.email}`}
+                  href={`mailto:${footerData.contact_info.email}?subject=Enquiry for Pest Control Services&body=Hi, I am interested in your pest control services. Please provide more information.`}
                   className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm break-all"
                 >
                   {footerData.contact_info.email}
+                </a>
+              </div>
+              {/* Mobile view */}
+              <div className="md:hidden">
+                <a
+                  href={`mailto:${footerData.contact_info.email}?subject=Enquiry for Pest Control Services&body=Hi, I am interested in your pest control services. Please provide more information.`}
+                  className="block w-full"
+                >
+                  <div className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300">
+                    <Mail className="w-5 h-5 text-[#25D366] shrink-0" />
+                    <span className="text-gray-400 text-sm break-all">{footerData.contact_info.email}</span>
+                  </div>
                 </a>
               </div>
             </div>
@@ -205,7 +266,7 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-right">
+            <p className="text-gray-400 text-[11px] leading-tight sm:text-sm text-center sm:text-right">
               {footerData.bottom_bar.copyright}
             </p>
           </div>
