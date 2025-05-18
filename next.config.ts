@@ -24,8 +24,13 @@ const nextConfig: NextConfig = withBundleAnalyzer({
         protocol: "https",
         hostname: "alphabeneficentcare.com",
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
   },
+  staticPageGenerationTimeout: 120,
 });
 
 export default nextConfig;

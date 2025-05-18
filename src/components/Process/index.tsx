@@ -1,138 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import processData from "@/content/process.json";
-import { ProcessStep } from "@/types/process";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity.config";
+import { getProcessData } from "@/lib/queries/process";
 
-const icons = {
-	inspection: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<path
-				d="M20 28L12 36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-			<circle
-				cx="28"
-				cy="20"
-				r="12"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M28 14V20H34"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-			<path
-				d="M8 40L16 32"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
-	),
-	planning: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<rect
-				x="8"
-				y="8"
-				width="32"
-				height="32"
-				rx="2"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M16 16H32"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M16 24H28"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M16 32H24"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<circle cx="36" cy="32" r="4" fill="currentColor" />
-		</svg>
-	),
-	treatment: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<path
-				d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M24 12V36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M12 24H36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<circle cx="24" cy="24" r="6" fill="currentColor" />
-		</svg>
-	),
-	protection: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<path
-				d="M24 4L8 12V24C8 34.4 14.8 43.6 24 46C33.2 43.6 40 34.4 40 24V12L24 4Z"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M17 24L22 29L31 20"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
-	),
-};
+interface ProcessStep {
+	title: string;
+	description: string;
+	icon: string;
+}
+
+interface ProcessData {
+	section_title: string;
+	steps: ProcessStep[];
+	side_image: {
+		src: string;
+		alt: string;
+	};
+}
 
 const ProcessStepCard = ({
 	step,
@@ -141,10 +28,25 @@ const ProcessStepCard = ({
 	step: ProcessStep;
 	index: number;
 }) => {
-	const iconKey = step.icon
-		.split("/")
-		.pop()
-		?.replace(".svg", "") as keyof typeof icons;
+	const [svgContent, setSvgContent] = useState<string>("");
+
+	useEffect(() => {
+		const fetchSvg = async () => {
+			try {
+				const response = await fetch(step.icon);
+				const svgText = await response.text();
+				const modifiedSvg = svgText.replace(
+					"<svg",
+					'<svg width="48" height="48" class="w-8 h-8"'
+				);
+				setSvgContent(modifiedSvg);
+			} catch (error) {
+				console.error("Error fetching SVG:", error);
+			}
+		};
+
+		fetchSvg();
+	}, [step.icon]);
 
 	return (
 		<motion.div
@@ -152,9 +54,9 @@ const ProcessStepCard = ({
 			whileInView={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5, delay: index * 0.2 }}
 			viewport={{ once: true }}
-			className="relative flex flex-col bg-gray-900/80 rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full border border-[#B9FB4B]/20">
+			className="relative flex flex-col bg-white rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full">
 			{/* Step Number Badge */}
-			<div className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#B9FB4B] flex items-center justify-center text-gray-900 font-bold shadow-lg text-sm md:text-base">
+			<div className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center text-white font-bold shadow-lg text-sm md:text-base">
 				{index + 1}
 			</div>
 
@@ -166,10 +68,11 @@ const ProcessStepCard = ({
 					whileInView={{ scale: 1, opacity: 1 }}
 					transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
 					viewport={{ once: true }}
-					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#B9FB4B]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-					<div className="text-[#B9FB4B] transform scale-75 md:scale-100">
-						{icons[iconKey]}
-					</div>
+					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+					<div
+						className="text-[#25D366]"
+						dangerouslySetInnerHTML={{ __html: svgContent }}
+					/>
 				</motion.div>
 			</div>
 
@@ -180,10 +83,10 @@ const ProcessStepCard = ({
 				transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
 				viewport={{ once: true }}
 				className="flex-1">
-				<h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
+				<h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
 					{step.title}
 				</h3>
-				<p className="text-sm md:text-base text-gray-300 leading-relaxed">
+				<p className="text-sm md:text-base text-gray-600 leading-relaxed">
 					{step.description}
 				</p>
 			</motion.div>
@@ -192,10 +95,36 @@ const ProcessStepCard = ({
 };
 
 const Process = () => {
+	const [processData, setProcessData] = useState<ProcessData | null>(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await client.fetch(getProcessData);
+				setProcessData(data);
+			} catch (error) {
+				console.error("Error fetching process data:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
+
+	if (loading || !processData) {
+		return (
+			<div className="min-h-[600px] flex items-center justify-center">
+				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#25D366]"></div>
+			</div>
+		);
+	}
+
 	return (
-		<section className="relative py-16 md:py-20 lg:py-32 overflow-hidden bg-gray-900">
+		<section className="relative py-16 md:py-20 lg:py-32 overflow-hidden">
 			{/* Background Pattern */}
-			<div className="absolute inset-0 bg-[radial-gradient(#B9FB4B_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.05]" />
+			<div className="absolute inset-0 bg-[radial-gradient(#25D366_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.15]" />
 
 			<div className="container mx-auto px-4">
 				{/* Section Header */}
@@ -205,11 +134,11 @@ const Process = () => {
 					transition={{ duration: 0.6 }}
 					viewport={{ once: true }}
 					className="max-w-3xl mx-auto text-center mb-12 md:mb-16 lg:mb-24">
-					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
 						{processData.section_title}
 					</h2>
-					<div className="w-20 h-1 bg-[#B9FB4B] mx-auto rounded-full mb-6" />
-					<p className="text-base md:text-lg text-gray-200">
+					<div className="w-20 h-1 bg-gradient-to-r from-[#25D366] to-[#128C7E] mx-auto rounded-full mb-6" />
+					<p className="text-base md:text-lg text-gray-600">
 						Our proven 4-step process ensures effective and
 						long-lasting pest control solutions.
 					</p>
@@ -263,9 +192,9 @@ const Process = () => {
 									transition={{ duration: 0.6, delay: 0.3 }}
 									viewport={{ once: true }}
 									className="mt-4 md:mt-6 flex items-center gap-2">
-									<div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#B9FB4B]/10 backdrop-blur-sm flex items-center justify-center">
+									<div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
 										<svg
-											className="w-4 h-4 md:w-5 md:h-5 text-[#B9FB4B]"
+											className="w-4 h-4 md:w-5 md:h-5 text-[#25D366]"
 											fill="currentColor"
 											viewBox="0 0 20 20">
 											<path
