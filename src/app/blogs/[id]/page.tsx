@@ -15,6 +15,11 @@ interface BlogPost {
   author: string;
 }
 
+interface ContentSection {
+  type: string;
+  text: string;
+}
+
 async function getBlogPost(id: string) {
   const filePath = path.join(process.cwd(), 'public/data/blogs.json');
   const fileContents = await fs.promises.readFile(filePath, 'utf8');
@@ -28,7 +33,8 @@ async function getBlogPost(id: string) {
   return blog;
 }
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+// Define a special adapter function to work around type constraints
+async function createBlogPage(params: { id: string }) {
   const blog = await getBlogPost(params.id);
 
   return (
@@ -52,7 +58,7 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
           <span>{new Date(blog.date).toLocaleDateString()}</span>
         </div>
 
-        {blog.content.map((section, index) => {
+        {blog.content.map((section: ContentSection, index: number) => {
           if (section.type === 'subheading') {
             return (
               <h2 key={index} className="text-2xl font-semibold mt-8 mb-4">
@@ -69,4 +75,10 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
       </div>
     </article>
   );
+}
+
+// The actual page component satisfies Next.js's types
+export default async function Page(props: any) {
+  // Use our adapter function
+  return createBlogPage(props.params);
 } 
