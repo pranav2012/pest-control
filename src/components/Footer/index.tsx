@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { 
   Facebook, 
@@ -17,7 +18,6 @@ import {
 } from 'lucide-react';
 import footerData from '@/content/footer.json';
 import { SocialLink } from '@/types/footer';
-import { handleSectionNavigation } from '@/utils/navigation';
 
 const WhatsAppIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
   <svg 
@@ -65,6 +65,23 @@ const PaymentMethodIcon = ({ method }: { method: string }) => {
 };
 
 const Footer = () => {
+  const [domainUrl, setDomainUrl] = useState('');
+
+  useEffect(() => {
+    // Get domain URL
+    if (typeof window !== 'undefined') {
+      const url = window.location.origin;
+      setDomainUrl(url);
+    }
+  }, []);
+
+  const getFullUrl = (link: string) => {
+    if (link.startsWith('/#')) {
+      return `${domainUrl}${link}`;
+    }
+    return link;
+  };
+
   return (
     <footer className="bg-gray-900 text-white relative">
       {/* Main Footer Content */}
@@ -132,8 +149,7 @@ const Footer = () => {
               {footerData.quick_links.links.map((link) => (
                 <li key={link.text}>
                   <Link
-                    href={link.url}
-                    onClick={(e) => link.url.startsWith('/#') && handleSectionNavigation(e, link.url)}
+                    href={getFullUrl(link.url)}
                     className="text-gray-400 hover:text-[#25D366] transition-all duration-300 text-sm flex items-center group"
                   >
                     <span className="h-1.5 w-1.5 bg-[#25D366] rounded-full mr-2 group-hover:scale-150 transition-transform duration-300"></span>

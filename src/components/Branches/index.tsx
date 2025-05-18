@@ -39,31 +39,31 @@ const Branches = () => {
         </motion.div>
 
         {/* Map and Branches Grid */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-8">
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-6">
             <div className="md:col-span-1 space-y-4">
               <h3 className="text-xl font-semibold text-[#075e54] mb-4">Our Locations</h3>
-              <div className="space-y-3 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
+              <div className="space-y-3 max-h-[300px] md:max-h-[500px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar">
                 {branches.map((branch, index) => (
                   <div
                     key={index}
-                    className="w-full p-4 rounded-xl bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors duration-300"
+                    className="w-full p-3 sm:p-4 rounded-xl bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors duration-300"
                     onMouseEnter={() => setHoveredBranch(index)}
                     onMouseLeave={() => setHoveredBranch(null)}
                   >
-                    <div className="flex items-start gap-3">
-                      <i className="fas fa-map-marker-alt mt-1 text-[#075e54]"></i>
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <i className="fas fa-map-marker-alt mt-1 text-[#075e54] text-sm sm:text-base"></i>
                       <div>
-                        <h4 className="font-semibold">{branch.title}</h4>
-                        <p className="text-sm mt-1 opacity-80">{branch.address}</p>
+                        <h4 className="font-semibold text-sm sm:text-base">{branch.title}</h4>
+                        <p className="text-xs sm:text-sm mt-1 opacity-80">{branch.address}</p>
                         <a 
                           href={`https://maps.google.com/?q=${encodeURIComponent(`Alpha Beneficent Care ${branch.title} ${branch.address}`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-sm text-[#075e54] hover:text-[#25D366] mt-2 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 text-xs sm:text-sm text-[#075e54] hover:text-[#25D366] mt-2 transition-colors duration-300"
                         >
                           Get Directions
-                          <i className="fas fa-arrow-right text-xs"></i>
+                          <i className="fas fa-arrow-right text-[10px] sm:text-xs"></i>
                         </a>
                       </div>
                     </div>
@@ -71,11 +71,11 @@ const Branches = () => {
                 ))}
               </div>
             </div>
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 h-[300px] md:h-[500px]">
               <iframe
                 src="https://maps.google.com/maps?q=Alpha%20Beneficent%20Care%20Pvt.%20Ltd.%20Pest%20Control%20Services&t=m&z=11&output=embed&iwloc=near"
                 title="Alpha Beneficent Care - All Branches"
-                className="w-full h-[500px] rounded-xl"
+                className="w-full h-full rounded-xl"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>

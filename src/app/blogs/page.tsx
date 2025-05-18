@@ -100,7 +100,7 @@ export default function BlogsPage() {
         </div>
 
         {/* Wave SVG */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-16 overflow-hidden">
+        <div className="absolute -bottom-1 md:bottom-0 left-0 right-0 h-8 md:h-16 overflow-hidden">
           <svg
             viewBox="0 0 1440 120"
             className="absolute bottom-0 w-full h-full"

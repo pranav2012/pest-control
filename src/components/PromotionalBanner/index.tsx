@@ -7,17 +7,17 @@ const CountdownTimer = () => {
   const { hours, minutes, seconds } = useCountdown();
 
   return (
-    <div className="flex items-center space-x-2 text-[#075e54] font-mono">
-      <div className="bg-white/80 backdrop-blur rounded px-2 py-1">
-        <span className="font-bold">{hours}</span>
+    <div className="flex items-center space-x-1 sm:space-x-2 text-[#075e54] font-mono">
+      <div className="bg-white/80 backdrop-blur rounded px-1.5 py-0.5 sm:px-2 sm:py-1">
+        <span className="font-bold text-xs sm:text-base">{hours}</span>
       </div>
-      <span>:</span>
-      <div className="bg-white/80 backdrop-blur rounded px-2 py-1">
-        <span className="font-bold">{minutes}</span>
+      <span className="text-xs sm:text-base">:</span>
+      <div className="bg-white/80 backdrop-blur rounded px-1.5 py-0.5 sm:px-2 sm:py-1">
+        <span className="font-bold text-xs sm:text-base">{minutes}</span>
       </div>
-      <span>:</span>
-      <div className="bg-white/80 backdrop-blur rounded px-2 py-1">
-        <span className="font-bold">{seconds}</span>
+      <span className="text-xs sm:text-base">:</span>
+      <div className="bg-white/80 backdrop-blur rounded px-1.5 py-0.5 sm:px-2 sm:py-1">
+        <span className="font-bold text-xs sm:text-base">{seconds}</span>
       </div>
     </div>
   );

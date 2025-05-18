@@ -31,27 +31,26 @@ const ServiceCard = ({
   const whatsappLink = `${servicesData.cta_button.link}&text=${whatsappMessage}`
 
   return (
-    <div 
-      className="group relative overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[#25D366]/5"
+    <div
       onClick={onClick}
+      className="group relative h-full overflow-hidden rounded-2xl bg-white shadow-lg shadow-gray-200/50 ring-1 ring-gray-200 transition-all hover:shadow-xl hover:shadow-gray-200/60 hover:ring-[#25D366]/20"
     >
-      {/* Image Container with Gradient Overlay */}
-      <div className="relative h-52 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
+      {/* Image Container */}
+      <div className="relative h-48 overflow-hidden sm:h-56">
         <Image
           src={service.image.src}
           alt={service.image.alt}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* Title Overlay */}
-        <h3 className="absolute bottom-4 left-4 right-4 text-xl font-bold text-white drop-shadow-lg">
-          {service.title}
-        </h3>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative space-y-4 p-4">
+      {/* Content Container */}
+      <div className="relative space-y-4 p-5">
+        {/* Title */}
+        <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+        
         {/* Description */}
         <p className="text-sm leading-relaxed text-gray-600">
           {service.description}
@@ -70,7 +69,7 @@ const ServiceCard = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-between pt-2">
+        <div className="flex items-center justify-between border-t border-gray-100 pt-4 mt-4">
           <button
             className="group/btn relative text-sm font-medium text-[#25D366] transition-colors hover:text-[#075e54]"
             onClick={(e) => {
@@ -124,24 +123,16 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Grid with Horizontal Scroll for Mobile */}
-        <div className="relative">
-          {/* Mobile Scroll Indicators */}
-          <div className="absolute left-0 right-0 bottom-0 h-1 bg-gradient-to-r from-[#25D366]/20 to-[#128C7E]/20 rounded-full lg:hidden">
-            <div className="h-full w-1/3 bg-gradient-to-r from-[#25D366] to-[#128C7E] rounded-full" />
-          </div>
-          
-          {/* Services Container */}
-          <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto pb-6 lg:pb-0 lg:overflow-x-visible snap-x snap-mandatory scrollbar-hide">
-            {servicesData.services.map((service) => (
-              <div key={service.title} className="w-[85vw] sm:w-[400px] flex-shrink-0 snap-center lg:w-auto">
-                <ServiceCard
-                  service={service}
-                  onClick={() => handleServiceClick(service)}
-                />
-              </div>
-            ))}
-          </div>
+        {/* Services Container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {servicesData.services.map((service) => (
+            <div key={service.title} className="w-full">
+              <ServiceCard
+                service={service}
+                onClick={() => handleServiceClick(service)}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
