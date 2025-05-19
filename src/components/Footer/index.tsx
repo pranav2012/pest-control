@@ -204,12 +204,6 @@ const Footer = () => {
                   >
                     +91 8882002546
                   </a>
-                  <a
-                    href="tel:+919958138256"
-                    className="text-gray-400 hover:text-[#25D366] transition-colors duration-300 text-sm"
-                  >
-                    +91 9958138256
-                  </a>
                 </div>
               </div>
               {/* Mobile view */}
@@ -220,13 +214,6 @@ const Footer = () => {
                 >
                   <Phone className="w-5 h-5 text-[#25D366]" />
                   <span className="text-gray-400 text-sm">+91 8882002546</span>
-                </a>
-                <a
-                  href="tel:+919958138256"
-                  className="flex items-center space-x-3 p-3 bg-[#25D366]/5 rounded-lg hover:bg-[#25D366]/10 transition-colors duration-300"
-                >
-                  <Phone className="w-5 h-5 text-[#25D366]" />
-                  <span className="text-gray-400 text-sm">+91 9958138256</span>
                 </a>
               </div>
               {/* Desktop view */}
