@@ -179,14 +179,14 @@ const Footer = () => {
 						</h3>
 						<div className="space-y-3">
 							{/* Desktop view */}
-							<div className="hidden md:flex items-start space-x-3 p-3 bg-[#B9FB4B]/5 rounded-lg hover:bg-[#B9FB4B]/10 transition-colors duration-300">
-								<MapPin className="w-5 h-5 text-[#B9FB4B] shrink-0 mt-0.5" />
+							<div className="hidden md:flex items-center space-x-3 p-3 bg-[#B9FB4B]/5 rounded-lg hover:bg-[#B9FB4B]/10 transition-colors duration-300">
+								<MapPin className="w-5 h-5 text-[#B9FB4B]" />
 								<a
 									href="https://maps.google.com/?q=Alpha+Beneficent+Care+M5+Green+Park+Near+Metro"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-gray-400 hover:text-[#B9FB4B] transition-colors duration-300 text-sm">
-									{footerData.contact_info.address}
+									Head Office
 								</a>
 							</div>
 							{/* Mobile view */}
@@ -196,10 +196,10 @@ const Footer = () => {
 									target="_blank"
 									rel="noopener noreferrer"
 									className="block w-full">
-									<div className="flex items-start space-x-3 p-3 bg-[#B9FB4B]/5 rounded-lg hover:bg-[#B9FB4B]/10 transition-colors duration-300">
-										<MapPin className="w-5 h-5 text-[#B9FB4B] shrink-0 mt-0.5" />
+									<div className="flex items-center space-x-3 p-3 bg-[#B9FB4B]/5 rounded-lg hover:bg-[#B9FB4B]/10 transition-colors duration-300">
+										<MapPin className="w-5 h-5 text-[#B9FB4B]" />
 										<span className="text-gray-400 text-sm">
-											{footerData.contact_info.address}
+											Head Office
 										</span>
 									</div>
 								</a>
@@ -271,7 +271,8 @@ const Footer = () => {
 							</div>
 						</div>
 						<p className="text-gray-400 text-[11px] leading-tight sm:text-sm text-center sm:text-right">
-							{footerData.bottom_bar.copyright}
+							© {new Date().getFullYear()} Alpha Beneficent Care
+							Pvt. Ltd. All rights reserved.
 						</p>
 					</div>
 				</div>
@@ -282,8 +283,8 @@ const Footer = () => {
 				href={`https://wa.me/${footerData.contact_info.whatsapp}`}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="fixed bottom-6 right-6 bg-[#B9FB4B] text-white p-3 rounded-full shadow-lg hover:bg-[#86B82D] transition-all duration-300 hover:scale-110 z-50">
-				<WhatsAppIcon className="w-6 h-6" />
+				className="fixed bottom-6 right-6 bg-[#B9FB4B] text-white p-4 rounded-full shadow-lg hover:bg-[#86B82D] transition-all duration-300 hover:scale-110 z-50">
+				<WhatsAppIcon className="w-8 h-8" />
 			</Link>
 		</footer>
 	);

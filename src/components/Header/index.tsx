@@ -65,8 +65,7 @@ const Header = () => {
 				isScrolled ? "shadow-lg" : ""
 			}`}>
 			{/* Main Header */}
-			<div
-				className={`w-full bg-gradient-to-r from-[#2D4A0F] to-[#86B82D] shadow-md`}>
+			<div className={`w-full bg-white shadow-md`}>
 				<div className="container mx-auto px-4">
 					<div className="flex items-center justify-between h-[70px]">
 						{/* Logo */}
@@ -75,17 +74,15 @@ const Header = () => {
 							animate={{ opacity: 1, x: 0 }}
 							transition={{ duration: 0.5 }}>
 							<Link href="/" className="flex-shrink-0 relative">
-								<div className="w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] relative bg-white rounded-lg p-0.5 lg:p-1">
-									<div className="absolute inset-0 bg-white rounded-lg" />
+								<div className="w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] relative">
 									<Image
 										src={headerData.logo.src}
 										alt={headerData.logo.alt}
 										fill
 										style={{
 											objectFit: "contain",
-											mixBlendMode: "multiply",
 										}}
-										className="transition-opacity duration-200 p-0.5 lg:p-1"
+										className="transition-opacity duration-200"
 										priority
 									/>
 								</div>
@@ -104,7 +101,7 @@ const Header = () => {
 										className="relative group">
 										{item.submenu ? (
 											<button
-												className="text-white hover:text-[#B9FB4B] flex items-center font-medium transition-colors duration-200 text-sm"
+												className="text-[#2D4A0F] hover:text-[#86B82D] flex items-center font-medium transition-colors duration-200 text-sm"
 												onClick={() =>
 													toggleDropdown(item.title)
 												}>
@@ -125,7 +122,7 @@ const Header = () => {
 										) : (
 											<Link
 												href={getFullUrl(item.link)}
-												className="text-white hover:text-[#B9FB4B] font-medium transition-colors duration-200 text-sm"
+												className="text-[#2D4A0F] hover:text-[#86B82D] font-medium transition-colors duration-200 text-sm"
 												onClick={() =>
 													setIsMenuOpen(false)
 												}>
@@ -192,7 +189,7 @@ const Header = () => {
 							<motion.button
 								initial={{ opacity: 0, scale: 0.5 }}
 								animate={{ opacity: 1, scale: 1 }}
-								className="p-1.5 text-white hover:bg-white/10 rounded-full transition-colors duration-200"
+								className="p-1.5 text-[#2D4A0F] hover:bg-gray-100 rounded-full transition-colors duration-200"
 								onClick={toggleMenu}
 								aria-label="Toggle menu">
 								{isMenuOpen ? (
@@ -214,7 +211,7 @@ const Header = () => {
 						animate={{ opacity: 1, height: "auto" }}
 						exit={{ opacity: 0, height: 0 }}
 						transition={{ duration: 0.3 }}
-						className="lg:hidden bg-[#2D4A0F] border-t border-white/10">
+						className="lg:hidden bg-white border-t border-gray-100">
 						<div className="container mx-auto px-4 py-3">
 							{headerData.navigation.main_menu.map(
 								(item: MenuItem, index) => (
@@ -226,7 +223,7 @@ const Header = () => {
 										{item.submenu ? (
 											<div>
 												<button
-													className="w-full text-left py-2.5 text-white font-medium flex items-center justify-between text-sm"
+													className="w-full text-left py-2.5 text-[#2D4A0F] font-medium flex items-center justify-between text-sm"
 													onClick={() =>
 														toggleDropdown(
 															item.title
@@ -253,7 +250,7 @@ const Header = () => {
 												</button>
 												{activeDropdown ===
 													item.title && (
-													<div className="pl-4 border-l border-white/20 ml-2">
+													<div className="pl-4 border-l border-gray-200 ml-2">
 														{item.submenu.map(
 															(
 																subItem: SubMenuItem,
@@ -280,7 +277,7 @@ const Header = () => {
 																		href={getFullUrl(
 																			subItem.link
 																		)}
-																		className="block py-2 text-sm text-white/80 hover:text-white transition-colors duration-200"
+																		className="block py-2 text-sm text-gray-600 hover:text-[#86B82D] transition-colors duration-200"
 																		onClick={() => {
 																			setIsMenuOpen(
 																				false
@@ -302,7 +299,7 @@ const Header = () => {
 										) : (
 											<Link
 												href={getFullUrl(item.link)}
-												className="block py-2.5 text-white font-medium hover:text-[#B9FB4B] transition-colors duration-200 text-sm"
+												className="block py-2.5 text-[#2D4A0F] font-medium hover:text-[#86B82D] transition-colors duration-200 text-sm"
 												onClick={() =>
 													setIsMenuOpen(false)
 												}>
