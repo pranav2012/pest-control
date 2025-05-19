@@ -1,45 +1,45 @@
 {
-  "promotion_banner": {
-    "text": "All Services up to 20% off.",
-    "background_color": "#075e54"
-  },
-  "logo": {
-    "src": "/images/logo.png",
-    "alt": "alpha beneficent care",
-    "width": 94,
-    "height": 70
-  },
-  "navigation": {
-    "main_menu": [
-      {
-        "title": "Home",
-        "link": "/"
-      },
-      {
-        "title": "About Us",
-        "link": "/#about-us"
-      },
-      {
-        "title": "Services",
-        "link": "/#services"
-      },
-      {
-        "title": "Locate Us",
-        "link": "/#locate-us"
-      },
-      {
-        "title": "Payment",
-        "link": "/payment/"
-      },
-      {
-        "title": "Blog",
-        "link": "/blogs/"
-      }
-    ]
-  },
-  "cta_button": {
-    "text": "WhatsApp Chat",
-    "link": "https://api.whatsapp.com/send?phone=918882002546&",
-    "type": "whatsapp"
-  }
-} 
+	"promotion_banner": {
+		"text": "All Services up to 20% off.",
+		"background_color": "#2D4A0F"
+	},
+	"logo": {
+		"src": "/images/logo.png",
+		"alt": "alpha beneficent care",
+		"width": 94,
+		"height": 70
+	},
+	"navigation": {
+		"main_menu": [
+			{
+				"title": "Home",
+				"link": "/"
+			},
+			{
+				"title": "About Us",
+				"link": "/#about-us"
+			},
+			{
+				"title": "Services",
+				"link": "/#services"
+			},
+			{
+				"title": "Locate Us",
+				"link": "/#locate-us"
+			},
+			{
+				"title": "Payment",
+				"link": "/payment/"
+			},
+			{
+				"title": "Blog",
+				"link": "/blogs/"
+			}
+		]
+	},
+	"cta_button": {
+		"text": "WhatsApp Chat",
+		"link": "https://api.whatsapp.com/send?phone=918882002546&",
+		"type": "whatsapp"
+	}
+}
