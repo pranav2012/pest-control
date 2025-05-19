@@ -11,23 +11,8 @@ import { motion } from 'framer-motion';
 
 const paymentMethods = [
   {
-    name: 'Paytm',
-    number: '9958138256',
-    icon: 'fa-brands fa-google-pay',
-  },
-  {
-    name: 'Google Pay',
-    number: '9958138256',
-    icon: 'fa-brands fa-google-pay',
-  },
-  {
-    name: 'Phone Pay',
-    number: '9958138256',
-    icon: 'fa-solid fa-mobile-screen-button',
-  },
-  {
     name: 'UPI',
-    number: '9958138256@paytm',
+    number: '8882002546',
     icon: 'fa-solid fa-qrcode',
   },
 ];
@@ -184,16 +169,16 @@ export default function PaymentPage() {
                     <div className="w-full space-y-4 lg:space-y-6 bg-[#075e54]/5 p-4 lg:p-6 rounded-lg">
                       <div className="space-y-1 lg:space-y-2">
                         <p className="text-xs lg:text-sm font-medium text-[#075e54] uppercase tracking-wide">Bank Account Name</p>
-                        <p className="text-lg lg:text-xl font-medium">Deepak Samuel</p>
+                        <p className="text-lg lg:text-xl font-medium">Alpha Beneficent Care Pvt. Ltd.</p>
                       </div>
                       <div className="space-y-1 lg:space-y-2">
                         <p className="text-xs lg:text-sm font-medium text-[#075e54] uppercase tracking-wide">UPI ID</p>
                         <div className="flex items-center justify-between bg-white p-3 lg:p-4 rounded-lg border border-[#075e54]/10">
-                          <p className="text-base lg:text-lg font-medium break-all pr-2">9958138256@paytm</p>
+                          <p className="text-base lg:text-lg font-medium break-all pr-2">9958138256@okbizaxis</p>
                           <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => copyToClipboard('9958138256@paytm')}
+                            onClick={() => copyToClipboard('9958138256@okbizaxis')}
                             className="hover:bg-[#25D366]/10 hover:text-[#075e54] ml-2 shrink-0"
                           >
                             <i className="fa-regular fa-copy text-base lg:text-lg"></i>

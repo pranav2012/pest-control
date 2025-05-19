@@ -1,66 +1,62 @@
 {
-  "company_info": {
-    "description": "At Alpha Beneficent Care Pvt. Ltd., we are your trusted partner in pest control services across Delhi NCR. With our expert team and eco-friendly solutions, we ensure your space remains pest-free and healthy.",
-    "social_links": [
-      {
-        "platform": "Facebook",
-        "link": "#",
-        "icon": "facebook"
-      },
-      {
-        "platform": "Instagram",
-        "link": "#",
-        "icon": "instagram"
-      },
-      {
-        "platform": "WhatsApp",
-        "link": "#",
-        "icon": "whatsapp"
-      }
-    ]
-  },
-  "quick_links": {
-    "title": "Quick Links",
-    "links": [
-      {
-        "text": "Home",
-        "url": "/"
-      },
-      {
-        "text": "About Us",
-        "url": "/#about-us"
-      },
-      {
-        "text": "Services",
-        "url": "/#services"
-      },
-      {
-        "text": "Locate Us",
-        "url": "/#locate-us"
-      },
-      {
-        "text": "Payment",
-        "url": "/payment/"
-      },
-      {
-        "text": "Blog",
-        "url": "/blogs/"
-      }
-    ]
-  },
-  "contact_info": {
-    "title": "Contact Us",
-    "address": "M-5, gate no 2 Near Green Park Metro station, New Delhi - 110016",
-    "phone": "+91 8882002546, +91 9958138256",
-    "email": "info@alphabeneficentcare.com",
-    "whatsapp": "+91 8882002546"
-  },
-  "bottom_bar": {
-    "copyright": "© 2024 Alpha Beneficent Care Pvt. Ltd. All rights reserved.",
-    "payment_methods": [
-      "upi",
-      "visa",
-      "cash"
-    ]
-  }
-} 
+	"company_info": {
+		"description": "At Alpha Beneficent Care Pvt. Ltd., we are your trusted partner in pest control services across Delhi NCR. With our expert team and eco-friendly solutions, we ensure your space remains pest-free and healthy.",
+		"social_links": [
+			{
+				"platform": "Facebook",
+				"link": "#",
+				"icon": "facebook"
+			},
+			{
+				"platform": "Instagram",
+				"link": "#",
+				"icon": "instagram"
+			},
+			{
+				"platform": "WhatsApp",
+				"link": "#",
+				"icon": "whatsapp"
+			}
+		]
+	},
+	"quick_links": {
+		"title": "Quick Links",
+		"links": [
+			{
+				"text": "Home",
+				"url": "/"
+			},
+			{
+				"text": "About Us",
+				"url": "/#about-us"
+			},
+			{
+				"text": "Services",
+				"url": "/#services"
+			},
+			{
+				"text": "Locate Us",
+				"url": "/#locate-us"
+			},
+			{
+				"text": "Payment",
+				"url": "/payment/"
+			},
+			{
+				"text": "Blog",
+				"url": "/blogs/"
+			}
+		]
+	},
+	"contact_info": {
+		"title": "Contact Us",
+		"address": "M-5, gate no 2 Near Green Park Metro station, New Delhi - 110016",
+		"phone": "+91 8882002546",
+		"email": "info@alphabeneficentcare.com",
+		"whatsapp": "+91 8882002546"
+	},
+	"bottom_bar": {
+		"copyright": "© 2024 Alpha Beneficent Care Pvt. Ltd. All rights reserved.",
+		"payment_methods": ["upi", "visa", "cash"]
+	}
+}
