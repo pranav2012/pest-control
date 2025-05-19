@@ -10,20 +10,20 @@ const config: Config = {
         extend: {
             colors: {
                 brand: {
-                    primary: '#25D366',    // WhatsApp green
-                    secondary: '#075e54',  // Dark green
-                    tertiary: '#128C7E',   // Medium green
+                    primary: '#B9FB4B',    // WhatsApp green
+                    secondary: '#2D4A0F',  // Dark green
+                    tertiary: '#86B82D',   // Medium green
                     light: '#e7f5e8',      // Light green background
                 },
                 whatsapp: {
-                    DEFAULT: '#25D366',
-                    dark: '#075e54',
-                    medium: '#128C7E',
+                    DEFAULT: '#B9FB4B',
+                    dark: '#2D4A0F',
+                    medium: '#86B82D',
                     light: '#e7f5e8',
                 },
                 success: {
-                    DEFAULT: '#25D366',
-                    dark: '#075e54',
+                    DEFAULT: '#B9FB4B',
+                    dark: '#2D4A0F',
                     light: '#e7f5e8',
                 },
                 surface: {
@@ -38,8 +38,8 @@ const config: Config = {
                     white: '#FFFFFF',
                 },
                 accent: {
-                    DEFAULT: '#25D366',
-                    hover: '#128C7E',
+                    DEFAULT: '#B9FB4B',
+                    hover: '#86B82D',
                     light: '#e7f5e8',
                 },
                 gray: {
@@ -58,7 +58,7 @@ const config: Config = {
             backgroundImage: {
                 'gradient-primary': 'linear-gradient(to right, var(--tw-gradient-stops))',
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-brand': 'linear-gradient(to right bottom, #25D366, #128C7E)',
+                'gradient-brand': 'linear-gradient(to right bottom, #B9FB4B, #86B82D)',
                 'gradient-brand-light': 'linear-gradient(to right, rgba(37, 211, 102, 0.1), rgba(18, 140, 126, 0.1))',
                 'pattern-dots': 'radial-gradient(circle, var(--tw-gradient-stops) 1px, transparent 1px)',
                 'pattern-grid': `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M36 34c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4' stroke='rgba(255,255,255,0.1)' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E")`,
