@@ -1,12 +1,14 @@
 import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import type { ClientPerspective } from '@sanity/client';
 
-export const config = {
+const config = {
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: '2024-03-20',
     useCdn: process.env.NODE_ENV === 'production',
+    perspective: 'published' as ClientPerspective,
 };
 
 export const client = createClient(config);

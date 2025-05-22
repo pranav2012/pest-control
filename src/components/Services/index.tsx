@@ -1,12 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Service } from "@/types/services";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ServiceModal from "./ServiceModal";
-import { client } from "@/lib/sanity.config";
-import { getServicesData } from "@/lib/queries/services";
 
 export const WhatsAppIcon = ({
 	className = "h-4 w-4",
@@ -20,10 +19,10 @@ export const WhatsAppIcon = ({
 
 const ServiceCard = ({
 	service,
-	onClick,
+	index,
 }: {
 	service: Service;
-	onClick: () => void;
+	index: number;
 }) => {
 	const whatsappMessage = encodeURIComponent(
 		`Hi, I am interested in your ${service.title.toLowerCase()} services. Please provide more information.`
@@ -31,9 +30,12 @@ const ServiceCard = ({
 	const fullWhatsappLink = `https://wa.me/+918882002546?text=${whatsappMessage}`;
 
 	return (
-		<div
-			onClick={onClick}
-			className="group relative h-full overflow-hidden rounded-2xl bg-gray-800 shadow-lg shadow-black/50 ring-1 ring-gray-700 transition-all hover:shadow-xl hover:shadow-black/60 hover:ring-[#B9FB4B]/20">
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5, delay: index * 0.2 }}
+			viewport={{ once: true }}
+			className="relative flex flex-col bg-gray-900/80 rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full border border-[#B9FB4B]/20">
 			{/* Image Container */}
 			<div className="relative h-48 overflow-hidden sm:h-56">
 				<Image
@@ -79,7 +81,6 @@ const ServiceCard = ({
 						className="group/btn relative text-sm font-medium text-[#B9FB4B] transition-colors hover:text-white"
 						onClick={(e) => {
 							e.stopPropagation();
-							onClick();
 						}}>
 						<span className="relative">
 							Learn More
@@ -96,39 +97,17 @@ const ServiceCard = ({
 					</Link>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
-const Services = () => {
+const Services = ({ initialData }: { initialData: any }) => {
 	const [selectedService, setSelectedService] = useState<Service | null>(
 		null
 	);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [servicesData, setServicesData] = useState<any>(null);
-	const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const data = await client.fetch(getServicesData);
-				setServicesData(data);
-			} catch (error) {
-				console.error("Error fetching services data:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		fetchData();
-	}, []);
-
-	const handleServiceClick = (service: Service) => {
-		setSelectedService(service);
-		setIsModalOpen(true);
-	};
-
-	if (loading || !servicesData) {
+	if (!initialData) {
 		return (
 			<div className="min-h-[600px] flex items-center justify-center">
 				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#25D366]"></div>
@@ -147,7 +126,7 @@ const Services = () => {
 				{/* Section Header */}
 				<div className="mx-auto mb-16 max-w-2xl text-center">
 					<h2 className="mb-6 text-4xl font-bold text-white [text-wrap:balance] md:text-5xl">
-						{servicesData.section_title}
+						{initialData.section_title}
 					</h2>
 					<div className="mx-auto mb-6 h-1 w-20 rounded-full bg-gradient-to-r from-[#B9FB4B] to-[#86B82D]" />
 					<p className="text-lg text-gray-300">
@@ -158,14 +137,13 @@ const Services = () => {
 
 				{/* Services Container */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{servicesData.services.map((service: Service) => (
-						<div key={service.title} className="w-full">
-							<ServiceCard
-								service={service}
-								onClick={() => handleServiceClick(service)}
-							/>
-						</div>
-					))}
+					{initialData.services.map(
+						(service: Service, index: number) => (
+							<div key={service.title} className="w-full">
+								<ServiceCard service={service} index={index} />
+							</div>
+						)
+					)}
 				</div>
 			</div>
 

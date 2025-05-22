@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { client } from "@/lib/sanity.config";
-import { getProcessData } from "@/lib/queries/process";
 
 interface ProcessStep {
 	title: string;
@@ -78,12 +76,12 @@ const ProcessStepCard = ({
 
 			{/* Content */}
 			<motion.div
-			initial={{ opacity: 0, y: 10 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-			viewport={{ once: true }}
-			className="flex-1">
-			<h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
+				initial={{ opacity: 0, y: 10 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+				viewport={{ once: true }}
+				className="flex-1">
+				<h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
 					{step.title}
 				</h3>
 				<p className="text-sm md:text-base text-gray-300 leading-relaxed">
@@ -94,26 +92,8 @@ const ProcessStepCard = ({
 	);
 };
 
-const Process = () => {
-	const [processData, setProcessData] = useState<ProcessData | null>(null);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const data = await client.fetch(getProcessData);
-				setProcessData(data);
-			} catch (error) {
-				console.error("Error fetching process data:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		fetchData();
-	}, []);
-
-	if (loading || !processData) {
+const Process = ({ initialData }: { initialData: ProcessData }) => {
+	if (!initialData) {
 		return (
 			<div className="min-h-[600px] flex items-center justify-center">
 				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#25D366]"></div>
@@ -135,7 +115,7 @@ const Process = () => {
 					viewport={{ once: true }}
 					className="max-w-3xl mx-auto text-center mb-12 md:mb-16 lg:mb-24">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-						{processData.section_title}
+						{initialData.section_title}
 					</h2>
 					<div className="w-20 h-1 bg-[#B9FB4B] mx-auto rounded-full mb-6" />
 					<p className="text-base md:text-lg text-gray-200">
@@ -147,7 +127,7 @@ const Process = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-12 items-start">
 					{/* Process Steps */}
 					<div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 relative">
-						{processData.steps.map((step, index) => (
+						{initialData.steps.map((step, index) => (
 							<ProcessStepCard
 								key={step.title}
 								step={step}
@@ -169,8 +149,8 @@ const Process = () => {
 
 							{/* Image */}
 							<Image
-								src={processData.side_image.src}
-								alt={processData.side_image.alt}
+								src={initialData.side_image.src}
+								alt={initialData.side_image.alt}
 								fill
 								className="object-cover transition-transform duration-700 hover:scale-105"
 								priority

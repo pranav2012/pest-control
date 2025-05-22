@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const CONTENT_TYPE_PATHS: Record<string, string[]> = {
   blog: ['/blogs', '/'], // Blog posts appear on both blogs page and homepage
   service: ['/services', '/'], // Services appear on both services page and homepage
+  process: ['/'], // Process section appears on homepage
   testimonial: ['/'], // Testimonials appear on homepage
   page: ['/'], // Regular pages appear on homepage
   // Add more content types and their paths as needed
