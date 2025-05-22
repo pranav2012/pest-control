@@ -2,7 +2,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { client } from "@/lib/sanity.config";
 import { blogBySlugQuery } from "@/lib/queries/blogs";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import { urlFor } from "@/lib/sanity.config";
 
 interface BlogPost {
 	_id: string;
@@ -16,6 +17,97 @@ interface BlogPost {
 	publishedAt: string;
 	tags: string[];
 }
+
+const components: Partial<PortableTextReactComponents> = {
+	block: {
+		h1: ({ children }) => (
+			<h1 className="text-4xl font-bold text-white mt-8 mb-4">
+				{children}
+			</h1>
+		),
+		h2: ({ children }) => (
+			<h2 className="text-3xl font-semibold text-[#B9FB4B] mt-8 mb-4">
+				{children}
+			</h2>
+		),
+		h3: ({ children }) => (
+			<h3 className="text-2xl font-semibold text-white mt-6 mb-3">
+				{children}
+			</h3>
+		),
+		h4: ({ children }) => (
+			<h4 className="text-xl font-semibold text-white mt-6 mb-3">
+				{children}
+			</h4>
+		),
+		normal: ({ children }) => (
+			<p className="text-gray-300 mb-4 leading-relaxed">{children}</p>
+		),
+		blockquote: ({ children }) => (
+			<blockquote className="border-l-4 border-[#B9FB4B] pl-4 italic text-gray-300 my-6">
+				{children}
+			</blockquote>
+		),
+	},
+	list: {
+		bullet: ({ children }) => (
+			<ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
+				{children}
+			</ul>
+		),
+		number: ({ children }) => (
+			<ol className="list-decimal list-inside text-gray-300 mb-4 space-y-2">
+				{children}
+			</ol>
+		),
+	},
+	marks: {
+		strong: ({ children }) => (
+			<strong className="font-bold text-white">{children}</strong>
+		),
+		em: ({ children }) => (
+			<em className="italic text-gray-300">{children}</em>
+		),
+		code: ({ children }) => (
+			<code className="bg-gray-800 rounded px-1 py-0.5 text-[#B9FB4B]">
+				{children}
+			</code>
+		),
+		link: ({ children, value }) => (
+			<a
+				href={value?.href}
+				className="text-[#B9FB4B] hover:underline"
+				target="_blank"
+				rel="noopener noreferrer">
+				{children}
+			</a>
+		),
+	},
+	types: {
+		inlineImage: ({ value }) => {
+			if (!value?.asset?._ref) {
+				return null;
+			}
+			return (
+				<figure className="my-8">
+					<div className="relative w-full h-[400px] rounded-lg overflow-hidden">
+						<Image
+							src={urlFor(value).url()}
+							alt={value.alt || ""}
+							fill
+							className="object-cover"
+						/>
+					</div>
+					{value.caption && (
+						<figcaption className="text-center text-gray-400 mt-2 text-sm">
+							{value.caption}
+						</figcaption>
+					)}
+				</figure>
+			);
+		},
+	},
+};
 
 async function getBlogPost(slug: string) {
 	console.log("Fetching blog with slug:", slug);
@@ -84,7 +176,10 @@ export default async function BlogPage({
 					)}
 
 					<div className="prose prose-lg max-w-none prose-invert">
-						<PortableText value={blog.content} />
+						<PortableText
+							value={blog.content}
+							components={components}
+						/>
 					</div>
 				</div>
 			</div>
