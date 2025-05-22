@@ -54,9 +54,9 @@ const ProcessStepCard = ({
 			whileInView={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5, delay: index * 0.2 }}
 			viewport={{ once: true }}
-			className="relative flex flex-col bg-white rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full">
+			className="relative flex flex-col bg-gray-900/80 rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full border border-[#B9FB4B]/20">
 			{/* Step Number Badge */}
-			<div className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center text-white font-bold shadow-lg text-sm md:text-base">
+			<div className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#B9FB4B] flex items-center justify-center text-gray-900 font-bold shadow-lg text-sm md:text-base">
 				{index + 1}
 			</div>
 
@@ -68,9 +68,9 @@ const ProcessStepCard = ({
 					whileInView={{ scale: 1, opacity: 1 }}
 					transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
 					viewport={{ once: true }}
-					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#B9FB4B]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
 					<div
-						className="text-[#25D366]"
+						className="text-[#B9FB4B]"
 						dangerouslySetInnerHTML={{ __html: svgContent }}
 					/>
 				</motion.div>
@@ -78,15 +78,15 @@ const ProcessStepCard = ({
 
 			{/* Content */}
 			<motion.div
-				initial={{ opacity: 0, y: 10 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-				viewport={{ once: true }}
-				className="flex-1">
-				<h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+			initial={{ opacity: 0, y: 10 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+			viewport={{ once: true }}
+			className="flex-1">
+			<h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
 					{step.title}
 				</h3>
-				<p className="text-sm md:text-base text-gray-600 leading-relaxed">
+				<p className="text-sm md:text-base text-gray-300 leading-relaxed">
 					{step.description}
 				</p>
 			</motion.div>
@@ -122,9 +122,9 @@ const Process = () => {
 	}
 
 	return (
-		<section className="relative py-16 md:py-20 lg:py-32 overflow-hidden">
+		<section className="relative py-16 md:py-20 lg:py-32 overflow-hidden bg-gray-900">
 			{/* Background Pattern */}
-			<div className="absolute inset-0 bg-[radial-gradient(#25D366_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.15]" />
+			<div className="absolute inset-0 bg-[radial-gradient(#B9FB4B_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.05]" />
 
 			<div className="container mx-auto px-4">
 				{/* Section Header */}
@@ -134,11 +134,11 @@ const Process = () => {
 					transition={{ duration: 0.6 }}
 					viewport={{ once: true }}
 					className="max-w-3xl mx-auto text-center mb-12 md:mb-16 lg:mb-24">
-					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
 						{processData.section_title}
 					</h2>
-					<div className="w-20 h-1 bg-gradient-to-r from-[#25D366] to-[#128C7E] mx-auto rounded-full mb-6" />
-					<p className="text-base md:text-lg text-gray-600">
+					<div className="w-20 h-1 bg-[#B9FB4B] mx-auto rounded-full mb-6" />
+					<p className="text-base md:text-lg text-gray-200">
 						Our proven 4-step process ensures effective and
 						long-lasting pest control solutions.
 					</p>
@@ -192,9 +192,9 @@ const Process = () => {
 									transition={{ duration: 0.6, delay: 0.3 }}
 									viewport={{ once: true }}
 									className="mt-4 md:mt-6 flex items-center gap-2">
-									<div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+									<div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#B9FB4B]/10 backdrop-blur-sm flex items-center justify-center">
 										<svg
-											className="w-4 h-4 md:w-5 md:h-5 text-[#25D366]"
+											className="w-4 h-4 md:w-5 md:h-5 text-[#B9FB4B]"
 											fill="currentColor"
 											viewBox="0 0 20 20">
 											<path
