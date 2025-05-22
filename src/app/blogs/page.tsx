@@ -7,14 +7,20 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import BlogCard from "@/components/BlogCard";
+import { useQuery } from "@tanstack/react-query";
+import { client } from "@/lib/sanity.config";
+import { blogsQuery } from "@/lib/queries/blogs";
 
 interface Blog {
-	id: number;
+	_id: string;
 	title: string;
+	slug: string;
 	summary: string;
 	image: string;
-	date: string;
+	imageAlt: string;
 	author: string;
+	publishedAt: string;
+	tags: string[];
 }
 
 export default function BlogsPage() {
@@ -22,21 +28,19 @@ export default function BlogsPage() {
 	const [debouncedQuery, setDebouncedQuery] = useState("");
 	const [sortBy, setSortBy] = useState("newest");
 	const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState<Error | null>(null);
 
-	// Simulated blog data
-	const blogs: Blog[] = [
-		{
-			id: 1,
-			title: "How to treat Fungal infected Walls and Wood",
-			image: "/images/blogs/fungal-infected-wall.png",
-			summary:
-				"Learn about effective treatments for fungal infections in walls and wood, including identification, prevention, and professional solutions.",
-			date: "2024-03-20",
-			author: "Pest Control Expert",
+	// Fetch blogs from Sanity
+	const {
+		data: blogs = [],
+		isLoading,
+		error,
+	} = useQuery<Blog[]>({
+		queryKey: ["blogs"],
+		queryFn: async () => {
+			const data = await client.fetch(blogsQuery);
+			return data;
 		},
-	];
+	});
 
 	// Debounce search query
 	useEffect(() => {
@@ -44,13 +48,36 @@ export default function BlogsPage() {
 		return () => clearTimeout(timer);
 	}, [searchQuery]);
 
-	// Simulate loading state
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
-		return () => clearTimeout(timer);
-	}, []);
+	// Filter and sort blogs
+	const filteredBlogs = blogs
+		.filter(
+			(blog) =>
+				blog.title
+					.toLowerCase()
+					.includes(debouncedQuery.toLowerCase()) ||
+				blog.summary
+					.toLowerCase()
+					.includes(debouncedQuery.toLowerCase()) ||
+				blog.tags.some((tag) =>
+					tag.toLowerCase().includes(debouncedQuery.toLowerCase())
+				)
+		)
+		.sort((a, b) => {
+			switch (sortBy) {
+				case "newest":
+					return (
+						new Date(b.publishedAt).getTime() -
+						new Date(a.publishedAt).getTime()
+					);
+				case "oldest":
+					return (
+						new Date(a.publishedAt).getTime() -
+						new Date(b.publishedAt).getTime()
+					);
+				default:
+					return 0;
+			}
+		});
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -65,7 +92,6 @@ export default function BlogsPage() {
 	const sortOptions = [
 		{ value: "newest", label: "Newest first" },
 		{ value: "oldest", label: "Oldest first" },
-		{ value: "popular", label: "Most popular" },
 	];
 
 	return (
@@ -125,11 +151,7 @@ export default function BlogsPage() {
 									setIsSortMenuOpen(!isSortMenuOpen)
 								}
 								className="flex items-center gap-1 px-3 py-1.5 border border-[#B9FB4B]/20 rounded-md bg-gray-800/50 backdrop-blur-sm text-sm text-white hover:bg-gray-800 transition-colors">
-								{sortBy === "newest"
-									? "Newest"
-									: sortBy === "oldest"
-										? "Oldest"
-										: "Popular"}
+								{sortBy === "newest" ? "Newest" : "Oldest"}
 								<ChevronDown className="h-4 w-4" />
 							</button>
 							{isSortMenuOpen && (
@@ -189,7 +211,7 @@ export default function BlogsPage() {
 							Try again
 						</Button>
 					</div>
-				) : blogs.length === 0 ? (
+				) : filteredBlogs.length === 0 ? (
 					<div className="flex flex-col items-center justify-center py-16">
 						<div className="text-4xl mb-4">🔍</div>
 						<h2 className="text-2xl font-semibold text-white mb-2">
@@ -219,9 +241,9 @@ export default function BlogsPage() {
 						animate="visible"
 						className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 						<AnimatePresence>
-							{blogs.map((blog: Blog) => (
+							{filteredBlogs.map((blog) => (
 								<motion.div
-									key={blog.id}
+									key={blog._id}
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: -20 }}

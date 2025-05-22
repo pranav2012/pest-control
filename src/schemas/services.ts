@@ -1,6 +1,6 @@
 export default {
     name: 'services',
-    title: 'Services',
+    title: 'Services Section',
     type: 'document',
     fields: [
         {
@@ -18,22 +18,22 @@ export default {
                     fields: [
                         {
                             name: 'title',
-                            title: 'Title',
+                            title: 'Service Title',
                             type: 'string',
                         },
                         {
                             name: 'description',
-                            title: 'Description',
+                            title: 'Service Description',
                             type: 'text',
                         },
                         {
                             name: 'image',
-                            title: 'Image',
+                            title: 'Service Image',
                             type: 'object',
                             fields: [
                                 {
                                     name: 'src',
-                                    title: 'Source',
+                                    title: 'Image',
                                     type: 'image',
                                     options: {
                                         hotspot: true,
@@ -47,12 +47,45 @@ export default {
                             ],
                         },
                         {
-                            name: 'link',
-                            title: 'Link',
-                            type: 'slug',
-                            options: {
-                                source: 'title',
-                            },
+                            name: 'details',
+                            title: 'Service Details',
+                            type: 'object',
+                            fields: [
+                                {
+                                    name: 'pests_covered',
+                                    title: 'Pests Covered',
+                                    type: 'array',
+                                    of: [{ type: 'string' }],
+                                },
+                                {
+                                    name: 'areas_covered',
+                                    title: 'Areas Covered',
+                                    type: 'array',
+                                    of: [{ type: 'string' }],
+                                },
+                                {
+                                    name: 'service_features',
+                                    title: 'Service Features',
+                                    type: 'array',
+                                    of: [{ type: 'string' }],
+                                },
+                                {
+                                    name: 'treatment_process',
+                                    title: 'Treatment Process',
+                                    type: 'array',
+                                    of: [{ type: 'string' }],
+                                },
+                                {
+                                    name: 'warranty',
+                                    title: 'Warranty',
+                                    type: 'string',
+                                },
+                                {
+                                    name: 'service_area',
+                                    title: 'Service Area',
+                                    type: 'string',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -71,7 +104,7 @@ export default {
                 {
                     name: 'link',
                     title: 'Button Link',
-                    type: 'url',
+                    type: 'string',
                 },
             ],
         },

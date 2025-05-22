@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import servicesData from "@/content/services.json";
 import { Service } from "@/types/services";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
 import ServiceModal from "./ServiceModal";
+import { client } from "@/lib/sanity.config";
+import { getServicesData } from "@/lib/queries/services";
 
 export const WhatsAppIcon = ({
 	className = "h-4 w-4",
@@ -21,14 +22,16 @@ export const WhatsAppIcon = ({
 const ServiceCard = ({
 	service,
 	onClick,
+	whatsappLink,
 }: {
 	service: Service;
 	onClick: () => void;
+	whatsappLink: string;
 }) => {
 	const whatsappMessage = encodeURIComponent(
 		`Hi, I am interested in your ${service.title.toLowerCase()} services. Please provide more information.`
 	);
-	const whatsappLink = `${servicesData.cta_button.link}&text=${whatsappMessage}`;
+	const fullWhatsappLink = `${whatsappLink}&text=${whatsappMessage}`;
 
 	return (
 		<div
@@ -87,7 +90,7 @@ const ServiceCard = ({
 						</span>
 					</button>
 					<Link
-						href={whatsappLink}
+						href={fullWhatsappLink}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#B9FB4B] to-[#86B82D] text-white shadow-lg shadow-[#B9FB4B]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#B9FB4B]/30"
@@ -105,11 +108,36 @@ const Services = () => {
 		null
 	);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [servicesData, setServicesData] = useState<any>(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await client.fetch(getServicesData);
+				setServicesData(data);
+			} catch (error) {
+				console.error("Error fetching services data:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	const handleServiceClick = (service: Service) => {
 		setSelectedService(service);
 		setIsModalOpen(true);
 	};
+
+	if (loading || !servicesData) {
+		return (
+			<div className="min-h-[600px] flex items-center justify-center">
+				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#25D366]"></div>
+			</div>
+		);
+	}
 
 	return (
 		<section
@@ -133,11 +161,12 @@ const Services = () => {
 
 				{/* Services Container */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{servicesData.services.map((service) => (
+					{servicesData.services.map((service: Service) => (
 						<div key={service.title} className="w-full">
 							<ServiceCard
 								service={service}
 								onClick={() => handleServiceClick(service)}
+								whatsappLink={servicesData.cta_button.link}
 							/>
 						</div>
 					))}
