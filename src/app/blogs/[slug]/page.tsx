@@ -43,42 +43,52 @@ export default async function BlogPage({
 	const blog = await getBlogPost(slug);
 
 	return (
-		<main className="container mx-auto px-4 py-8">
-			<article className="max-w-4xl mx-auto">
+		<article className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-900/95 text-white border-b border-gray-800">
+			<div className="container mx-auto px-4 py-12 max-w-4xl">
 				{blog.image && (
-					<div className="relative w-full h-[400px] mb-8">
+					<div className="relative h-[400px] w-full mb-8 rounded-xl overflow-hidden">
 						<Image
 							src={blog.image}
 							alt={blog.imageAlt || blog.title}
 							fill
-							className="object-cover rounded-lg"
+							className="object-cover"
 							priority
 						/>
+						<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
 					</div>
 				)}
-				<h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
-				<div className="flex items-center gap-4 text-gray-600 mb-6">
-					<span>By {blog.author}</span>
-					<span>•</span>
-					<time dateTime={blog.publishedAt}>
-						{new Date(blog.publishedAt).toLocaleDateString()}
-					</time>
-				</div>
-				{blog.tags && blog.tags.length > 0 && (
-					<div className="flex gap-2 mb-8">
-						{blog.tags.map((tag) => (
-							<span
-								key={tag}
-								className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-								{tag}
-							</span>
-						))}
+
+				<div className="prose prose-lg max-w-none prose-invert">
+					<h1 className="text-4xl font-bold mb-4 text-white">
+						{blog.title}
+					</h1>
+
+					<div className="flex items-center gap-4 text-gray-400 mb-8">
+						<span>By {blog.author}</span>
+						<span className="text-[#B9FB4B]">•</span>
+						<time dateTime={blog.publishedAt}>
+							{new Date(blog.publishedAt).toLocaleDateString()}
+						</time>
 					</div>
-				)}
-				<div className="prose prose-lg max-w-none">
-					<PortableText value={blog.content} />
+
+					{blog.tags && blog.tags.length > 0 && (
+						<div className="flex gap-2 mb-8">
+							{blog.tags.map((tag) => (
+								<span
+									key={tag}
+									className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
+									{tag}
+								</span>
+							))}
+						</div>
+					)}
+
+					<div className="prose prose-lg max-w-none prose-invert">
+						<PortableText value={blog.content} />
+					</div>
 				</div>
-			</article>
-		</main>
+			</div>
+			<div className="h-32 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900" />
+		</article>
 	);
 }
