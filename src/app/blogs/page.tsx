@@ -16,7 +16,7 @@ interface Blog {
 
 // Enable static generation with on-demand revalidation
 export const dynamic = "force-static";
-export const revalidate = false;
+export const revalidate = 0;
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {

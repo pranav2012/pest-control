@@ -6,7 +6,6 @@ const CONTENT_TYPE_PATHS: Record<string, string[]> = {
   blog: ['/blogs', '/'], // Blog posts appear on both blogs page and homepage
   service: ['/services', '/'], // Services appear on both services page and homepage
   process: ['/'], // Process section appears on homepage
-  testimonial: ['/'], // Testimonials appear on homepage
   page: ['/'], // Regular pages appear on homepage
   // Add more content types and their paths as needed
 };
@@ -14,11 +13,15 @@ const CONTENT_TYPE_PATHS: Record<string, string[]> = {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    console.log('Revalidation webhook called with body:', body);
     const { _type, slug } = body;
 
     // Verify the request is from Sanity
     const token = request.headers.get('authorization')?.split(' ')[1];
+    console.log('Received token:', token ? 'Present' : 'Missing');
+
     if (token !== process.env.SANITY_REVALIDATE_TOKEN) {
+      console.log('Token mismatch. Expected:', process.env.SANITY_REVALIDATE_TOKEN ? 'Present' : 'Missing');
       return NextResponse.json(
         { message: 'Invalid token' },
         { status: 401 }
@@ -27,15 +30,18 @@ export async function POST(request: NextRequest) {
 
     // Get paths to revalidate for this content type
     const pathsToRevalidate = CONTENT_TYPE_PATHS[_type] || [];
+    console.log('Paths to revalidate:', pathsToRevalidate);
 
     // Revalidate all relevant paths
     pathsToRevalidate.forEach(path => {
+      console.log('Revalidating path:', path);
       revalidatePath(path);
     });
 
     // If the document has a slug, also revalidate its specific page
     if (slug?.current) {
       const specificPath = `/${_type === 'page' ? '' : _type + 's/'}${slug.current}`;
+      console.log('Revalidating specific path:', specificPath);
       revalidatePath(specificPath);
     }
 

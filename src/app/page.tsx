@@ -15,7 +15,7 @@ import { getProcessData } from "@/lib/queries/process";
 
 // Enable static generation with on-demand revalidation
 export const dynamic = "force-static";
-export const revalidate = false;
+export const revalidate = 0;
 
 export default async function Home() {
 	// Fetch data server-side
