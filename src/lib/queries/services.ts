@@ -16,7 +16,27 @@ export const getServicesData = groq`
         service_features,
         treatment_process,
         warranty,
-        service_area
+        service_area,
+        pest_facts[] {
+          title,
+          content
+        },
+        pricing[] {
+          type,
+          price
+        },
+        treatment_details[] {
+          title,
+          description,
+          image {
+            "src": asset->url,
+            alt
+          }
+        },
+        maintenance_contracts[] {
+          title,
+          description
+        }
       }
     },
     cta_button {

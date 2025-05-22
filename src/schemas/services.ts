@@ -85,26 +85,113 @@ export default {
                                     title: 'Service Area',
                                     type: 'string',
                                 },
+                                {
+                                    name: 'pest_facts',
+                                    title: 'Pest Facts',
+                                    type: 'array',
+                                    of: [
+                                        {
+                                            type: 'object',
+                                            fields: [
+                                                {
+                                                    name: 'title',
+                                                    title: 'Fact Title',
+                                                    type: 'string',
+                                                },
+                                                {
+                                                    name: 'content',
+                                                    title: 'Fact Content',
+                                                    type: 'text',
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: 'pricing',
+                                    title: 'Pricing',
+                                    type: 'array',
+                                    of: [
+                                        {
+                                            type: 'object',
+                                            fields: [
+                                                {
+                                                    name: 'type',
+                                                    title: 'Property Type',
+                                                    type: 'string',
+                                                },
+                                                {
+                                                    name: 'price',
+                                                    title: 'Price',
+                                                    type: 'string',
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: 'treatment_details',
+                                    title: 'Treatment Details',
+                                    type: 'array',
+                                    of: [
+                                        {
+                                            type: 'object',
+                                            fields: [
+                                                {
+                                                    name: 'title',
+                                                    title: 'Title',
+                                                    type: 'string',
+                                                },
+                                                {
+                                                    name: 'description',
+                                                    title: 'Description',
+                                                    type: 'text',
+                                                },
+                                                {
+                                                    name: 'image',
+                                                    title: 'Image',
+                                                    type: 'image',
+                                                    options: {
+                                                        hotspot: true,
+                                                    },
+                                                    fields: [
+                                                        {
+                                                            name: 'alt',
+                                                            title: 'Alt Text',
+                                                            type: 'string',
+                                                            description: 'Describe the image for screen readers',
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    name: 'maintenance_contracts',
+                                    title: 'Maintenance Contracts',
+                                    type: 'array',
+                                    of: [
+                                        {
+                                            type: 'object',
+                                            fields: [
+                                                {
+                                                    name: 'title',
+                                                    title: 'Contract Title',
+                                                    type: 'string',
+                                                },
+                                                {
+                                                    name: 'description',
+                                                    title: 'Contract Description',
+                                                    type: 'text',
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
                             ],
                         },
                     ],
-                },
-            ],
-        },
-        {
-            name: 'cta_button',
-            title: 'CTA Button',
-            type: 'object',
-            fields: [
-                {
-                    name: 'text',
-                    title: 'Button Text',
-                    type: 'string',
-                },
-                {
-                    name: 'link',
-                    title: 'Button Link',
-                    type: 'string',
                 },
             ],
         },
