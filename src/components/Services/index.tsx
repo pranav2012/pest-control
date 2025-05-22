@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Service } from "@/types/services";
 import { useState, useEffect } from "react";
-import { MessageCircle } from "lucide-react";
 import ServiceModal from "./ServiceModal";
 import { client } from "@/lib/sanity.config";
 import { getServicesData } from "@/lib/queries/services";
@@ -22,16 +21,14 @@ export const WhatsAppIcon = ({
 const ServiceCard = ({
 	service,
 	onClick,
-	whatsappLink,
 }: {
 	service: Service;
 	onClick: () => void;
-	whatsappLink: string;
 }) => {
 	const whatsappMessage = encodeURIComponent(
 		`Hi, I am interested in your ${service.title.toLowerCase()} services. Please provide more information.`
 	);
-	const fullWhatsappLink = `${whatsappLink}&text=${whatsappMessage}`;
+	const fullWhatsappLink = `https://wa.me/+918882002546?text=${whatsappMessage}`;
 
 	return (
 		<div
@@ -166,7 +163,6 @@ const Services = () => {
 							<ServiceCard
 								service={service}
 								onClick={() => handleServiceClick(service)}
-								whatsappLink={servicesData.cta_button.link}
 							/>
 						</div>
 					))}
