@@ -449,8 +449,9 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 													rel="noopener noreferrer"
 													className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#B9FB4B] px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium text-gray-900 shadow-lg shadow-[#B9FB4B]/20 transition-all hover:bg-[#86B82D] hover:shadow-xl hover:shadow-[#B9FB4B]/30">
 													<WhatsAppIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-													{service.details.pricing
-														?.length > 0
+													{service.details?.pricing &&
+													service.details.pricing
+														.length > 0
 														? "Book Appointment"
 														: "Get Free Quote"}
 													<ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-0.5" />
