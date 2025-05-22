@@ -21,15 +21,9 @@ export const getCachedData = cache(async <T>(
 ): Promise<T> => {
     const cacheKey = JSON.stringify({ query, params });
     const cached = cacheStore.get(cacheKey);
-    const now = Date.now();
 
-    // If ISR is enabled and revalidate is false, always use cached data
+    // If revalidate is false, always use cached data if available
     if (options?.next?.revalidate === false && cached) {
-        return cached.data;
-    }
-
-    // Return cached data if it's still valid
-    if (cached && now - cached.timestamp < CACHE_DURATION) {
         return cached.data;
     }
 
@@ -39,7 +33,7 @@ export const getCachedData = cache(async <T>(
     // Update cache
     cacheStore.set(cacheKey, {
         data,
-        timestamp: now,
+        timestamp: Date.now(),
     });
 
     return data;
