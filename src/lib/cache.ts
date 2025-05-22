@@ -1,48 +1,69 @@
-import { cache } from 'react';
 import { client } from './sanity.config';
 
-const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
-
-type CacheEntry<T> = {
+interface CacheEntry<T> {
     data: T;
     timestamp: number;
-};
+}
 
-type FetchOptions = {
-    next?: { revalidate: number | false };
-};
+class CacheStore {
+    private store: Map<string, CacheEntry<any>>;
+    private ttl: number;
 
-const cacheStore = new Map<string, CacheEntry<any>>();
+    constructor(ttl: number = 3600000) { // 1 hour default TTL
+        this.store = new Map();
+        this.ttl = ttl;
+    }
 
-export const getCachedData = cache(async <T>(
+    set<T>(key: string, data: T): void {
+        this.store.set(key, {
+            data,
+            timestamp: Date.now(),
+        });
+    }
+
+    get<T>(key: string): T | null {
+        const entry = this.store.get(key);
+        if (!entry) return null;
+
+        if (Date.now() - entry.timestamp > this.ttl) {
+            this.store.delete(key);
+            return null;
+        }
+
+        return entry.data as T;
+    }
+
+    clear(): void {
+        this.store.clear();
+    }
+}
+
+const cacheStore = new CacheStore();
+
+export async function fetchWithCache<T>(
     query: string,
-    params?: Record<string, any>,
-    options?: FetchOptions
-): Promise<T> => {
-    const cacheKey = JSON.stringify({ query, params });
-    const cached = cacheStore.get(cacheKey);
+    params?: Record<string, unknown>
+): Promise<T> {
+    const cacheKey = `${query}-${JSON.stringify(params || {})}`;
+    const cachedData = cacheStore.get<T>(cacheKey);
 
-    // If revalidate is false, always use cached data if available
-    if (options?.next?.revalidate === false && cached) {
-        return cached.data;
+    if (cachedData) {
+        return cachedData;
     }
 
     // Fetch fresh data
-    const data = await client.fetch<T>(query, params);
+    const data = await client.fetch<T>(query, params || {});
 
     // Update cache
-    cacheStore.set(cacheKey, {
-        data,
-        timestamp: Date.now(),
-    });
+    cacheStore.set(cacheKey, data);
 
     return data;
-});
+}
 
 export const invalidateCache = (query?: string, params?: Record<string, any>) => {
     if (query) {
         const cacheKey = JSON.stringify({ query, params });
-        cacheStore.delete(cacheKey);
+        cacheStore.clear();
     } else {
         cacheStore.clear();
     }

@@ -1,64 +1,43 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { client } from "@/lib/sanity.config";
-import { blogBySlugQuery } from "@/lib/queries/blogs";
-import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import { getBlogPost, type Blog, blogsQuery } from "@/lib/queries/blogs";
+import {
+	PortableText,
+	PortableTextReactComponents,
+	PortableTextComponentProps,
+} from "@portabletext/react";
 import { urlFor } from "@/lib/sanity.config";
-
-interface BlogPost {
-	_id: string;
-	title: string;
-	slug: string;
-	summary: string;
-	image: string;
-	imageAlt: string;
-	content: any;
-	author: string;
-	publishedAt: string;
-	tags: string[];
-}
+import { client } from "@/lib/sanity.config";
 
 const components: Partial<PortableTextReactComponents> = {
 	block: {
-		h1: ({ children }) => (
-			<h1 className="text-4xl font-bold text-white mt-8 mb-4">
-				{children}
-			</h1>
+		h1: ({ children }: PortableTextComponentProps<any>) => (
+			<h1 className="text-4xl font-bold mb-4">{children}</h1>
 		),
-		h2: ({ children }) => (
-			<h2 className="text-3xl font-semibold text-[#B9FB4B] mt-8 mb-4">
-				{children}
-			</h2>
+		h2: ({ children }: PortableTextComponentProps<any>) => (
+			<h2 className="text-3xl font-bold mb-3">{children}</h2>
 		),
-		h3: ({ children }) => (
-			<h3 className="text-2xl font-semibold text-white mt-6 mb-3">
-				{children}
-			</h3>
+		h3: ({ children }: PortableTextComponentProps<any>) => (
+			<h3 className="text-2xl font-bold mb-2">{children}</h3>
 		),
-		h4: ({ children }) => (
-			<h4 className="text-xl font-semibold text-white mt-6 mb-3">
-				{children}
-			</h4>
+		h4: ({ children }: PortableTextComponentProps<any>) => (
+			<h4 className="text-xl font-bold mb-2">{children}</h4>
 		),
-		normal: ({ children }) => (
-			<p className="text-gray-300 mb-4 leading-relaxed">{children}</p>
+		normal: ({ children }: PortableTextComponentProps<any>) => (
+			<p className="mb-4">{children}</p>
 		),
-		blockquote: ({ children }) => (
-			<blockquote className="border-l-4 border-[#B9FB4B] pl-4 italic text-gray-300 my-6">
+		blockquote: ({ children }: PortableTextComponentProps<any>) => (
+			<blockquote className="border-l-4 border-[#B9FB4B] pl-4 italic my-4">
 				{children}
 			</blockquote>
 		),
 	},
 	list: {
-		bullet: ({ children }) => (
-			<ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-				{children}
-			</ul>
+		bullet: ({ children }: PortableTextComponentProps<any>) => (
+			<ul className="list-disc list-inside mb-4">{children}</ul>
 		),
-		number: ({ children }) => (
-			<ol className="list-decimal list-inside text-gray-300 mb-4 space-y-2">
-				{children}
-			</ol>
+		number: ({ children }: PortableTextComponentProps<any>) => (
+			<ol className="list-decimal list-inside mb-4">{children}</ol>
 		),
 	},
 	marks: {
@@ -109,30 +88,23 @@ const components: Partial<PortableTextReactComponents> = {
 	},
 };
 
-async function getBlogPost(slug: string) {
-	console.log("Fetching blog with slug:", slug);
-	const blog = await client.fetch<BlogPost>(blogBySlugQuery, { slug });
-	console.log("Fetched blog data:", blog);
-
-	if (!blog) {
-		console.log("No blog found for slug:", slug);
-		notFound();
-	}
-
-	return blog;
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+	const blogs = await client.fetch<Blog[]>(blogsQuery);
+	return blogs.map((blog) => ({
+		slug: blog.slug,
+	}));
 }
 
-export default async function BlogPage({
-	params,
-}: {
-	params: { slug: string };
-}) {
-	console.log("Page params:", params);
-	const slug = params.slug;
-	if (!slug) {
+// Enable ISR with on-demand revalidation
+export const dynamic = "force-static";
+export const revalidate = false;
+
+export default async function BlogPage({ params }: any) {
+	const blog = await getBlogPost(params.slug);
+	if (!blog) {
 		notFound();
 	}
-	const blog = await getBlogPost(slug);
 
 	return (
 		<article className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-900/95 text-white border-b border-gray-800">
@@ -165,7 +137,7 @@ export default async function BlogPage({
 
 					{blog.tags && blog.tags.length > 0 && (
 						<div className="flex gap-2 mb-8">
-							{blog.tags.map((tag) => (
+							{blog.tags.map((tag: string) => (
 								<span
 									key={tag}
 									className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
