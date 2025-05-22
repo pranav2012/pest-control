@@ -20,9 +20,11 @@ export const WhatsAppIcon = ({
 const ServiceCard = ({
 	service,
 	index,
+	onClick,
 }: {
 	service: Service;
 	index: number;
+	onClick: () => void;
 }) => {
 	const whatsappMessage = encodeURIComponent(
 		`Hi, I am interested in your ${service.title.toLowerCase()} services. Please provide more information.`
@@ -81,6 +83,7 @@ const ServiceCard = ({
 						className="group/btn relative text-sm font-medium text-[#B9FB4B] transition-colors hover:text-white"
 						onClick={(e) => {
 							e.stopPropagation();
+							onClick();
 						}}>
 						<span className="relative">
 							Learn More
@@ -106,6 +109,11 @@ const Services = ({ initialData }: { initialData: any }) => {
 		null
 	);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const handleServiceClick = (service: Service) => {
+		setSelectedService(service);
+		setIsModalOpen(true);
+	};
 
 	if (!initialData) {
 		return (
@@ -140,7 +148,11 @@ const Services = ({ initialData }: { initialData: any }) => {
 					{initialData.services.map(
 						(service: Service, index: number) => (
 							<div key={service.title} className="w-full">
-								<ServiceCard service={service} index={index} />
+								<ServiceCard
+									service={service}
+									index={index}
+									onClick={() => handleServiceClick(service)}
+								/>
 							</div>
 						)
 					)}
