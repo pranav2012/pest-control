@@ -1,138 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import processData from "@/content/process.json";
-import { ProcessStep } from "@/types/process";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const icons = {
-	inspection: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<path
-				d="M20 28L12 36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-			<circle
-				cx="28"
-				cy="20"
-				r="12"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M28 14V20H34"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-			<path
-				d="M8 40L16 32"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
-	),
-	planning: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<rect
-				x="8"
-				y="8"
-				width="32"
-				height="32"
-				rx="2"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M16 16H32"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M16 24H28"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M16 32H24"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<circle cx="36" cy="32" r="4" fill="currentColor" />
-		</svg>
-	),
-	treatment: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<path
-				d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M24 12V36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M12 24H36"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-			/>
-			<circle cx="24" cy="24" r="6" fill="currentColor" />
-		</svg>
-	),
-	protection: (
-		<svg
-			width="48"
-			height="48"
-			viewBox="0 0 48 48"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="w-8 h-8">
-			<path
-				d="M24 4L8 12V24C8 34.4 14.8 43.6 24 46C33.2 43.6 40 34.4 40 24V12L24 4Z"
-				stroke="currentColor"
-				strokeWidth="2"
-			/>
-			<path
-				d="M17 24L22 29L31 20"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
-	),
-};
+interface ProcessStep {
+	title: string;
+	description: string;
+	icon: string;
+}
+
+interface ProcessData {
+	section_title: string;
+	steps: ProcessStep[];
+	side_image: {
+		src: string;
+		alt: string;
+	};
+}
 
 const ProcessStepCard = ({
 	step,
@@ -141,10 +26,25 @@ const ProcessStepCard = ({
 	step: ProcessStep;
 	index: number;
 }) => {
-	const iconKey = step.icon
-		.split("/")
-		.pop()
-		?.replace(".svg", "") as keyof typeof icons;
+	const [svgContent, setSvgContent] = useState<string>("");
+
+	useEffect(() => {
+		const fetchSvg = async () => {
+			try {
+				const response = await fetch(step.icon);
+				const svgText = await response.text();
+				const modifiedSvg = svgText.replace(
+					"<svg",
+					'<svg width="48" height="48" class="w-8 h-8"'
+				);
+				setSvgContent(modifiedSvg);
+			} catch (error) {
+				console.error("Error fetching SVG:", error);
+			}
+		};
+
+		fetchSvg();
+	}, [step.icon]);
 
 	return (
 		<motion.div
@@ -167,9 +67,10 @@ const ProcessStepCard = ({
 					transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
 					viewport={{ once: true }}
 					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#B9FB4B]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-					<div className="text-[#B9FB4B] transform scale-75 md:scale-100">
-						{icons[iconKey]}
-					</div>
+					<div
+						className="text-[#B9FB4B]"
+						dangerouslySetInnerHTML={{ __html: svgContent }}
+					/>
 				</motion.div>
 			</div>
 
@@ -191,7 +92,15 @@ const ProcessStepCard = ({
 	);
 };
 
-const Process = () => {
+const Process = ({ initialData }: { initialData: ProcessData }) => {
+	if (!initialData) {
+		return (
+			<div className="min-h-[600px] flex items-center justify-center">
+				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#25D366]"></div>
+			</div>
+		);
+	}
+
 	return (
 		<section className="relative py-16 md:py-20 lg:py-32 overflow-hidden bg-gray-900">
 			{/* Background Pattern */}
@@ -206,7 +115,7 @@ const Process = () => {
 					viewport={{ once: true }}
 					className="max-w-3xl mx-auto text-center mb-12 md:mb-16 lg:mb-24">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-						{processData.section_title}
+						{initialData.section_title}
 					</h2>
 					<div className="w-20 h-1 bg-[#B9FB4B] mx-auto rounded-full mb-6" />
 					<p className="text-base md:text-lg text-gray-200">
@@ -218,7 +127,7 @@ const Process = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-12 items-start">
 					{/* Process Steps */}
 					<div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 relative">
-						{processData.steps.map((step, index) => (
+						{initialData.steps.map((step, index) => (
 							<ProcessStepCard
 								key={step.title}
 								step={step}
@@ -240,8 +149,8 @@ const Process = () => {
 
 							{/* Image */}
 							<Image
-								src={processData.side_image.src}
-								alt={processData.side_image.alt}
+								src={initialData.side_image.src}
+								alt={initialData.side_image.alt}
 								fill
 								className="object-cover transition-transform duration-700 hover:scale-105"
 								priority

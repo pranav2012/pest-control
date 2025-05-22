@@ -57,7 +57,7 @@ const Branches = () => {
 	return (
 		<section
 			className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-900/95 border-b border-gray-800"
-			id="locate-us">do not change the structure just the colors
+			id="locate-us">
 			<div className="container mx-auto px-4">
 				{/* Section Header */}
 				<motion.div

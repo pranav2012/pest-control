@@ -4,7 +4,20 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Service } from "@/types/services";
-import { X as XIcon } from "lucide-react";
+import {
+	X as XIcon,
+	ChevronRight,
+	CheckCircle2,
+	FileText,
+	Shield,
+	MapPin,
+	Bug,
+	Lightbulb,
+	ClipboardList,
+	Wrench,
+	ListChecks,
+	IndianRupee,
+} from "lucide-react";
 import { WhatsAppIcon } from "./index";
 
 interface ServiceModalProps {
@@ -22,7 +35,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 	const whatsappLink = `https://api.whatsapp.com/send?phone=918882002546&text=${whatsappMessage}`;
 
 	return (
-		<Transition appear show={isOpen} as={Fragment}>
+		<Transition.Root show={isOpen} as={Fragment}>
 			<Dialog as="div" className="relative z-50" onClose={onClose}>
 				<Transition.Child
 					as={Fragment}
@@ -32,143 +45,413 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 					leave="ease-in duration-200"
 					leaveFrom="opacity-100"
 					leaveTo="opacity-0">
-					<div className="fixed inset-0 bg-black/30 backdrop-blur-sm" />
+					<div className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" />
 				</Transition.Child>
 
-				<div className="fixed inset-0 overflow-y-auto">
-					<div className="flex min-h-full items-center justify-center p-2 sm:p-4">
+				<div className="fixed inset-0 z-10 overflow-y-auto">
+					<div className="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
 						<Transition.Child
 							as={Fragment}
 							enter="ease-out duration-300"
-							enterFrom="opacity-0 scale-95"
-							enterTo="opacity-100 scale-100"
+							enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+							enterTo="opacity-100 translate-y-0 sm:scale-100"
 							leave="ease-in duration-200"
-							leaveFrom="opacity-100 scale-100"
-							leaveTo="opacity-0 scale-95">
-							<Dialog.Panel className="relative w-full max-h-[90vh] sm:max-h-[85vh] max-w-2xl transform overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#2D4A0F] to-[#1A2F06] shadow-2xl transition-all mx-2 sm:mx-4">
-								{/* Header with Image */}
-								<div className="relative h-40 sm:h-56 w-full">
-									<Image
-										src={service.image.src}
-										alt={service.image.alt}
-										fill
-										className="object-cover"
-										priority
+							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+							<Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl transition-all w-full h-full sm:h-auto sm:my-8 sm:max-w-5xl sm:rounded-2xl">
+								{/* Close Button */}
+								<button
+									type="button"
+									className="absolute right-4 top-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-[#B9FB4B] focus:ring-offset-2 focus:ring-offset-gray-900"
+									onClick={onClose}>
+									<span className="sr-only">Close</span>
+									<XIcon
+										className="h-5 w-5"
+										aria-hidden="true"
 									/>
-									{/* Enhanced gradient overlay for better text readability */}
-									<div className="absolute inset-0 bg-gradient-to-t from-[#1A2F06] via-[#1A2F06]/70 to-transparent" />
+								</button>
 
-									{/* Close Button */}
-									<button
-										onClick={onClose}
-										className="absolute right-3 top-3 sm:right-4 sm:top-4 z-10 rounded-full bg-[#B9FB4B] p-1.5 sm:p-2 transition-all hover:bg-[#86B82D]">
-										<XIcon className="h-4 w-4 sm:h-5 sm:w-5 text-[#1A2F06]" />
-									</button>
-
-									{/* Title Overlay with improved text contrast */}
-									<div className="absolute bottom-0 left-0 right-0 px-4 pb-4 pt-12 sm:p-6 text-white">
-										<Dialog.Title
-											as="h3"
-											className="text-lg sm:text-2xl font-bold text-white drop-shadow-sm">
-											{service.title}
-										</Dialog.Title>
-										<p className="mt-1.5 sm:mt-2 text-sm sm:text-base text-white/95 drop-shadow-sm leading-relaxed line-clamp-2 sm:line-clamp-none">
-											{service.description}
-										</p>
+								<div className="flex flex-col h-full sm:h-auto">
+									{/* Hero Image Section */}
+									<div className="relative w-full h-40 sm:h-64 md:h-80">
+										<Image
+											src={service.image.src}
+											alt={service.image.alt}
+											fill
+											className="object-cover"
+											priority
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
 									</div>
-								</div>
 
-								{/* Scrollable Content */}
-								<div className="max-h-[calc(90vh-10rem)] sm:max-h-[calc(85vh-14rem)] overflow-y-auto px-4 py-5 sm:p-6">
-									<div className="grid gap-4 sm:gap-6">
-										{/* Pests/Areas Covered */}
-										<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
-											<h4 className="text-sm sm:text-base font-semibold text-[#B9FB4B]">
-												{service.details.pests_covered
-													? "Pests Covered"
-													: "Areas Covered"}
-											</h4>
-											<div className="mt-2 sm:mt-3 flex flex-wrap gap-1.5 sm:gap-2">
-												{(
-													service.details
-														.pests_covered ||
-													service.details
-														.areas_covered
-												)?.map((item) => (
-													<span
-														key={item}
-														className="inline-flex items-center rounded-lg bg-[#B9FB4B]/10 px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium text-white ring-1 ring-[#B9FB4B]/20">
-														{item}
-													</span>
-												))}
+									{/* Header Content */}
+									<div className="relative -mt-6 sm:mt-0 px-4 sm:px-6 pb-4 sm:pb-6">
+										<div className="flex flex-col gap-3 sm:gap-4">
+											<div>
+												<Dialog.Title
+													as="h3"
+													className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight break-words">
+													{service.title}
+												</Dialog.Title>
+												<div className="h-1.5 w-20 sm:w-24 bg-[#B9FB4B] mt-2 sm:mt-3 rounded-full" />
 											</div>
-										</div>
 
-										{/* Service Features */}
-										<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
-											<h4 className="text-sm sm:text-base font-semibold text-[#B9FB4B]">
-												Service Features
-											</h4>
-											<div className="mt-2 sm:mt-3 grid gap-1.5 sm:gap-2 sm:grid-cols-2">
-												{service.details.service_features.map(
-													(feature) => (
-														<div
-															key={feature}
-															className="flex items-center gap-2 text-xs sm:text-sm text-white/80">
-															<div className="h-1.5 w-1.5 rounded-full bg-[#B9FB4B]" />
-															<span>
-																{feature}
-															</span>
-														</div>
-													)
+											<div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+												{service.details.warranty && (
+													<div className="flex items-center gap-1 sm:gap-1.5 rounded-full bg-white/10 px-2 sm:px-3 py-1 sm:py-1.5">
+														<Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#B9FB4B]" />
+														<span className="text-[10px] sm:text-xs text-white/90">
+															{
+																service.details
+																	.warranty
+															}{" "}
+															Warranty
+														</span>
+													</div>
+												)}
+												{service.details
+													.service_area && (
+													<div className="flex items-center gap-1 sm:gap-1.5 rounded-full bg-white/10 px-2 sm:px-3 py-1 sm:py-1.5">
+														<MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#B9FB4B]" />
+														<span className="text-[10px] sm:text-xs text-white/90">
+															{
+																service.details
+																	.service_area
+															}
+														</span>
+													</div>
 												)}
 											</div>
-										</div>
 
-										{/* Treatment Process */}
-										<div>
-											<h4 className="text-sm sm:text-base font-semibold text-[#B9FB4B]">
-												Treatment Process
-											</h4>
-											<div className="mt-3 sm:mt-4 grid gap-2 sm:gap-3">
-												{service.details.treatment_process.map(
-													(step, index) => (
-														<div
-															key={step}
-															className="flex items-start gap-3 sm:gap-4 rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
-															<span className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#B9FB4B] to-[#86B82D] text-xs sm:text-sm font-medium text-[#1A2F06]">
-																{index + 1}
-															</span>
-															<p className="text-xs sm:text-sm text-white/80">
-																{step}
+											{service.details.pests_covered &&
+												service.details.pests_covered
+													.length > 0 && (
+													<div className="flex flex-wrap gap-1 sm:gap-1.5">
+														{service.details.pests_covered.map(
+															(pest) => (
+																<span
+																	key={pest}
+																	className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[10px] sm:text-xs font-medium text-white">
+																	<Bug className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#B9FB4B]" />
+																	{pest}
+																</span>
+															)
+														)}
+													</div>
+												)}
+
+											<p className="text-xs sm:text-sm text-white/80 max-w-2xl">
+												{service.description}
+											</p>
+										</div>
+									</div>
+
+									{/* Content Section */}
+									<div className="w-full flex-1 overflow-y-auto">
+										<div className="p-4 sm:p-6">
+											<div className="grid gap-4 sm:gap-6">
+												{/* Pest Facts */}
+												{service.details.pest_facts &&
+													service.details.pest_facts
+														.length > 0 && (
+														<div className="grid gap-3">
+															{service.details.pest_facts.map(
+																(
+																	fact,
+																	index
+																) => (
+																	<div
+																		key={
+																			fact.title
+																		}
+																		className={`relative overflow-hidden rounded-xl ${
+																			index %
+																				2 ===
+																			0
+																				? "bg-gradient-to-br from-[#B9FB4B]/10 to-transparent"
+																				: "bg-gradient-to-br from-white/5 to-transparent"
+																		} p-4 ring-1 ${
+																			index %
+																				2 ===
+																			0
+																				? "ring-[#B9FB4B]/20"
+																				: "ring-white/10"
+																		}`}>
+																		<div className="flex flex-col gap-2">
+																			<h5 className="text-base font-medium text-[#B9FB4B]">
+																				{
+																					fact.title
+																				}
+																			</h5>
+																			<p className="text-sm text-white/90 leading-relaxed">
+																				{
+																					fact.content
+																				}
+																			</p>
+																		</div>
+																		{/* Decorative corner accent */}
+																		<div
+																			className={`absolute -right-8 -top-8 h-16 w-16 rounded-full ${
+																				index %
+																					2 ===
+																				0
+																					? "bg-[#B9FB4B]/10"
+																					: "bg-white/5"
+																			}`}
+																		/>
+																	</div>
+																)
+															)}
+														</div>
+													)}
+
+												{/* Treatment Process */}
+												<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
+													<div className="flex items-center gap-2 mb-3">
+														<div className="rounded-full bg-[#B9FB4B]/20 p-1.5">
+															<ClipboardList className="h-4 w-4 text-[#B9FB4B]" />
+														</div>
+														<h4 className="text-base font-semibold text-white">
+															Treatment Process
+														</h4>
+													</div>
+
+													<div className="grid grid-cols-1 gap-2">
+														{service.details.treatment_process.map(
+															(step, index) => (
+																<div
+																	key={step}
+																	className="flex items-start gap-2 rounded-lg bg-white/5 p-2 ring-1 ring-white/10">
+																	<div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#B9FB4B]/10 text-xs font-medium text-[#B9FB4B]">
+																		{index +
+																			1}
+																	</div>
+																	<p className="text-xs sm:text-sm text-white/90 whitespace-normal">
+																		{step}
+																	</p>
+																</div>
+															)
+														)}
+													</div>
+												</div>
+
+												{/* Treatment Details */}
+												{service.details
+													.treatment_details &&
+													service.details
+														.treatment_details
+														.length > 0 && (
+														<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
+															<div className="flex items-center gap-2 mb-3">
+																<div className="rounded-full bg-[#B9FB4B]/20 p-1.5">
+																	<Wrench className="h-4 w-4 text-[#B9FB4B]" />
+																</div>
+																<h4 className="text-base font-semibold text-white">
+																	Treatment
+																	Details
+																</h4>
+															</div>
+
+															<div className="grid gap-3">
+																{service.details.treatment_details.map(
+																	(
+																		detail
+																	) => (
+																		<div
+																			key={
+																				detail.title
+																			}
+																			className="flex flex-col sm:flex-row gap-3 rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
+																			{detail
+																				.image
+																				?.src && (
+																				<div className="relative h-40 sm:h-28 w-full sm:w-28 shrink-0 overflow-hidden rounded-lg ring-1 ring-white/10">
+																					<Image
+																						src={
+																							detail
+																								.image
+																								.src
+																						}
+																						alt={
+																							detail
+																								.image
+																								.alt ||
+																							detail.title
+																						}
+																						fill
+																						className="object-cover"
+																						sizes="(max-width: 640px) 100vw, 112px"
+																					/>
+																				</div>
+																			)}
+																			<div className="flex-1 min-w-0">
+																				<h5 className="text-sm font-medium text-[#B9FB4B] mb-1">
+																					{
+																						detail.title
+																					}
+																				</h5>
+																				<p className="text-xs text-white/90 leading-relaxed">
+																					{
+																						detail.description
+																					}
+																				</p>
+																			</div>
+																		</div>
+																	)
+																)}
+															</div>
+														</div>
+													)}
+
+												{/* Maintenance Contracts */}
+												{service.details
+													.maintenance_contracts &&
+													service.details
+														.maintenance_contracts
+														.length > 0 && (
+														<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
+															<h4 className="text-base font-semibold text-[#B9FB4B] mb-2 sm:mb-3">
+																Maintenance
+																Contracts
+															</h4>
+															<div className="flex flex-col gap-2 sm:gap-4">
+																{service.details.maintenance_contracts.map(
+																	(
+																		contract
+																	) => (
+																		<div
+																			key={
+																				contract.title
+																			}
+																			className="flex items-start gap-2 sm:gap-3 rounded-xl bg-gradient-to-br from-[#B9FB4B]/10 to-transparent p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20 shadow-sm">
+																			<div className="mt-0.5 sm:mt-1 rounded-full bg-[#B9FB4B]/20 p-1.5 sm:p-2 ring-1 ring-[#B9FB4B]/20 shrink-0">
+																				<FileText className="h-4 w-4 sm:h-5 sm:w-5 text-[#B9FB4B]" />
+																			</div>
+																			<div className="flex-1 min-w-0">
+																				<h5 className="text-sm sm:text-base font-semibold text-white break-words">
+																					{
+																						contract.title
+																					}
+																				</h5>
+																				<p className="text-xs sm:text-sm text-white/90 mt-0.5 sm:mt-1 break-words">
+																					{
+																						contract.description
+																					}
+																				</p>
+																			</div>
+																		</div>
+																	)
+																)}
+															</div>
+															<p className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-white/60">
+																* Contract terms
+																and conditions
+																apply. Contact
+																us for detailed
+																information.
 															</p>
 														</div>
-													)
-												)}
-											</div>
-										</div>
+													)}
 
-										{/* Service Info & CTA */}
-										<div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
-											<div className="space-y-0.5 sm:space-y-1 mb-3 sm:mb-0">
-												<p className="text-xs sm:text-sm text-white/60">
-													Service Area
-												</p>
-												<p className="text-sm sm:text-base font-medium text-white">
-													{
-														service.details
-															.service_area
-													}
-												</p>
+												{/* Service Features */}
+												<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
+													<div className="flex items-center gap-2 mb-3">
+														<div className="rounded-full bg-[#B9FB4B]/20 p-1.5">
+															<ListChecks className="h-4 w-4 text-[#B9FB4B]" />
+														</div>
+														<h4 className="text-base font-semibold text-white">
+															What's Included
+														</h4>
+													</div>
+
+													<div className="flex flex-wrap gap-2">
+														{service.details.service_features.map(
+															(feature) => (
+																<div
+																	key={
+																		feature
+																	}
+																	className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10">
+																	<div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#B9FB4B]/10">
+																		<CheckCircle2 className="h-2.5 w-2.5 text-[#B9FB4B]" />
+																	</div>
+																	<span className="text-xs text-white/90 whitespace-nowrap">
+																		{
+																			feature
+																		}
+																	</span>
+																</div>
+															)
+														)}
+													</div>
+												</div>
+
+												{/* Pricing */}
+												{service.details.pricing &&
+													service.details.pricing
+														.length > 0 && (
+														<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
+															<div className="flex items-center gap-2 mb-3">
+																<div className="rounded-full bg-[#B9FB4B]/20 p-1.5">
+																	<IndianRupee className="h-4 w-4 text-[#B9FB4B]" />
+																</div>
+																<h4 className="text-base font-semibold text-white">
+																	Pricing
+																</h4>
+															</div>
+
+															<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+																{service.details.pricing.map(
+																	(price) => (
+																		<div
+																			key={
+																				price.type
+																			}
+																			className="flex items-center justify-between gap-3 rounded-lg bg-white/5 px-3 py-2 ring-1 ring-white/10">
+																			<div>
+																				<h5 className="text-xs font-medium text-white/90">
+																					{
+																						price.type
+																					}
+																				</h5>
+																				<p className="text-base font-semibold text-[#B9FB4B]">
+																					{
+																						price.price
+																					}
+																				</p>
+																			</div>
+																			<div className="rounded-full bg-[#B9FB4B]/10 p-1.5 ring-1 ring-[#B9FB4B]/20">
+																				<CheckCircle2 className="h-3.5 w-3.5 text-[#B9FB4B]" />
+																			</div>
+																		</div>
+																	)
+																)}
+															</div>
+															<p className="mt-2 text-xs text-white/60">
+																* Prices may
+																vary based on
+																property size
+																and specific
+																requirements
+															</p>
+														</div>
+													)}
+
+												{/* CTA Button */}
+												<a
+													href={whatsappLink}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#B9FB4B] px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium text-gray-900 shadow-lg shadow-[#B9FB4B]/20 transition-all hover:bg-[#86B82D] hover:shadow-xl hover:shadow-[#B9FB4B]/30">
+													<WhatsAppIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+													{service.details?.pricing &&
+													service.details.pricing
+														.length > 0
+														? "Book Appointment"
+														: "Get Free Quote"}
+													<ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-0.5" />
+												</a>
 											</div>
-											<a
-												href={whatsappLink}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="inline-flex items-center justify-center gap-2 rounded-full bg-[#B9FB4B] hover:bg-[#86B82D] px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base text-[#1A2F06] font-medium shadow-lg shadow-[#B9FB4B]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#B9FB4B]/30">
-												<WhatsAppIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-												Get Free Quote
-											</a>
 										</div>
 									</div>
 								</div>
@@ -177,7 +460,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 					</div>
 				</div>
 			</Dialog>
-		</Transition>
+		</Transition.Root>
 	);
 };
 
