@@ -1,21 +1,8 @@
 import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
-// Map of content types to their corresponding paths
-const CONTENT_TYPE_PATHS: Record<string, string[]> = {
-  blog: ['/blogs', '/'], // Blog posts appear on both blogs page and homepage
-  service: ['/services', '/'], // Services appear on both services page and homepage
-  process: ['/'], // Process section appears on homepage
-  page: ['/'], // Regular pages appear on homepage
-  // Add more content types and their paths as needed
-};
-
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    console.log('Revalidation webhook called with body:', body);
-    const { _type, slug } = body;
-
     // Verify the request is from Sanity
     const token = request.headers.get('authorization')?.split(' ')[1];
     console.log('Received token:', token ? 'Present' : 'Missing');
@@ -28,27 +15,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get paths to revalidate for this content type
-    const pathsToRevalidate = CONTENT_TYPE_PATHS[_type] || [];
-    console.log('Paths to revalidate:', pathsToRevalidate);
-
-    // Revalidate all relevant paths
-    pathsToRevalidate.forEach(path => {
-      console.log('Revalidating path:', path);
-      revalidatePath(path);
-    });
-
-    // If the document has a slug, also revalidate its specific page
-    if (slug?.current) {
-      const specificPath = `/${_type === 'page' ? '' : _type + 's/'}${slug.current}`;
-      console.log('Revalidating specific path:', specificPath);
-      revalidatePath(specificPath);
-    }
+    // Revalidate all pages
+    revalidatePath('/');
+    revalidatePath('/blogs');
+    revalidatePath('/services');
+    revalidatePath('/payment');
 
     return NextResponse.json({
       revalidated: true,
-      message: `Successfully revalidated paths for ${_type}`,
-      paths: pathsToRevalidate
+      message: 'Successfully revalidated all pages'
     });
   } catch (err) {
     console.error('Revalidation error:', err);

@@ -58,7 +58,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 							leave="ease-in duration-200"
 							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
 							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-							<Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-5xl sm:rounded-2xl">
+							<Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl transition-all w-full h-full sm:h-auto sm:my-8 sm:max-w-5xl sm:rounded-2xl">
 								{/* Close Button */}
 								<button
 									type="button"
@@ -71,9 +71,9 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 									/>
 								</button>
 
-								<div className="flex flex-col">
+								<div className="flex flex-col h-full sm:h-auto">
 									{/* Hero Image Section */}
-									<div className="relative w-full h-48 sm:h-64 md:h-80">
+									<div className="relative w-full h-40 sm:h-64 md:h-80">
 										<Image
 											src={service.image.src}
 											alt={service.image.alt}
@@ -82,78 +82,73 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 											priority
 										/>
 										<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
-										<div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-											<div className="flex flex-col gap-4 text-left">
-												<div>
-													<Dialog.Title
-														as="h3"
-														className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
-														{service.title}
-													</Dialog.Title>
-													<div className="h-1.5 w-24 bg-[#B9FB4B] mt-3 rounded-full" />
-												</div>
+									</div>
 
-												<div className="flex flex-wrap items-center gap-2">
-													{service.details
-														.warranty && (
-														<div className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5">
-															<Shield className="h-3.5 w-3.5 text-[#B9FB4B]" />
-															<span className="text-xs text-white/90">
-																{
-																	service
-																		.details
-																		.warranty
-																}{" "}
-																Warranty
-															</span>
-														</div>
-													)}
-													{service.details
-														.service_area && (
-														<div className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5">
-															<MapPin className="h-3.5 w-3.5 text-[#B9FB4B]" />
-															<span className="text-xs text-white/90">
-																{
-																	service
-																		.details
-																		.service_area
-																}
-															</span>
-														</div>
-													)}
-												</div>
-
-												{service.details
-													.pests_covered &&
-													service.details
-														.pests_covered.length >
-														0 && (
-														<div className="flex flex-wrap gap-1.5">
-															{service.details.pests_covered.map(
-																(pest) => (
-																	<span
-																		key={
-																			pest
-																		}
-																		className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-xs font-medium text-white">
-																		<Bug className="h-3 w-3 text-[#B9FB4B]" />
-																		{pest}
-																	</span>
-																)
-															)}
-														</div>
-													)}
-
-												<p className="text-sm text-white/80 max-w-2xl">
-													{service.description}
-												</p>
+									{/* Header Content */}
+									<div className="relative -mt-6 sm:mt-0 px-4 sm:px-6 pb-4 sm:pb-6">
+										<div className="flex flex-col gap-3 sm:gap-4">
+											<div>
+												<Dialog.Title
+													as="h3"
+													className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight break-words">
+													{service.title}
+												</Dialog.Title>
+												<div className="h-1.5 w-20 sm:w-24 bg-[#B9FB4B] mt-2 sm:mt-3 rounded-full" />
 											</div>
+
+											<div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+												{service.details.warranty && (
+													<div className="flex items-center gap-1 sm:gap-1.5 rounded-full bg-white/10 px-2 sm:px-3 py-1 sm:py-1.5">
+														<Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#B9FB4B]" />
+														<span className="text-[10px] sm:text-xs text-white/90">
+															{
+																service.details
+																	.warranty
+															}{" "}
+															Warranty
+														</span>
+													</div>
+												)}
+												{service.details
+													.service_area && (
+													<div className="flex items-center gap-1 sm:gap-1.5 rounded-full bg-white/10 px-2 sm:px-3 py-1 sm:py-1.5">
+														<MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#B9FB4B]" />
+														<span className="text-[10px] sm:text-xs text-white/90">
+															{
+																service.details
+																	.service_area
+															}
+														</span>
+													</div>
+												)}
+											</div>
+
+											{service.details.pests_covered &&
+												service.details.pests_covered
+													.length > 0 && (
+													<div className="flex flex-wrap gap-1 sm:gap-1.5">
+														{service.details.pests_covered.map(
+															(pest) => (
+																<span
+																	key={pest}
+																	className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[10px] sm:text-xs font-medium text-white">
+																	<Bug className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#B9FB4B]" />
+																	{pest}
+																</span>
+															)
+														)}
+													</div>
+												)}
+
+											<p className="text-xs sm:text-sm text-white/80 max-w-2xl">
+												{service.description}
+											</p>
 										</div>
 									</div>
 
 									{/* Content Section */}
-									<div className="w-full">
-										<div className="overflow-y-auto p-4 sm:p-6">
+									<div className="w-full flex-1 overflow-y-auto">
+										<div className="p-4 sm:p-6">
 											<div className="grid gap-4 sm:gap-6">
 												{/* Pest Facts */}
 												{service.details.pest_facts &&
@@ -221,7 +216,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 														</h4>
 													</div>
 
-													<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+													<div className="grid grid-cols-1 gap-2">
 														{service.details.treatment_process.map(
 															(step, index) => (
 																<div
@@ -231,7 +226,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 																		{index +
 																			1}
 																	</div>
-																	<p className="text-sm text-white/90">
+																	<p className="text-xs sm:text-sm text-white/90 whitespace-normal">
 																		{step}
 																	</p>
 																</div>
@@ -247,7 +242,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 														.treatment_details
 														.length > 0 && (
 														<div className="rounded-xl bg-[#B9FB4B]/5 p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20">
-															<div className="flex items-center gap-2 mb-4">
+															<div className="flex items-center gap-2 mb-3">
 																<div className="rounded-full bg-[#B9FB4B]/20 p-1.5">
 																	<Wrench className="h-4 w-4 text-[#B9FB4B]" />
 																</div>
@@ -266,11 +261,11 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 																			key={
 																				detail.title
 																			}
-																			className="flex gap-4 rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
+																			className="flex flex-col sm:flex-row gap-3 rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
 																			{detail
 																				.image
 																				?.src && (
-																				<div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg ring-1 ring-white/10">
+																				<div className="relative h-40 sm:h-28 w-full sm:w-28 shrink-0 overflow-hidden rounded-lg ring-1 ring-white/10">
 																					<Image
 																						src={
 																							detail
@@ -285,7 +280,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 																						}
 																						fill
 																						className="object-cover"
-																						sizes="112px"
+																						sizes="(max-width: 640px) 100vw, 112px"
 																					/>
 																				</div>
 																			)}
@@ -319,7 +314,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 																Maintenance
 																Contracts
 															</h4>
-															<div className="flex flex-col gap-4">
+															<div className="flex flex-col gap-2 sm:gap-4">
 																{service.details.maintenance_contracts.map(
 																	(
 																		contract
@@ -328,17 +323,17 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 																			key={
 																				contract.title
 																			}
-																			className="flex items-start gap-3 rounded-xl bg-gradient-to-br from-[#B9FB4B]/10 to-transparent p-4 ring-1 ring-[#B9FB4B]/20 shadow-sm">
-																			<div className="mt-1 rounded-full bg-[#B9FB4B]/20 p-2 ring-1 ring-[#B9FB4B]/20 shrink-0">
-																				<FileText className="h-5 w-5 text-[#B9FB4B]" />
+																			className="flex items-start gap-2 sm:gap-3 rounded-xl bg-gradient-to-br from-[#B9FB4B]/10 to-transparent p-3 sm:p-4 ring-1 ring-[#B9FB4B]/20 shadow-sm">
+																			<div className="mt-0.5 sm:mt-1 rounded-full bg-[#B9FB4B]/20 p-1.5 sm:p-2 ring-1 ring-[#B9FB4B]/20 shrink-0">
+																				<FileText className="h-4 w-4 sm:h-5 sm:w-5 text-[#B9FB4B]" />
 																			</div>
 																			<div className="flex-1 min-w-0">
-																				<h5 className="text-base font-semibold text-white break-words">
+																				<h5 className="text-sm sm:text-base font-semibold text-white break-words">
 																					{
 																						contract.title
 																					}
 																				</h5>
-																				<p className="text-sm text-white/90 mt-1 break-words">
+																				<p className="text-xs sm:text-sm text-white/90 mt-0.5 sm:mt-1 break-words">
 																					{
 																						contract.description
 																					}
@@ -348,7 +343,7 @@ const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) => {
 																	)
 																)}
 															</div>
-															<p className="mt-3 text-xs text-white/60">
+															<p className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-white/60">
 																* Contract terms
 																and conditions
 																apply. Contact

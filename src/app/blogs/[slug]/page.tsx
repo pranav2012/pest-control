@@ -98,7 +98,7 @@ export async function generateStaticParams() {
 
 // Enable ISR with on-demand revalidation
 export const dynamic = "force-static";
-export const revalidate = 0;
+export const revalidate = false;
 
 export default async function BlogPage({ params }: any) {
 	const blog = await getBlogPost(params.slug);
