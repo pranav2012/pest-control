@@ -1,159 +1,2073 @@
 {
-  "section_title": "PEST CONTROL SERVICES",
-  "services": [
-    {
-      "title": "General Pest Control",
-      "description": "In general Pest Control Services, we offer Pest Control Services for cockroach, rat, ants and lizard. Our professional staff is trained enough to manage ants, rats, lizards, cockroaches and similar kind of pests.",
-      "image": {
-        "src": "/images/services/general.png",
-        "alt": "General Pest Control Services"
-      },
-      "details": {
-        "pests_covered": ["Cockroaches", "Rats", "Ants", "Lizards"],
-        "service_features": [
-          "Complete inspection of infested areas",
-          "Eco-friendly treatment methods",
-          "Safe for children and pets",
-          "Long-lasting protection"
-        ],
-        "treatment_process": [
-          "Initial inspection and assessment",
-          "Targeted application of pest control solutions",
-          "Preventive measures implementation",
-          "Follow-up inspection"
-        ],
-        "warranty": "3 months service warranty",
-        "service_area": "Delhi NCR"
-      }
-    },
-    {
-      "title": "Mosquitoes & Flies Control",
-      "description": "Mosquitoes and flies are the transferors of the appalling diseases like typhoid, dengue, malaria and many kinds of viral flu. That is why it is important to protect your home and office from these flies and mosquitoes.",
-      "image": {
-        "src": "/images/services/mosquito.png",
-        "alt": "mosquito pest control Services"
-      },
-      "details": {
-        "pests_covered": ["Mosquitoes", "Flies", "Gnats", "Midges"],
-        "service_features": [
-          "Advanced fogging treatment",
-          "Breeding site elimination",
-          "Residual spray application",
-          "Natural repellent solutions"
-        ],
-        "treatment_process": [
-          "Breeding site identification",
-          "Larvicide application",
-          "Adult mosquito control",
-          "Prevention recommendations"
-        ],
-        "warranty": "2 months service warranty",
-        "service_area": "Delhi NCR"
-      }
-    },
-    {
-      "title": "Termite Control",
-      "description": "We offer pre and post termite control treatment for home, offices, shops etc. With our effective termite control treatment service, you can peacefully stay without any tension of termite attack.",
-      "image": {
-        "src": "/images/services/termite.png",
-        "alt": "Best Termite Control Services in Delhi"
-      },
-      "details": {
-        "pests_covered": ["Subterranean Termites", "Drywood Termites"],
-        "service_features": [
-          "Chemical barrier treatment",
-          "Wood treatment",
-          "Colony elimination",
-          "Structural protection"
-        ],
-        "treatment_process": [
-          "Thorough inspection",
-          "Treatment plan development",
-          "Chemical application",
-          "Preventive measures"
-        ],
-        "warranty": "5 years service warranty",
-        "service_area": "Delhi NCR"
-      }
-    },
-    {
-      "title": "Bed Bug Treatment",
-      "description": "You must have experienced a major resurgence of the small, parasitic insects. They mostly found in beds. You need a bed bug control program. Our bed bug treatment products are safe for children and adults.",
-      "image": {
-        "src": "/images/services/bed-bug.png",
-        "alt": "Bed Bugs Pest Control Services in Delhi"
-      },
-      "details": {
-        "pests_covered": ["Bed Bugs", "Eggs", "Nymphs"],
-        "service_features": [
-          "Heat treatment",
-          "Chemical treatment",
-          "Mattress encasement",
-          "Preventive measures"
-        ],
-        "treatment_process": [
-          "Inspection of infested areas",
-          "Treatment application",
-          "Follow-up treatment",
-          "Prevention guidance"
-        ],
-        "warranty": "3 months service warranty",
-        "service_area": "Delhi NCR"
-      }
-    },
-    {
-      "title": "Wood Borer Treatment",
-      "description": "Wood boring insects are a range of arthropods that cause damage to wooden structures. We offer excellent wood borer solutions at the reasonable rates with high end techniques and eco-friendly solutions",
-      "image": {
-        "src": "/images/services/wood-borer.png",
-        "alt": "Wood Borer Pest Control Services in delhi Ncr"
-      },
-      "details": {
-        "pests_covered": ["Powder Post Beetles", "Furniture Beetles", "Carpenter Ants"],
-        "service_features": [
-          "Deep wood penetration treatment",
-          "Surface protection",
-          "Preventive treatment",
-          "Wood preservation"
-        ],
-        "treatment_process": [
-          "Wood inspection",
-          "Treatment selection",
-          "Application process",
-          "Preventive coating"
-        ],
-        "warranty": "2 years service warranty",
-        "service_area": "Delhi NCR"
-      }
-    },
-    {
-      "title": "Sanitization Services",
-      "description": "We have effective sanitization treatment. We provide environment-friendly, anti-bacterial and anti-viral deep cleaning and sanitization services for residential premises as well as for commercial property.",
-      "image": {
-        "src": "/images/services/sanatization.png",
-        "alt": "Sanitization Services in Delhi Ncr"
-      },
-      "details": {
-        "areas_covered": ["Homes", "Offices", "Commercial Spaces", "Vehicles"],
-        "service_features": [
-          "Hospital-grade disinfection",
-          "EPA approved chemicals",
-          "Complete surface coverage",
-          "Odor elimination"
-        ],
-        "treatment_process": [
-          "Area assessment",
-          "Surface preparation",
-          "Disinfectant application",
-          "Ventilation period"
-        ],
-        "warranty": "Single service",
-        "service_area": "Delhi NCR"
-      }
-    }
-  ],
-  "cta_button": {
-    "text": "Click here to WhatsApp Us",
-    "link": "https://api.whatsapp.com/send?phone=918882002546&"
-  }
-} 
+	"section_title": "Our Pest Control Services",
+	"services": [
+		{
+			"_key": "commercial-pest-control",
+			"title": "Commercial Pest Control",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "intro-block",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our commercial pest control service is designed to meet the unique needs of businesses and commercial spaces. We understand that maintaining a pest-free environment is crucial for your business's reputation and compliance with health regulations."
+						}
+					]
+				},
+				{
+					"_key": "why-choose-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Commercial Pest Control?"
+						}
+					]
+				},
+				{
+					"_key": "why-choose-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We offer comprehensive pest management solutions that are:"
+						}
+					]
+				},
+				{
+					"_key": "why-choose-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Customized to your specific business needs\n• Safe for employees and customers\n• Compliant with industry regulations\n• Cost-effective and efficient"
+						}
+					]
+				},
+				{
+					"_key": "approach-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Approach"
+						}
+					]
+				},
+				{
+					"_key": "approach-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective pest control:"
+						}
+					]
+				},
+				{
+					"_key": "approach-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Thorough Inspection**: We begin with a detailed assessment of your premises to identify pest entry points and breeding sites.\n\n2. **Customized Treatment Plan**: Based on our findings, we develop a tailored treatment plan that addresses your specific pest issues.\n\n3. **Safe Application**: Our trained technicians use eco-friendly products and follow strict safety protocols during treatment.\n\n4. **Preventive Measures**: We implement preventive measures to avoid future infestations.\n\n5. **Regular Monitoring**: We provide ongoing monitoring and maintenance to ensure long-term pest control."
+						}
+					]
+				},
+				{
+					"_key": "industries-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Industries We Serve"
+						}
+					]
+				},
+				{
+					"_key": "industries-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our commercial pest control services are available for various industries including:\n\n• Restaurants and Food Service\n• Hotels and Hospitality\n• Office Buildings\n• Retail Stores\n• Warehouses\n• Manufacturing Facilities\n• Healthcare Facilities\n• Educational Institutions"
+						}
+					]
+				}
+			],
+			"description": "Comprehensive pest management solutions for businesses, offices, and commercial spaces. Our integrated pest management approach ensures a pest-free environment while maintaining safety and compliance standards.",
+			"image": {
+				"src": "/images/services/commercial.png",
+				"alt": "Commercial Pest Control Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Cockroaches",
+					"Rats",
+					"Mice",
+					"Ants",
+					"Termites",
+					"Bed Bugs",
+					"Spiders",
+					"Flies"
+				],
+				"service_features": [
+					"Customized treatment plans",
+					"Regular monitoring and maintenance",
+					"Documentation and compliance reports",
+					"Emergency service availability",
+					"Safe and eco-friendly solutions"
+				],
+				"treatment_process": [
+					"Initial inspection and assessment",
+					"Custom treatment plan development",
+					"Professional application",
+					"Regular monitoring and follow-up",
+					"Preventive maintenance"
+				],
+				"warranty": "3 months service warranty",
+				"pricing": [
+					{
+						"_key": "small-office",
+						"type": "Small Office (up to 1000 sq ft)",
+						"price": "₹5,000"
+					},
+					{
+						"_key": "medium-office",
+						"type": "Medium Office (1000-5000 sq ft)",
+						"price": "₹8,000"
+					},
+					{
+						"_key": "large-office",
+						"type": "Large Office (5000+ sq ft)",
+						"price": "Custom Quote"
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Initial Inspection",
+						"description": "Thorough inspection of premises to identify pest entry points, breeding sites, and infestation levels.",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Initial Inspection Process"
+						}
+					},
+					{
+						"title": "Treatment Application",
+						"description": "Professional application of safe and effective pest control solutions using advanced equipment.",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Treatment Application Process"
+						}
+					},
+					{
+						"title": "Preventive Measures",
+						"description": "Implementation of preventive measures to avoid future infestations.",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Preventive Measures"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Basic Maintenance",
+						"description": "Quarterly pest control service with basic monitoring and treatment."
+					},
+					{
+						"title": "Standard Maintenance",
+						"description": "Monthly pest control service with detailed monitoring and preventive treatments."
+					},
+					{
+						"title": "Premium Maintenance",
+						"description": "Bi-weekly pest control service with 24/7 monitoring and emergency response."
+					}
+				]
+			}
+		},
+		{
+			"_key": "anti-wood-borer",
+			"title": "Anti Wood Borer Treatment",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "wood-borer-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our anti-wood borer treatment service provides comprehensive protection for your wooden furniture and structures. We understand that wood borers can cause significant damage to your valuable wooden assets, and our specialized treatment ensures complete elimination and long-term protection."
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Anti-Wood Borer Treatment?"
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our wood borer treatment service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Deep wood penetration treatment\n• Safe for all types of wood\n• Long-lasting protection\n• Professional application\n• Preventive measures"
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective wood borer control:"
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Thorough Inspection**: We begin with a detailed assessment of your wooden structures to identify infestation and damage.\n\n2. **Treatment Selection**: Based on the type of wood and infestation, we select the most appropriate treatment method.\n\n3. **Chemical Application**: Our trained technicians apply specialized wood preservatives and insecticides.\n\n4. **Protective Coating**: We apply a protective coating to prevent future infestations.\n\n5. **Follow-up Inspection**: Regular monitoring to ensure long-term protection."
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-types-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Types of Wood We Protect"
+						}
+					]
+				},
+				{
+					"_key": "wood-borer-types-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our treatment is effective for various types of wood including:\n\n• Teak Wood\n• Sheesham Wood\n• Pine Wood\n• Plywood\n• MDF\n• Hardwood\n• Softwood\n• Antique Furniture"
+						}
+					]
+				}
+			],
+			"description": "Professional wood borer treatment to protect your wooden furniture and structures from damage. Our advanced treatment methods ensure complete elimination of wood borers and long-term protection.",
+			"image": {
+				"src": "/images/services/wood-borer.png",
+				"alt": "Wood Borer Treatment Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Powder Post Beetles",
+					"Furniture Beetles",
+					"Carpenter Ants",
+					"Wood Borers",
+					"Death Watch Beetles",
+					"False Powder Post Beetles"
+				],
+				"service_features": [
+					"Deep wood penetration treatment",
+					"Surface protection coating",
+					"Preventive treatment",
+					"Wood preservation solutions",
+					"Safe for all wood types",
+					"Professional application",
+					"Long-lasting protection",
+					"Eco-friendly options available"
+				],
+				"treatment_process": [
+					"Thorough wood inspection",
+					"Treatment method selection",
+					"Chemical application",
+					"Preventive coating",
+					"Follow-up inspection",
+					"Quality assurance check",
+					"Documentation and reporting"
+				],
+				"warranty": "2 years service warranty",
+				"pricing": [
+					{
+						"_key": "small-furniture",
+						"type": "Small Furniture (up to 50 sq ft)",
+						"price": "₹2,000",
+						"includes": [
+							"Basic inspection",
+							"Surface treatment",
+							"1 month warranty"
+						]
+					},
+					{
+						"_key": "medium-furniture",
+						"type": "Medium Furniture (50-200 sq ft)",
+						"price": "₹3,500",
+						"includes": [
+							"Detailed inspection",
+							"Deep penetration treatment",
+							"3 months warranty"
+						]
+					},
+					{
+						"_key": "large-furniture",
+						"type": "Large Furniture/Structures (200+ sq ft)",
+						"price": "Custom Quote",
+						"includes": [
+							"Comprehensive inspection",
+							"Advanced treatment methods",
+							"6 months warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Wood Inspection",
+						"description": "Our comprehensive wood inspection process includes:\n\n1. Visual Examination: Detailed inspection of all wooden surfaces for signs of infestation\n2. Sound Testing: Tapping wooden surfaces to detect hollow areas\n3. Moisture Testing: Checking moisture levels in wood\n4. Damage Assessment: Evaluating the extent of wood borer damage\n5. Entry Point Identification: Locating potential entry points for wood borers\n6. Documentation: Creating detailed reports with photographs and measurements",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Wood Inspection Process"
+						}
+					},
+					{
+						"title": "Chemical Treatment",
+						"description": "Our chemical treatment process includes:\n\n1. Surface Preparation: Cleaning and preparing wooden surfaces\n2. Chemical Selection: Choosing appropriate wood preservatives based on wood type\n3. Application Method: Using specialized equipment for deep penetration\n4. Multiple Coats: Applying multiple layers of treatment for complete coverage\n5. Drying Time: Allowing proper drying between coats\n6. Quality Check: Verifying treatment effectiveness\n7. Safety Measures: Ensuring proper ventilation and safety protocols",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Chemical Treatment Process"
+						}
+					},
+					{
+						"title": "Protective Coating",
+						"description": "Our protective coating process includes:\n\n1. Surface Preparation: Cleaning and sanding wooden surfaces\n2. Primer Application: Applying wood primer for better adhesion\n3. Coating Selection: Choosing appropriate protective coating\n4. Application: Using professional equipment for even coverage\n5. Multiple Layers: Applying multiple coats for durability\n6. Drying and Curing: Ensuring proper drying and curing time\n7. Final Inspection: Checking for any missed spots or imperfections",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Protective Coating Application"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Annual Protection",
+						"description": "Yearly wood treatment and inspection service. Includes comprehensive inspection, treatment, and preventive measures.",
+						"price": "₹5,000/year",
+						"features": [
+							"Annual inspection",
+							"Preventive treatment",
+							"Emergency service",
+							"Priority support"
+						]
+					},
+					{
+						"title": "Biannual Protection",
+						"description": "Semi-annual wood treatment and detailed inspection service. Ideal for high-risk areas or valuable wooden structures.",
+						"price": "₹8,000/year",
+						"features": [
+							"Bi-annual inspection",
+							"Advanced treatment",
+							"24/7 emergency service",
+							"Detailed reports"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Quarterly wood treatment with comprehensive inspection and maintenance. Best for antique furniture and high-value wooden structures.",
+						"price": "₹12,000/year",
+						"features": [
+							"Quarterly inspection",
+							"Premium treatment",
+							"Priority emergency service",
+							"Comprehensive documentation"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "bed-bugs-control",
+			"title": "Bed Bugs Control",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "bed-bugs-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our bed bug control service provides comprehensive solutions to eliminate bed bugs from your living spaces. We understand the distress caused by bed bug infestations and offer effective treatment methods to ensure complete eradication."
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Bed Bug Control Service?"
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our bed bug control service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Advanced heat treatment\n• Chemical-free options available\n• Safe for humans and pets\n• Complete elimination guarantee\n• Preventive measures"
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective bed bug control:"
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Detailed Inspection**: We begin with a thorough inspection to identify bed bug hiding spots.\n\n2. **Treatment Selection**: Based on the infestation level, we choose the most effective treatment method.\n\n3. **Heat Treatment**: We use specialized equipment to raise the temperature to eliminate bed bugs.\n\n4. **Chemical Treatment**: Application of safe and effective bed bug control solutions.\n\n5. **Follow-up Service**: Regular monitoring to ensure complete elimination."
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-areas-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Areas We Treat"
+						}
+					]
+				},
+				{
+					"_key": "bed-bugs-areas-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our bed bug control service covers all areas including:\n\n• Bedrooms\n• Living Rooms\n• Hotels\n• Hostels\n• Dormitories\n• Furniture\n• Mattresses\n• Carpets and Rugs"
+						}
+					]
+				}
+			],
+			"description": "Effective bed bug control solutions using advanced treatment methods. Our comprehensive approach ensures complete elimination of bed bugs and their eggs from your living spaces.",
+			"image": {
+				"src": "/images/services/bed-bug.png",
+				"alt": "Bed Bugs Control Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Bed Bugs",
+					"Bed Bug Eggs",
+					"Nymphs",
+					"Adult Bed Bugs"
+				],
+				"service_features": [
+					"Heat treatment",
+					"Chemical treatment",
+					"Mattress encasement",
+					"Preventive measures",
+					"Safe for humans and pets",
+					"Complete elimination guarantee",
+					"Follow-up service",
+					"Documentation provided"
+				],
+				"treatment_process": [
+					"Detailed inspection",
+					"Treatment application",
+					"Follow-up treatment",
+					"Prevention guidance",
+					"Post-treatment verification",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "3 months service warranty",
+				"pricing": [
+					{
+						"_key": "1bhk",
+						"type": "1 BHK (up to 600 sq ft)",
+						"price": "₹3,500",
+						"includes": [
+							"Basic inspection",
+							"Standard treatment",
+							"1 month warranty"
+						]
+					},
+					{
+						"_key": "2bhk",
+						"type": "2 BHK (600-1200 sq ft)",
+						"price": "₹4,500",
+						"includes": [
+							"Detailed inspection",
+							"Advanced treatment",
+							"2 months warranty"
+						]
+					},
+					{
+						"_key": "3bhk",
+						"type": "3 BHK (1200+ sq ft)",
+						"price": "₹5,500",
+						"includes": [
+							"Comprehensive inspection",
+							"Premium treatment",
+							"3 months warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Heat Treatment",
+						"description": "Our heat treatment process includes:\n\n1. Room Preparation: Removing heat-sensitive items\n2. Temperature Monitoring: Setting up temperature sensors\n3. Heat Application: Using specialized equipment to raise room temperature\n4. Temperature Maintenance: Maintaining lethal temperature for bed bugs\n5. Duration Control: Ensuring proper exposure time\n6. Cooling Process: Gradual cooling of treated areas\n7. Post-Treatment Inspection: Verifying treatment effectiveness\n8. Documentation: Recording temperature and time data",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Heat Treatment Process"
+						}
+					},
+					{
+						"title": "Chemical Treatment",
+						"description": "Our chemical treatment process includes:\n\n1. Inspection: Identifying bed bug hiding spots\n2. Preparation: Covering sensitive areas and items\n3. Chemical Selection: Choosing appropriate bed bug control products\n4. Application: Using specialized equipment for thorough coverage\n5. Multiple Treatments: Applying treatments at different intervals\n6. Safety Measures: Ensuring proper ventilation and safety\n7. Follow-up: Monitoring treatment effectiveness\n8. Documentation: Recording treatment details and results",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Chemical Treatment Process"
+						}
+					},
+					{
+						"title": "Mattress Protection",
+						"description": "Our mattress protection process includes:\n\n1. Inspection: Checking mattress for bed bug presence\n2. Cleaning: Thorough cleaning of mattress\n3. Encasement Selection: Choosing appropriate bed bug proof encasement\n4. Installation: Proper installation of encasement\n5. Sealing: Ensuring complete sealing of all edges\n6. Quality Check: Verifying encasement integrity\n7. Maintenance Guide: Providing care instructions\n8. Documentation: Recording installation details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Mattress Protection"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Basic Protection",
+						"description": "Monthly inspection and treatment service. Ideal for residential properties with low risk of infestation.",
+						"price": "₹2,000/month",
+						"features": [
+							"Monthly inspection",
+							"Basic treatment",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Standard Protection",
+						"description": "Bi-weekly inspection and preventive treatment service. Recommended for hotels and residential properties.",
+						"price": "₹3,500/month",
+						"features": [
+							"Bi-weekly inspection",
+							"Advanced treatment",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Weekly inspection with immediate treatment if needed. Best for high-risk areas and luxury properties.",
+						"price": "₹5,000/month",
+						"features": [
+							"Weekly inspection",
+							"Premium treatment",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "mosquitoes-flies-control",
+			"title": "Mosquitoes & Flies Control",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "mosquito-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our mosquito and fly control service provides comprehensive solutions to protect your space from disease-carrying pests. We understand the health risks associated with these pests and offer effective treatment methods to ensure a pest-free environment."
+						}
+					]
+				},
+				{
+					"_key": "mosquito-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Mosquito & Fly Control Service?"
+						}
+					]
+				},
+				{
+					"_key": "mosquito-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "mosquito-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Advanced fogging treatment\n• Breeding site elimination\n• Safe for humans and pets\n• Long-lasting protection\n• Preventive measures"
+						}
+					]
+				},
+				{
+					"_key": "mosquito-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "mosquito-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective mosquito and fly control:"
+						}
+					]
+				},
+				{
+					"_key": "mosquito-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Breeding Site Identification**: We identify and map all potential breeding sites.\n\n2. **Treatment Application**: We apply appropriate treatments to eliminate adult pests.\n\n3. **Larvicide Application**: We treat breeding sites to prevent future infestations.\n\n4. **Preventive Measures**: We implement measures to prevent future breeding.\n\n5. **Regular Monitoring**: We provide ongoing monitoring and maintenance."
+						}
+					]
+				},
+				{
+					"_key": "mosquito-types-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Types of Pests We Control"
+						}
+					]
+				},
+				{
+					"_key": "mosquito-types-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service effectively controls various types of flying pests including:\n\n• Aedes Mosquitoes\n• Anopheles Mosquitoes\n• House Flies\n• Fruit Flies\n• Drain Flies\n• Other Flying Insects"
+						}
+					]
+				}
+			],
+			"description": "Comprehensive mosquito and fly control services to protect your space from disease-carrying pests. Our treatment methods are effective and safe for all environments.",
+			"image": {
+				"src": "/images/services/mosquito.png",
+				"alt": "Mosquito and Fly Control Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Mosquitoes",
+					"House Flies",
+					"Fruit Flies",
+					"Drain Flies",
+					"Aedes Mosquitoes",
+					"Anopheles Mosquitoes"
+				],
+				"service_features": [
+					"Fogging treatment",
+					"Larvicide application",
+					"Breeding site elimination",
+					"Residual spray application",
+					"Natural repellent solutions",
+					"Regular monitoring",
+					"Preventive measures",
+					"Documentation provided"
+				],
+				"treatment_process": [
+					"Breeding site identification",
+					"Treatment application",
+					"Preventive measures",
+					"Regular monitoring",
+					"Follow-up treatments",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "3 months service warranty",
+				"pricing": [
+					{
+						"_key": "1bhk",
+						"type": "1 BHK (up to 600 sq ft)",
+						"price": "₹2,500",
+						"includes": [
+							"Basic inspection",
+							"Standard treatment",
+							"1 month warranty"
+						]
+					},
+					{
+						"_key": "2bhk",
+						"type": "2 BHK (600-1200 sq ft)",
+						"price": "₹3,500",
+						"includes": [
+							"Detailed inspection",
+							"Advanced treatment",
+							"2 months warranty"
+						]
+					},
+					{
+						"_key": "3bhk",
+						"type": "3 BHK (1200+ sq ft)",
+						"price": "₹4,500",
+						"includes": [
+							"Comprehensive inspection",
+							"Premium treatment",
+							"3 months warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Fogging Treatment",
+						"description": "Our fogging treatment process includes:\n\n1. Area Assessment: Evaluating the treatment area\n2. Preparation: Covering sensitive items and areas\n3. Chemical Selection: Choosing appropriate fogging solution\n4. Equipment Setup: Preparing fogging equipment\n5. Application: Systematic fogging of all areas\n6. Duration Control: Ensuring proper exposure time\n7. Ventilation: Proper ventilation after treatment\n8. Safety Measures: Following safety protocols\n9. Documentation: Recording treatment details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Fogging Treatment Process"
+						}
+					},
+					{
+						"title": "Larvicide Application",
+						"description": "Our larvicide application process includes:\n\n1. Breeding Site Identification: Locating potential breeding sites\n2. Site Assessment: Evaluating breeding site conditions\n3. Larvicide Selection: Choosing appropriate larvicide\n4. Application: Using specialized equipment for application\n5. Coverage Check: Ensuring complete coverage\n6. Monitoring: Regular monitoring of treated sites\n7. Reapplication: Scheduling follow-up treatments\n8. Documentation: Recording application details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Larvicide Application"
+						}
+					},
+					{
+						"title": "Breeding Site Treatment",
+						"description": "Our breeding site treatment process includes:\n\n1. Site Survey: Comprehensive survey of potential breeding sites\n2. Risk Assessment: Evaluating infestation risk\n3. Treatment Planning: Developing treatment strategy\n4. Site Preparation: Cleaning and preparing sites\n5. Treatment Application: Applying appropriate treatments\n6. Preventive Measures: Implementing preventive solutions\n7. Monitoring: Regular monitoring of treated sites\n8. Documentation: Recording treatment details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Breeding Site Treatment"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Seasonal Protection",
+						"description": "Monthly service during mosquito season. Ideal for residential properties.",
+						"price": "₹1,500/month",
+						"features": [
+							"Monthly inspection",
+							"Basic treatment",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Year-Round Protection",
+						"description": "Bi-monthly service throughout the year. Recommended for commercial properties.",
+						"price": "₹2,500/month",
+						"features": [
+							"Bi-monthly inspection",
+							"Advanced treatment",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Monthly service with emergency fogging when needed. Best for high-risk areas.",
+						"price": "₹3,500/month",
+						"features": [
+							"Monthly inspection",
+							"Premium treatment",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "anti-termite-treatment",
+			"title": "Anti Termite Treatment",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "termite-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our anti-termite treatment service provides comprehensive protection for your property against termite damage. We understand the structural risks posed by termites and offer effective solutions to ensure long-term protection."
+						}
+					]
+				},
+				{
+					"_key": "termite-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Anti-Termite Treatment?"
+						}
+					]
+				},
+				{
+					"_key": "termite-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "termite-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Chemical barrier treatment\n• Colony elimination\n• Long-term protection\n• Safe application\n• Preventive measures"
+						}
+					]
+				},
+				{
+					"_key": "termite-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "termite-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective termite control:"
+						}
+					]
+				},
+				{
+					"_key": "termite-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Thorough Inspection**: We begin with a detailed assessment of your property.\n\n2. **Treatment Plan**: We develop a customized treatment plan based on findings.\n\n3. **Chemical Application**: We create a chemical barrier around your property.\n\n4. **Colony Treatment**: We target and eliminate termite colonies.\n\n5. **Regular Monitoring**: We provide ongoing monitoring and maintenance."
+						}
+					]
+				},
+				{
+					"_key": "termite-types-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Types of Termites We Control"
+						}
+					]
+				},
+				{
+					"_key": "termite-types-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service effectively controls various types of termites including:\n\n• Subterranean Termites\n• Drywood Termites\n• Dampwood Termites\n• Formosan Termites\n• Other Termite Species"
+						}
+					]
+				}
+			],
+			"description": "Professional termite control services to protect your property from structural damage. Our comprehensive treatment ensures complete elimination and long-term protection against termites.",
+			"image": {
+				"src": "/images/services/termite.png",
+				"alt": "Anti Termite Treatment Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Subterranean Termites",
+					"Drywood Termites",
+					"Dampwood Termites",
+					"Formosan Termites",
+					"Other Termite Species"
+				],
+				"service_features": [
+					"Chemical barrier treatment",
+					"Wood treatment",
+					"Colony elimination",
+					"Structural protection",
+					"Preventive measures",
+					"Regular monitoring",
+					"Documentation provided",
+					"Long-term protection"
+				],
+				"treatment_process": [
+					"Thorough inspection",
+					"Treatment plan development",
+					"Chemical application",
+					"Preventive measures",
+					"Regular monitoring",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "5 years service warranty",
+				"pricing": [
+					{
+						"_key": "1bhk",
+						"type": "1 BHK (up to 600 sq ft)",
+						"price": "₹4,500",
+						"includes": [
+							"Basic inspection",
+							"Standard treatment",
+							"1 year warranty"
+						]
+					},
+					{
+						"_key": "2bhk",
+						"type": "2 BHK (600-1200 sq ft)",
+						"price": "₹5,500",
+						"includes": [
+							"Detailed inspection",
+							"Advanced treatment",
+							"3 years warranty"
+						]
+					},
+					{
+						"_key": "3bhk",
+						"type": "3 BHK (1200+ sq ft)",
+						"price": "₹6,500",
+						"includes": [
+							"Comprehensive inspection",
+							"Premium treatment",
+							"5 years warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Chemical Barrier",
+						"description": "Our chemical barrier treatment process includes:\n\n1. Site Survey: Comprehensive survey of the property\n2. Soil Analysis: Testing soil conditions\n3. Chemical Selection: Choosing appropriate termiticide\n4. Trenching: Creating trenches around the property\n5. Chemical Application: Applying termiticide in trenches\n6. Soil Treatment: Treating soil beneath the structure\n7. Quality Check: Verifying barrier integrity\n8. Documentation: Recording treatment details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Chemical Barrier Treatment"
+						}
+					},
+					{
+						"title": "Wood Treatment",
+						"description": "Our wood treatment process includes:\n\n1. Wood Inspection: Checking all wooden structures\n2. Damage Assessment: Evaluating termite damage\n3. Treatment Selection: Choosing appropriate wood treatment\n4. Surface Preparation: Cleaning and preparing surfaces\n5. Application: Using specialized equipment for treatment\n6. Multiple Coats: Applying multiple treatment layers\n7. Drying Time: Ensuring proper drying between coats\n8. Quality Check: Verifying treatment effectiveness",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Wood Treatment Process"
+						}
+					},
+					{
+						"title": "Colony Treatment",
+						"description": "Our colony treatment process includes:\n\n1. Colony Location: Identifying termite colony locations\n2. Access Points: Determining treatment access points\n3. Chemical Selection: Choosing appropriate colony treatment\n4. Application: Using specialized equipment for treatment\n5. Multiple Applications: Ensuring complete colony elimination\n6. Monitoring: Regular monitoring of treated areas\n7. Follow-up: Scheduling follow-up treatments\n8. Documentation: Recording treatment details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Colony Treatment Process"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Annual Protection",
+						"description": "Yearly termite inspection and treatment service. Ideal for residential properties.",
+						"price": "₹3,000/year",
+						"features": [
+							"Annual inspection",
+							"Basic treatment",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Biannual Protection",
+						"description": "Semi-annual termite inspection and preventive treatment. Recommended for commercial properties.",
+						"price": "₹5,000/year",
+						"features": [
+							"Bi-annual inspection",
+							"Advanced treatment",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Quarterly termite inspection with immediate treatment if needed. Best for high-risk areas.",
+						"price": "₹8,000/year",
+						"features": [
+							"Quarterly inspection",
+							"Premium treatment",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "anti-termite-reticulation",
+			"title": "Anti Termite Reticulation System",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "reticulation-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our anti-termite reticulation system provides a permanent solution for termite control. This advanced system creates a continuous chemical barrier around your property, ensuring long-term protection against termite infestations."
+						}
+					]
+				},
+				{
+					"_key": "reticulation-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Reticulation System?"
+						}
+					]
+				},
+				{
+					"_key": "reticulation-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our system offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "reticulation-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Permanent chemical barrier\n• Low maintenance\n• Environmentally safe\n• Long-term protection\n• Regular monitoring"
+						}
+					]
+				},
+				{
+					"_key": "reticulation-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "System Installation Process"
+						}
+					]
+				},
+				{
+					"_key": "reticulation-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach for system installation:"
+						}
+					]
+				},
+				{
+					"_key": "reticulation-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Site Assessment**: We evaluate your property for optimal system design.\n\n2. **System Design**: We create a customized reticulation system layout.\n\n3. **Installation**: We install the pipe network and injection points.\n\n4. **Chemical Application**: We apply termite control chemicals through the system.\n\n5. **Regular Maintenance**: We provide ongoing system maintenance and monitoring."
+						}
+					]
+				},
+				{
+					"_key": "reticulation-benefits-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "System Benefits"
+						}
+					]
+				},
+				{
+					"_key": "reticulation-benefits-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our reticulation system provides several benefits:\n\n• Continuous Protection\n• Minimal Disruption\n• Cost-Effective\n• Environmentally Safe\n• Easy Maintenance\n• Long Service Life"
+						}
+					]
+				}
+			],
+			"description": "Advanced termite control system using a network of pipes to create a chemical barrier around your property. This long-term solution provides continuous protection against termite infestation.",
+			"image": {
+				"src": "/images/services/termite-reticulation.png",
+				"alt": "Anti Termite Reticulation System"
+			},
+			"details": {
+				"pests_covered": [
+					"Subterranean Termites",
+					"Drywood Termites",
+					"Other Termite Species"
+				],
+				"service_features": [
+					"Permanent chemical barrier",
+					"Low maintenance",
+					"Environmentally safe",
+					"Long-term protection",
+					"Regular monitoring system",
+					"Automated chemical application",
+					"Documentation provided",
+					"Warranty coverage"
+				],
+				"treatment_process": [
+					"Site assessment",
+					"System design",
+					"Installation",
+					"Chemical application",
+					"Regular maintenance",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "10 years service warranty",
+				"pricing": [
+					{
+						"_key": "small-property",
+						"type": "Small Property (up to 1000 sq ft)",
+						"price": "₹15,000",
+						"includes": [
+							"Basic system",
+							"Standard installation",
+							"5 years warranty"
+						]
+					},
+					{
+						"_key": "medium-property",
+						"type": "Medium Property (1000-5000 sq ft)",
+						"price": "₹25,000",
+						"includes": [
+							"Advanced system",
+							"Professional installation",
+							"7 years warranty"
+						]
+					},
+					{
+						"_key": "large-property",
+						"type": "Large Property (5000+ sq ft)",
+						"price": "Custom Quote",
+						"includes": [
+							"Premium system",
+							"Expert installation",
+							"10 years warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "System Installation",
+						"description": "Our system installation process includes:\n\n1. Site Survey: Comprehensive property survey\n2. System Design: Creating detailed system layout\n3. Material Selection: Choosing appropriate pipes and components\n4. Installation Planning: Developing installation strategy\n5. Pipe Network: Installing pipe network\n6. Injection Points: Setting up injection points\n7. System Testing: Testing system functionality\n8. Quality Check: Verifying installation quality\n9. Documentation: Recording installation details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "System Installation Process"
+						}
+					},
+					{
+						"title": "Chemical Application",
+						"description": "Our chemical application process includes:\n\n1. System Check: Verifying system functionality\n2. Chemical Selection: Choosing appropriate termiticide\n3. Solution Preparation: Preparing chemical solution\n4. Application: Using system for chemical distribution\n5. Coverage Check: Ensuring complete coverage\n6. Pressure Monitoring: Monitoring system pressure\n7. Quality Check: Verifying application effectiveness\n8. Documentation: Recording application details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Chemical Application Process"
+						}
+					},
+					{
+						"title": "System Maintenance",
+						"description": "Our system maintenance process includes:\n\n1. System Inspection: Checking all system components\n2. Pressure Testing: Testing system pressure\n3. Component Check: Inspecting pipes and injection points\n4. Chemical Level: Checking chemical levels\n5. System Cleaning: Cleaning system components\n6. Repairs: Addressing any issues found\n7. Performance Check: Verifying system performance\n8. Documentation: Recording maintenance details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "System Maintenance"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Basic Maintenance",
+						"description": "Annual system inspection and maintenance. Ideal for residential properties.",
+						"price": "₹2,000/year",
+						"features": [
+							"Annual inspection",
+							"Basic maintenance",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Standard Maintenance",
+						"description": "Semi-annual system inspection and maintenance. Recommended for commercial properties.",
+						"price": "₹3,500/year",
+						"features": [
+							"Bi-annual inspection",
+							"Advanced maintenance",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Maintenance",
+						"description": "Quarterly system inspection with immediate maintenance if needed. Best for high-risk areas.",
+						"price": "₹5,000/year",
+						"features": [
+							"Quarterly inspection",
+							"Premium maintenance",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "rat-rodent-control",
+			"title": "Rat Rodent Control",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "rat-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our rat and rodent control service provides comprehensive solutions to eliminate rodents from your property. We understand the health risks and property damage caused by rodents and offer effective treatment methods to ensure complete removal."
+						}
+					]
+				},
+				{
+					"_key": "rat-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Rodent Control Service?"
+						}
+					]
+				},
+				{
+					"_key": "rat-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "rat-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Safe baiting system\n• Entry point sealing\n• Preventive measures\n• Regular monitoring\n• Sanitation recommendations"
+						}
+					]
+				},
+				{
+					"_key": "rat-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "rat-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective rodent control:"
+						}
+					]
+				},
+				{
+					"_key": "rat-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Inspection**: We begin with a thorough inspection of your property.\n\n2. **Entry Point Identification**: We identify and seal all rodent entry points.\n\n3. **Baiting System**: We install safe and effective baiting systems.\n\n4. **Sanitation Measures**: We implement measures to prevent rodent attraction.\n\n5. **Regular Monitoring**: We provide ongoing monitoring and maintenance."
+						}
+					]
+				},
+				{
+					"_key": "rat-types-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Types of Rodents We Control"
+						}
+					]
+				},
+				{
+					"_key": "rat-types-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service effectively controls various types of rodents including:\n\n• House Rats\n• Field Rats\n• Mice\n• Bandicoots\n• Other Rodent Species"
+						}
+					]
+				}
+			],
+			"description": "Effective rodent control services to eliminate rats and mice from your property. Our comprehensive approach ensures complete removal and prevention of future infestations.",
+			"image": {
+				"src": "/images/services/rats.png",
+				"alt": "Rat and Rodent Control Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Rats",
+					"Mice",
+					"Rodents",
+					"House Rats",
+					"Field Rats",
+					"Bandicoots"
+				],
+				"service_features": [
+					"Safe baiting system",
+					"Entry point sealing",
+					"Preventive measures",
+					"Regular monitoring",
+					"Sanitation recommendations",
+					"Complete elimination",
+					"Documentation provided",
+					"Follow-up service"
+				],
+				"treatment_process": [
+					"Inspection and assessment",
+					"Entry point identification",
+					"Treatment application",
+					"Preventive measures",
+					"Follow-up monitoring",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "3 months service warranty",
+				"pricing": [
+					{
+						"_key": "1bhk",
+						"type": "1 BHK (up to 600 sq ft)",
+						"price": "₹3,000",
+						"includes": [
+							"Basic inspection",
+							"Standard treatment",
+							"1 month warranty"
+						]
+					},
+					{
+						"_key": "2bhk",
+						"type": "2 BHK (600-1200 sq ft)",
+						"price": "₹4,000",
+						"includes": [
+							"Detailed inspection",
+							"Advanced treatment",
+							"2 months warranty"
+						]
+					},
+					{
+						"_key": "3bhk",
+						"type": "3 BHK (1200+ sq ft)",
+						"price": "₹5,000",
+						"includes": [
+							"Comprehensive inspection",
+							"Premium treatment",
+							"3 months warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Entry Point Sealing",
+						"description": "Our entry point sealing process includes:\n\n1. Inspection: Identifying all potential entry points\n2. Damage Assessment: Evaluating existing damage\n3. Material Selection: Choosing appropriate sealing materials\n4. Surface Preparation: Cleaning and preparing surfaces\n5. Sealing Application: Applying sealants and barriers\n6. Multiple Layers: Applying multiple sealing layers\n7. Quality Check: Verifying seal integrity\n8. Documentation: Recording sealing details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Entry Point Sealing Process"
+						}
+					},
+					{
+						"title": "Baiting System",
+						"description": "Our baiting system process includes:\n\n1. Site Survey: Identifying rodent activity areas\n2. Bait Selection: Choosing appropriate bait types\n3. Station Placement: Strategic placement of bait stations\n4. Installation: Setting up tamper-proof stations\n5. Bait Application: Placing baits in stations\n6. Monitoring: Regular monitoring of stations\n7. Bait Replacement: Scheduling bait replacements\n8. Documentation: Recording baiting details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Baiting System Installation"
+						}
+					},
+					{
+						"title": "Sanitation Measures",
+						"description": "Our sanitation measures process includes:\n\n1. Site Assessment: Evaluating sanitation needs\n2. Problem Areas: Identifying sanitation issues\n3. Cleaning Plan: Developing cleaning strategy\n4. Waste Management: Implementing proper waste disposal\n5. Storage Solutions: Improving storage practices\n6. Maintenance: Establishing cleaning schedules\n7. Monitoring: Regular sanitation checks\n8. Documentation: Recording sanitation details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Sanitation Measures"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Basic Protection",
+						"description": "Monthly inspection and bait replacement service. Ideal for residential properties.",
+						"price": "₹1,500/month",
+						"features": [
+							"Monthly inspection",
+							"Basic treatment",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Standard Protection",
+						"description": "Bi-weekly inspection and preventive measures. Recommended for commercial properties.",
+						"price": "₹2,500/month",
+						"features": [
+							"Bi-weekly inspection",
+							"Advanced treatment",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Weekly inspection with immediate action if needed. Best for high-risk areas.",
+						"price": "₹3,500/month",
+						"features": [
+							"Weekly inspection",
+							"Premium treatment",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "household-pest-control",
+			"title": "Household Pest Control",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "household-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our household pest control service provides comprehensive solutions to protect your home from various pests. We understand the importance of a pest-free living environment and offer safe and effective treatments for your family's comfort."
+						}
+					]
+				},
+				{
+					"_key": "household-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Household Pest Control?"
+						}
+					]
+				},
+				{
+					"_key": "household-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "household-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• Safe for children and pets\n• Eco-friendly solutions\n• Regular maintenance\n• Preventive measures\n• Emergency service"
+						}
+					]
+				},
+				{
+					"_key": "household-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "household-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective pest control:"
+						}
+					]
+				},
+				{
+					"_key": "household-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Inspection**: We begin with a thorough inspection of your home.\n\n2. **Treatment Application**: We apply appropriate treatments for identified pests.\n\n3. **Preventive Measures**: We implement measures to prevent future infestations.\n\n4. **Follow-up Service**: We provide regular maintenance and monitoring.\n\n5. **Emergency Response**: We offer quick response for urgent pest issues."
+						}
+					]
+				},
+				{
+					"_key": "household-pests-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Common Household Pests We Control"
+						}
+					]
+				},
+				{
+					"_key": "household-pests-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service effectively controls various household pests including:\n\n• Cockroaches\n• Ants\n• Spiders\n• Silverfish\n• Lizards\n• Other Common Pests"
+						}
+					]
+				}
+			],
+			"description": "Complete pest control solutions for homes, protecting your family from various pests. Our safe and effective treatments ensure a pest-free living environment.",
+			"image": {
+				"src": "/images/services/household.png",
+				"alt": "Household Pest Control Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Cockroaches",
+					"Ants",
+					"Spiders",
+					"Silverfish",
+					"Lizards",
+					"Other Household Pests",
+					"Bed Bugs",
+					"Flies"
+				],
+				"service_features": [
+					"Safe for children and pets",
+					"Eco-friendly solutions",
+					"Regular maintenance",
+					"Preventive measures",
+					"Emergency service",
+					"Complete elimination",
+					"Documentation provided",
+					"Follow-up service"
+				],
+				"treatment_process": [
+					"Thorough inspection",
+					"Treatment application",
+					"Preventive measures",
+					"Follow-up service",
+					"Maintenance schedule",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "3 months service warranty",
+				"pricing": [
+					{
+						"_key": "1bhk",
+						"type": "1 BHK (up to 600 sq ft)",
+						"price": "₹2,500",
+						"includes": [
+							"Basic inspection",
+							"Standard treatment",
+							"1 month warranty"
+						]
+					},
+					{
+						"_key": "2bhk",
+						"type": "2 BHK (600-1200 sq ft)",
+						"price": "₹3,500",
+						"includes": [
+							"Detailed inspection",
+							"Advanced treatment",
+							"2 months warranty"
+						]
+					},
+					{
+						"_key": "3bhk",
+						"type": "3 BHK (1200+ sq ft)",
+						"price": "₹4,500",
+						"includes": [
+							"Comprehensive inspection",
+							"Premium treatment",
+							"3 months warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "General Pest Treatment",
+						"description": "Our general pest treatment process includes:\n\n1. Inspection: Comprehensive property inspection\n2. Pest Identification: Identifying pest types\n3. Treatment Selection: Choosing appropriate treatments\n4. Preparation: Covering sensitive areas\n5. Application: Using specialized equipment\n6. Multiple Treatments: Applying treatments as needed\n7. Safety Measures: Following safety protocols\n8. Documentation: Recording treatment details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "General Pest Treatment"
+						}
+					},
+					{
+						"title": "Targeted Treatment",
+						"description": "Our targeted treatment process includes:\n\n1. Problem Assessment: Identifying specific pest issues\n2. Treatment Planning: Developing targeted strategy\n3. Chemical Selection: Choosing specific treatments\n4. Application: Using precise application methods\n5. Multiple Applications: Ensuring complete coverage\n6. Monitoring: Regular effectiveness checks\n7. Follow-up: Scheduling follow-up treatments\n8. Documentation: Recording treatment details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Targeted Treatment"
+						}
+					},
+					{
+						"title": "Preventive Treatment",
+						"description": "Our preventive treatment process includes:\n\n1. Risk Assessment: Evaluating potential risks\n2. Prevention Planning: Developing prevention strategy\n3. Treatment Selection: Choosing preventive solutions\n4. Application: Using appropriate application methods\n5. Barrier Creation: Establishing preventive barriers\n6. Monitoring: Regular effectiveness checks\n7. Maintenance: Scheduling regular treatments\n8. Documentation: Recording prevention details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Preventive Treatment"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Basic Protection",
+						"description": "Quarterly pest control service. Ideal for residential properties.",
+						"price": "₹1,500/quarter",
+						"features": [
+							"Quarterly inspection",
+							"Basic treatment",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Standard Protection",
+						"description": "Bi-monthly pest control service. Recommended for commercial properties.",
+						"price": "₹2,500/quarter",
+						"features": [
+							"Bi-monthly inspection",
+							"Advanced treatment",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Monthly pest control service with emergency response. Best for high-risk areas.",
+						"price": "₹3,500/quarter",
+						"features": [
+							"Monthly inspection",
+							"Premium treatment",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		},
+		{
+			"_key": "herbal-pest-control",
+			"title": "Herbal Pest Control",
+			"date": "2024-03-20",
+			"about_service": [
+				{
+					"_key": "herbal-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our herbal pest control service provides natural and eco-friendly solutions to protect your space from pests. We understand the importance of chemical-free pest control and offer effective treatments that are safe for your family and the environment."
+						}
+					]
+				},
+				{
+					"_key": "herbal-why-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Why Choose Our Herbal Pest Control?"
+						}
+					]
+				},
+				{
+					"_key": "herbal-why-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service offers several advantages:"
+						}
+					]
+				},
+				{
+					"_key": "herbal-why-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "• 100% natural ingredients\n• Safe for children and pets\n• No chemical residues\n• Pleasant aroma\n• Environmentally friendly"
+						}
+					]
+				},
+				{
+					"_key": "herbal-process-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our Treatment Process"
+						}
+					]
+				},
+				{
+					"_key": "herbal-process-intro",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "We follow a systematic approach to ensure effective herbal pest control:"
+						}
+					]
+				},
+				{
+					"_key": "herbal-process-steps",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "1. **Inspection**: We begin with a thorough inspection of your space.\n\n2. **Natural Treatment**: We apply herbal pest control solutions.\n\n3. **Preventive Measures**: We implement natural preventive measures.\n\n4. **Follow-up Service**: We provide regular maintenance and monitoring.\n\n5. **Natural Repellents**: We install natural pest repellents in key areas."
+						}
+					]
+				},
+				{
+					"_key": "herbal-ingredients-title",
+					"_type": "block",
+					"style": "h2",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Natural Ingredients We Use"
+						}
+					]
+				},
+				{
+					"_key": "herbal-ingredients-list",
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Our service uses various natural ingredients including:\n\n• Neem Oil\n• Citronella\n• Eucalyptus\n• Peppermint\n• Lavender\n• Other Natural Extracts"
+						}
+					]
+				}
+			],
+			"description": "Natural and eco-friendly pest control solutions using herbal products. Our treatments are safe for humans, pets, and the environment while effectively controlling pests.",
+			"image": {
+				"src": "/images/services/herbal.png",
+				"alt": "Herbal Pest Control Services"
+			},
+			"details": {
+				"pests_covered": [
+					"Cockroaches",
+					"Ants",
+					"Spiders",
+					"Lizards",
+					"Other Household Pests",
+					"Mosquitoes",
+					"Flies"
+				],
+				"service_features": [
+					"100% natural ingredients",
+					"Safe for children and pets",
+					"No chemical residues",
+					"Pleasant aroma",
+					"Environmentally friendly",
+					"Regular maintenance",
+					"Documentation provided",
+					"Follow-up service"
+				],
+				"treatment_process": [
+					"Inspection",
+					"Natural treatment application",
+					"Preventive measures",
+					"Follow-up service",
+					"Maintenance schedule",
+					"Quality assurance",
+					"Documentation"
+				],
+				"warranty": "2 months service warranty",
+				"pricing": [
+					{
+						"_key": "1bhk",
+						"type": "1 BHK (up to 600 sq ft)",
+						"price": "₹3,000",
+						"includes": [
+							"Basic inspection",
+							"Standard treatment",
+							"1 month warranty"
+						]
+					},
+					{
+						"_key": "2bhk",
+						"type": "2 BHK (600-1200 sq ft)",
+						"price": "₹4,000",
+						"includes": [
+							"Detailed inspection",
+							"Advanced treatment",
+							"2 months warranty"
+						]
+					},
+					{
+						"_key": "3bhk",
+						"type": "3 BHK (1200+ sq ft)",
+						"price": "₹5,000",
+						"includes": [
+							"Comprehensive inspection",
+							"Premium treatment",
+							"3 months warranty"
+						]
+					}
+				],
+				"treatment_details": [
+					{
+						"title": "Herbal Spray Application",
+						"description": "Our herbal spray application process includes:\n\n1. Ingredient Selection: Choosing appropriate herbs and oils\n2. Solution Preparation: Preparing herbal solutions\n3. Area Assessment: Evaluating treatment areas\n4. Application: Using specialized spray equipment\n5. Multiple Applications: Ensuring complete coverage\n6. Drying Time: Allowing proper drying\n7. Effectiveness Check: Verifying treatment results\n8. Documentation: Recording application details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Herbal Spray Application"
+						}
+					},
+					{
+						"title": "Natural Repellent Installation",
+						"description": "Our natural repellent installation process includes:\n\n1. Site Survey: Identifying key installation points\n2. Repellent Selection: Choosing appropriate repellents\n3. Installation Planning: Developing installation strategy\n4. Placement: Strategic placement of repellents\n5. Installation: Setting up repellent devices\n6. Testing: Verifying repellent effectiveness\n7. Maintenance: Scheduling regular checks\n8. Documentation: Recording installation details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Natural Repellent Installation"
+						}
+					},
+					{
+						"title": "Preventive Measures",
+						"description": "Our preventive measures process includes:\n\n1. Risk Assessment: Evaluating potential risks\n2. Prevention Planning: Developing prevention strategy\n3. Solution Selection: Choosing natural preventive solutions\n4. Implementation: Applying preventive measures\n5. Barrier Creation: Establishing natural barriers\n6. Monitoring: Regular effectiveness checks\n7. Maintenance: Scheduling regular treatments\n8. Documentation: Recording prevention details",
+						"image": {
+							"src": "/images/image.png",
+							"alt": "Preventive Measures"
+						}
+					}
+				],
+				"maintenance_contracts": [
+					{
+						"title": "Basic Protection",
+						"description": "Quarterly herbal pest control service. Ideal for residential properties.",
+						"price": "₹2,000/quarter",
+						"features": [
+							"Quarterly inspection",
+							"Basic treatment",
+							"Emergency service",
+							"Basic reporting"
+						]
+					},
+					{
+						"title": "Standard Protection",
+						"description": "Bi-monthly herbal pest control service. Recommended for commercial properties.",
+						"price": "₹3,000/quarter",
+						"features": [
+							"Bi-monthly inspection",
+							"Advanced treatment",
+							"Priority emergency service",
+							"Detailed reporting"
+						]
+					},
+					{
+						"title": "Premium Protection",
+						"description": "Monthly herbal pest control service with emergency response. Best for high-risk areas.",
+						"price": "₹4,000/quarter",
+						"features": [
+							"Monthly inspection",
+							"Premium treatment",
+							"24/7 emergency service",
+							"Comprehensive reporting"
+						]
+					}
+				]
+			}
+		}
+	],
+	"cta_button": {
+		"text": "Get Free Consultation",
+		"link": "/contact"
+	}
+}

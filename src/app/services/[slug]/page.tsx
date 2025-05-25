@@ -15,8 +15,10 @@ import {
 	IndianRupee,
 	ChevronRight,
 	ArrowLeft,
+	Calendar,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/Services";
+import { PortableText } from "@portabletext/react";
 
 // Enable ISR with on-demand revalidation
 export const dynamic = "force-static";
@@ -71,6 +73,22 @@ export default async function ServicePage({ params }: any) {
 						<p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/80 max-w-2xl">
 							{service.description}
 						</p>
+						{service.date && (
+							<div className="mt-4 flex items-center gap-2 text-white/60">
+								<Calendar className="h-4 w-4" />
+								<span className="text-sm">
+									Last updated:{" "}
+									{new Date(service.date).toLocaleDateString(
+										"en-US",
+										{
+											year: "numeric",
+											month: "long",
+											day: "numeric",
+										}
+									)}
+								</span>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
@@ -80,6 +98,110 @@ export default async function ServicePage({ params }: any) {
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
 					{/* Main Content */}
 					<div className="lg:col-span-2 space-y-6 sm:space-y-8">
+						{/* About Service */}
+						{service.about_service &&
+							service.about_service.length > 0 && (
+								<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+									<div className="flex items-center gap-3 mb-4 sm:mb-6">
+										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
+											<FileText className="h-5 w-5 text-[#B9FB4B]" />
+										</div>
+										<h2 className="text-lg sm:text-xl font-semibold text-white">
+											About This Service
+										</h2>
+									</div>
+									<div className="prose prose-invert max-w-none">
+										<PortableText
+											value={service.about_service}
+											components={{
+												block: {
+													h2: ({ children }) => (
+														<h2 className="text-xl font-bold text-white mt-6 mb-3">
+															{children}
+														</h2>
+													),
+													h3: ({ children }) => (
+														<h3 className="text-lg font-bold text-white mt-4 mb-2">
+															{children}
+														</h3>
+													),
+													normal: ({ children }) => (
+														<p className="text-white/90 mb-4 leading-relaxed">
+															{children}
+														</p>
+													),
+													blockquote: ({
+														children,
+													}) => (
+														<blockquote className="border-l-4 border-[#B9FB4B] pl-4 italic text-white/80 my-4 bg-white/5 p-4 rounded-lg">
+															{children}
+														</blockquote>
+													),
+												},
+												marks: {
+													strong: ({ children }) => (
+														<strong className="font-bold text-white">
+															{children}
+														</strong>
+													),
+													em: ({ children }) => (
+														<em className="italic text-white/90">
+															{children}
+														</em>
+													),
+													code: ({ children }) => (
+														<code className="bg-white/10 px-1.5 py-0.5 rounded text-[#B9FB4B] font-mono text-sm">
+															{children}
+														</code>
+													),
+												},
+												list: {
+													bullet: ({ children }) => (
+														<ul className="list-disc list-inside space-y-2 text-white/90 mb-4">
+															{children}
+														</ul>
+													),
+													number: ({ children }) => (
+														<ol className="list-decimal list-inside space-y-2 text-white/90 mb-4">
+															{children}
+														</ol>
+													),
+												},
+												types: {
+													image: ({ value }) => (
+														<div className="my-6">
+															<Image
+																src={
+																	value.src
+																		?.asset
+																		?.url ||
+																	value.asset
+																		?.url
+																}
+																alt={
+																	value.alt ||
+																	""
+																}
+																width={800}
+																height={400}
+																className="rounded-lg ring-1 ring-white/10"
+															/>
+															{value.caption && (
+																<p className="text-sm text-white/60 mt-2 text-center">
+																	{
+																		value.caption
+																	}
+																</p>
+															)}
+														</div>
+													),
+												},
+											}}
+										/>
+									</div>
+								</div>
+							)}
+
 						{/* Service Features */}
 						<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
 							<div className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -108,34 +230,6 @@ export default async function ServicePage({ params }: any) {
 							</div>
 						</div>
 
-						{/* Treatment Process */}
-						<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
-							<div className="flex items-center gap-3 mb-4 sm:mb-6">
-								<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-									<ClipboardList className="h-5 w-5 text-[#B9FB4B]" />
-								</div>
-								<h2 className="text-lg sm:text-xl font-semibold text-white">
-									Treatment Process
-								</h2>
-							</div>
-							<div className="space-y-3 sm:space-y-4">
-								{service.details.treatment_process.map(
-									(step: string, index: number) => (
-										<div
-											key={step}
-											className="flex items-start gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 ring-1 ring-white/10">
-											<div className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-[#B9FB4B]/10 text-sm font-medium text-[#B9FB4B]">
-												{index + 1}
-											</div>
-											<p className="text-sm text-white/90">
-												{step}
-											</p>
-										</div>
-									)
-								)}
-							</div>
-						</div>
-
 						{/* Treatment Details */}
 						{service.details.treatment_details &&
 							service.details.treatment_details.length > 0 && (
@@ -154,24 +248,38 @@ export default async function ServicePage({ params }: any) {
 												<div
 													key={detail.title}
 													className="flex flex-col sm:flex-row gap-4 sm:gap-6 rounded-xl bg-white/5 p-4 sm:p-6 ring-1 ring-white/10">
-													{detail.image?.src && (
-														<div className="relative h-48 sm:h-64 w-full sm:w-64 shrink-0 overflow-hidden rounded-xl ring-1 ring-white/10">
-															<Image
-																src={
-																	detail.image
-																		.src
-																}
-																alt={
-																	detail.image
-																		.alt ||
-																	detail.title
-																}
-																fill
-																className="object-cover"
-																sizes="(max-width: 640px) 100vw, 256px"
-															/>
-														</div>
-													)}
+													{detail.image &&
+														detail.image.src &&
+														detail.image.src.startsWith(
+															"http"
+														) && (
+															<div className="relative h-48 sm:h-64 w-full sm:w-64 shrink-0 overflow-hidden rounded-xl ring-1 ring-white/10">
+																<Image
+																	src={
+																		detail
+																			.image
+																			.src
+																	}
+																	alt={
+																		detail
+																			.image
+																			.alt ||
+																		detail.title
+																	}
+																	fill
+																	className="object-cover"
+																	sizes="(max-width: 640px) 100vw, 256px"
+																	onError={(
+																		e
+																	) => {
+																		const target =
+																			e.target as HTMLImageElement;
+																		target.style.display =
+																			"none";
+																	}}
+																/>
+															</div>
+														)}
 													<div className="flex-1 min-w-0">
 														<h3 className="text-base sm:text-lg font-medium text-[#B9FB4B] mb-2">
 															{detail.title}
@@ -227,12 +335,12 @@ export default async function ServicePage({ params }: any) {
 					{/* Sidebar */}
 					<div className="space-y-6 sm:space-y-8">
 						{/* Service Info Card */}
-						<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
-							<h2 className="text-lg font-semibold text-white mb-3 sm:mb-4">
-								Service Information
-							</h2>
-							<div className="space-y-3 sm:space-y-4">
-								{service.details.warranty && (
+						{service.details.warranty && (
+							<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+								<h2 className="text-lg font-semibold text-white mb-3 sm:mb-4">
+									Service Information
+								</h2>
+								<div className="space-y-3 sm:space-y-4">
 									<div className="flex items-center gap-3">
 										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
 											<Shield className="h-4 w-4 text-[#B9FB4B]" />
@@ -246,24 +354,9 @@ export default async function ServicePage({ params }: any) {
 											</p>
 										</div>
 									</div>
-								)}
-								{service.details.service_area && (
-									<div className="flex items-center gap-3">
-										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-											<MapPin className="h-4 w-4 text-[#B9FB4B]" />
-										</div>
-										<div>
-											<p className="text-sm font-medium text-white/90">
-												Service Area
-											</p>
-											<p className="text-sm text-white/60">
-												{service.details.service_area}
-											</p>
-										</div>
-									</div>
-								)}
+								</div>
 							</div>
-						</div>
+						)}
 
 						{/* Pests Covered */}
 						{service.details.pests_covered &&

@@ -3,8 +3,19 @@ import { fetchWithCache } from './cache';
 // Define types for better type safety
 export type Service = {
   _id: string;
+  _key: string;
   title: string;
   slug: string;
+  date?: string;
+  about_service?: Array<{
+    _key: string;
+    _type: string;
+    style: string;
+    children: Array<{
+      _type: string;
+      text: string;
+    }>;
+  }>;
   description: string;
   image: {
     src: string;
@@ -30,11 +41,15 @@ export type Service = {
     maintenance_contracts?: Array<{
       title: string;
       description: string;
+      price?: string;
+      features?: string[];
     }>;
     service_features: string[];
     pricing?: Array<{
+      _key: string;
       type: string;
       price: string;
+      includes?: string[];
     }>;
   };
 };
@@ -59,11 +74,14 @@ export type Page = {
 };
 
 export const servicesQuery = `*[_type == "services"][0].services[] {
+  _key,
   title,
   "slug": slug.current,
+  date,
+  about_service,
   description,
   "image": {
-    "src": image.src.asset->url,
+    "src": image.src,
     "alt": image.alt
   },
   details
@@ -105,14 +123,50 @@ export async function getPage(slug: string): Promise<Page | null> {
 
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
   const query = `*[_type == "services"][0].services[slug.current == $slug][0] {
+    _key,
     title,
     "slug": slug.current,
+    date,
+    about_service[] {
+      ...,
+      _type == "image" => {
+        ...,
+        "src": {
+          "asset": asset->
+        }
+      }
+    },
     description,
     "image": {
       "src": image.src.asset->url,
       "alt": image.alt
     },
-    details
+    details {
+      pests_covered,
+      service_features,
+      treatment_process,
+      warranty,
+      pricing[] {
+        _key,
+        type,
+        price,
+        includes
+      },
+      treatment_details[] {
+        title,
+        description,
+        image {
+          "src": asset->url,
+          alt
+        }
+      },
+      maintenance_contracts[] {
+        title,
+        description,
+        price,
+        features
+      }
+    }
   }`;
   return fetchWithCache<Service | null>(query, { slug });
 }

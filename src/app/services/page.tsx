@@ -23,6 +23,7 @@ export default async function ServicesPage() {
 									alt={service.image.alt}
 									fill
 									className="object-cover transition-transform duration-300 group-hover:scale-105"
+									sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 							</div>

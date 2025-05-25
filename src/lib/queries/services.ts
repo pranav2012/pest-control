@@ -4,8 +4,19 @@ export const getServicesData = groq`
   *[_type == "services"][0] {
     section_title,
     services[] {
+      _key,
       title,
       "slug": slug.current,
+      date,
+      about_service[] {
+        ...,
+        _type == "image" => {
+          ...,
+          "src": {
+            "asset": asset->
+          }
+        }
+      },
       description,
       image {
         "src": src.asset->url,
@@ -13,18 +24,14 @@ export const getServicesData = groq`
       },
       details {
         pests_covered,
-        areas_covered,
         service_features,
         treatment_process,
         warranty,
-        service_area,
-        pest_facts[] {
-          title,
-          content
-        },
         pricing[] {
+          _key,
           type,
-          price
+          price,
+          includes
         },
         treatment_details[] {
           title,
@@ -36,7 +43,9 @@ export const getServicesData = groq`
         },
         maintenance_contracts[] {
           title,
-          description
+          description,
+          price,
+          features
         }
       }
     },

@@ -31,6 +31,71 @@ export default {
                             },
                         },
                         {
+                            name: 'date',
+                            title: 'Service Date',
+                            type: 'date',
+                            description: 'When this service was added or last updated',
+                        },
+                        {
+                            name: 'about_service',
+                            title: 'About Service',
+                            type: 'array',
+                            of: [
+                                {
+                                    type: 'block',
+                                    styles: [
+                                        { title: 'Normal', value: 'normal' },
+                                        { title: 'H2', value: 'h2' },
+                                        { title: 'H3', value: 'h3' },
+                                        { title: 'H4', value: 'h4' },
+                                        { title: 'Quote', value: 'blockquote' }
+                                    ],
+                                    marks: {
+                                        decorators: [
+                                            { title: 'Strong', value: 'strong' },
+                                            { title: 'Emphasis', value: 'em' },
+                                            { title: 'Code', value: 'code' },
+                                            { title: 'Underline', value: 'underline' },
+                                            { title: 'Strike', value: 'strike-through' }
+                                        ],
+                                        annotations: [
+                                            {
+                                                name: 'link',
+                                                type: 'object',
+                                                title: 'Link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        title: 'URL'
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    type: 'image',
+                                    options: {
+                                        hotspot: true
+                                    },
+                                    fields: [
+                                        {
+                                            name: 'alt',
+                                            type: 'string',
+                                            title: 'Alternative text',
+                                            description: 'Important for SEO and accessibility.'
+                                        },
+                                        {
+                                            name: 'caption',
+                                            type: 'string',
+                                            title: 'Caption'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             name: 'description',
                             title: 'Service Description',
                             type: 'text',
@@ -69,12 +134,6 @@ export default {
                                 {
                                     name: 'service_features',
                                     title: 'Service Features',
-                                    type: 'array',
-                                    of: [{ type: 'string' }],
-                                },
-                                {
-                                    name: 'treatment_process',
-                                    title: 'Treatment Process',
                                     type: 'array',
                                     of: [{ type: 'string' }],
                                 },
