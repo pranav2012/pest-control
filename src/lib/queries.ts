@@ -58,16 +58,20 @@ export type Page = {
   };
 };
 
-export const servicesQuery = `*[_type == "service"] | order(order asc) {
-  _id,
+export const servicesQuery = `*[_type == "services"][0].services[] {
   title,
   "slug": slug.current,
   description,
   "image": {
-    "src": image.asset->url,
+    "src": image.src.asset->url,
     "alt": image.alt
   },
   details
+}`;
+
+export const navigationServicesQuery = `*[_type == "services"][0].services[] {
+  title,
+  "slug": slug.current
 }`;
 
 export async function getServices(): Promise<Service[]> {
@@ -100,16 +104,19 @@ export async function getPage(slug: string): Promise<Page | null> {
 }
 
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
-  const query = `*[_type == "service" && slug.current == $slug][0] {
-    _id,
+  const query = `*[_type == "services"][0].services[slug.current == $slug][0] {
     title,
     "slug": slug.current,
     description,
     "image": {
-      "src": image.asset->url,
+      "src": image.src.asset->url,
       "alt": image.alt
     },
     details
   }`;
   return fetchWithCache<Service | null>(query, { slug });
+}
+
+export async function getNavigationServices(): Promise<Array<{ title: string; slug: string }>> {
+  return fetchWithCache<Array<{ title: string; slug: string }>>(navigationServicesQuery);
 } 

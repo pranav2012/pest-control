@@ -42,6 +42,7 @@ export interface ServiceDetails {
 
 export interface Service {
     title: string
+    slug: string
     description: string
     image: ServiceImage
     details: ServiceDetails

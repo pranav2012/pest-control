@@ -5,6 +5,7 @@ export const getServicesData = groq`
     section_title,
     services[] {
       title,
+      "slug": slug.current,
       description,
       image {
         "src": src.asset->url,

@@ -7,6 +7,7 @@ import Script from "next/script";
 import ClientLayout from "@/components/ClientLayout";
 import { QueryProvider } from "@/providers/query";
 import { ThemeProvider } from "@/providers/theme";
+import { getServices } from "@/lib/queries";
 import "@/styles/globals.css";
 import type { ChildrenProps } from "@/types";
 
@@ -83,7 +84,14 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({ children }: ChildrenProps) {
+export default async function RootLayout({ children }: ChildrenProps) {
+	// Fetch services data for the header
+	const services = await getServices();
+	const headerServices = services.map((service) => ({
+		title: service.title,
+		slug: service.slug,
+	}));
+
 	return (
 		<html lang="en" suppressHydrationWarning className="overflow-x-hidden">
 			<head>
@@ -106,7 +114,9 @@ export default function RootLayout({ children }: ChildrenProps) {
 					defaultTheme="system"
 					enableSystem>
 					<QueryProvider>
-						<ClientLayout>{children}</ClientLayout>
+						<ClientLayout services={headerServices}>
+							{children}
+						</ClientLayout>
 						<Toaster
 							position="bottom-right"
 							toastOptions={{

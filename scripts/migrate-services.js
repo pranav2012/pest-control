@@ -91,6 +91,10 @@ async function migrateServices() {
 			services: servicesWithImages.map((service, index) => ({
 				_key: `service-${index}`,
 				title: service.title,
+				slug: {
+					_type: "slug",
+					current: service.title.toLowerCase().replace(/\s+/g, "-"),
+				},
 				description: service.description,
 				image: service.image,
 				details: {

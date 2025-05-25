@@ -21,7 +21,37 @@
 			},
 			{
 				"title": "Services",
-				"link": "/#services"
+				"link": "/#services",
+				"submenu": [
+					{
+						"title": "General Pest Control Services",
+						"link": "/general-pest-control-services/"
+					},
+					{
+						"title": "Termite Control Services",
+						"link": "/best-termite-control-services-in-delhi/"
+					},
+					{
+						"title": "Post Construction Termite Control",
+						"link": "/post-construction-termite-control/"
+					},
+					{
+						"title": "Bed Bugs Pest Control Services",
+						"link": "/bed-bugs-pest-control-services-in-delhi/"
+					},
+					{
+						"title": "Mosquito Pest Control Services",
+						"link": "/mosquito-pest-control-services/"
+					},
+					{
+						"title": "Wood Borer Pest Control Services",
+						"link": "/wood-borer-pest-control-services-in-delhi-ncr/"
+					},
+					{
+						"title": "Sanitization Services",
+						"link": "/sanitization-services-in-delhi-ncr/"
+					}
+				]
 			},
 			{
 				"title": "Locate Us",

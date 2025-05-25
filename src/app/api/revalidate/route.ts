@@ -1,5 +1,6 @@
 import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
+import { getServices } from '@/lib/queries';
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,6 +21,12 @@ export async function POST(request: NextRequest) {
     revalidatePath('/blogs');
     revalidatePath('/services');
     revalidatePath('/payment');
+
+    // Revalidate individual service pages
+    const services = await getServices();
+    for (const service of services) {
+      revalidatePath(`/services/${service.slug}`);
+    }
 
     return NextResponse.json({
       revalidated: true,

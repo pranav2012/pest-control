@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Service } from "@/types/services";
 import { useState } from "react";
-import ServiceModal from "./ServiceModal";
 
 export const WhatsAppIcon = ({
 	className = "h-4 w-4",
@@ -20,11 +19,9 @@ export const WhatsAppIcon = ({
 const ServiceCard = ({
 	service,
 	index,
-	onClick,
 }: {
 	service: Service;
 	index: number;
-	onClick: () => void;
 }) => {
 	const whatsappMessage = encodeURIComponent(
 		`Hi, I am interested in your ${service.title.toLowerCase()} services. Please provide more information.`
@@ -32,89 +29,71 @@ const ServiceCard = ({
 	const fullWhatsappLink = `https://wa.me/+918882002546?text=${whatsappMessage}`;
 
 	return (
-		<motion.div
-			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5, delay: index * 0.2 }}
-			viewport={{ once: true }}
-			className="relative flex flex-col bg-gray-900/80 rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full border border-[#B9FB4B]/20">
-			{/* Image Container */}
-			<div className="relative h-48 overflow-hidden sm:h-56">
-				<Image
-					src={service.image.src}
-					alt={service.image.alt}
-					fill
-					className="object-cover transition-transform duration-300 group-hover:scale-105"
-				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-			</div>
-
-			{/* Content Container */}
-			<div className="relative space-y-4 p-5">
-				{/* Title */}
-				<h3 className="text-xl font-semibold text-white">
-					{service.title}
-				</h3>
-
-				{/* Description */}
-				<p className="text-sm leading-relaxed text-gray-300">
-					{service.description}
-				</p>
-
-				{/* Tags */}
-				<div className="flex flex-wrap gap-2">
-					{(
-						service.details.pests_covered ||
-						service.details.areas_covered
-					)
-						?.slice(0, 3)
-						.map((item) => (
-							<span
-								key={item}
-								className="relative inline-flex items-center rounded-lg bg-[#B9FB4B]/10 px-3 py-1 text-xs font-medium text-[#B9FB4B] ring-1 ring-[#B9FB4B]/20">
-								{item}
-							</span>
-						))}
+		<div className="relative flex flex-col bg-gray-900/80 rounded-2xl p-4 md:p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group h-full border border-[#B9FB4B]/20">
+			<Link
+				href={`/services/${service.slug}`}
+				className="flex flex-col h-full"
+				style={{ textDecoration: "none" }}>
+				{/* Image Container */}
+				<div className="relative h-48 overflow-hidden sm:h-56">
+					<Image
+						src={service.image.src}
+						alt={service.image.alt}
+						fill
+						className="object-cover transition-transform duration-300 group-hover:scale-105"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 				</div>
 
-				{/* Action Buttons */}
-				<div className="flex items-center justify-between border-t border-gray-700 pt-4 mt-4">
-					<button
-						className="group/btn relative text-sm font-medium text-[#B9FB4B] transition-colors hover:text-white"
-						onClick={(e) => {
-							e.stopPropagation();
-							onClick();
-						}}>
-						<span className="relative">
+				{/* Content Container */}
+				<div className="relative space-y-4 p-5">
+					{/* Title */}
+					<h3 className="text-xl font-semibold text-white">
+						{service.title}
+					</h3>
+
+					{/* Description */}
+					<p className="text-sm leading-relaxed text-gray-300">
+						{service.description}
+					</p>
+
+					{/* Tags */}
+					<div className="flex flex-wrap gap-2">
+						{(
+							service.details.pests_covered ||
+							service.details.areas_covered
+						)
+							?.slice(0, 3)
+							.map((item) => (
+								<span
+									key={item}
+									className="relative inline-flex items-center rounded-lg bg-[#B9FB4B]/10 px-3 py-1 text-xs font-medium text-[#B9FB4B] ring-1 ring-[#B9FB4B]/20">
+									{item}
+								</span>
+							))}
+					</div>
+
+					{/* Action Buttons */}
+					<div className="flex items-center justify-between border-t border-gray-700 pt-4 mt-4">
+						<span className="group/btn relative text-sm font-medium text-[#B9FB4B] transition-colors hover:text-white">
 							Learn More
-							<span className="absolute bottom-0 left-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover/btn:w-full" />
 						</span>
-					</button>
-					<Link
-						href={fullWhatsappLink}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#B9FB4B] to-[#86B82D] text-white shadow-lg shadow-[#B9FB4B]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#B9FB4B]/30"
-						onClick={(e) => e.stopPropagation()}>
-						<WhatsAppIcon />
-					</Link>
+					</div>
 				</div>
-			</div>
-		</motion.div>
+			</Link>
+			<a
+				href={fullWhatsappLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#B9FB4B] to-[#86B82D] text-white shadow-lg shadow-[#B9FB4B]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#B9FB4B]/30"
+				onClick={(e) => e.stopPropagation()}>
+				<WhatsAppIcon />
+			</a>
+		</div>
 	);
 };
 
 const Services = ({ initialData }: { initialData: any }) => {
-	const [selectedService, setSelectedService] = useState<Service | null>(
-		null
-	);
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	const handleServiceClick = (service: Service) => {
-		setSelectedService(service);
-		setIsModalOpen(true);
-	};
-
 	if (!initialData) {
 		return (
 			<div className="min-h-[600px] flex items-center justify-center">
@@ -148,25 +127,12 @@ const Services = ({ initialData }: { initialData: any }) => {
 					{initialData.services.map(
 						(service: Service, index: number) => (
 							<div key={service.title} className="w-full">
-								<ServiceCard
-									service={service}
-									index={index}
-									onClick={() => handleServiceClick(service)}
-								/>
+								<ServiceCard service={service} index={index} />
 							</div>
 						)
 					)}
 				</div>
 			</div>
-
-			<ServiceModal
-				service={selectedService}
-				isOpen={isModalOpen}
-				onClose={() => {
-					setIsModalOpen(false);
-					setSelectedService(null);
-				}}
-			/>
 		</section>
 	);
 };

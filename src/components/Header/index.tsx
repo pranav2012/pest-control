@@ -10,12 +10,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import headerData from "@/content/header.json";
 import { MenuItem, SubMenuItem } from "@/types/header";
 import useCountdown from "@/hooks/useCountdown";
+import { useServices } from "@/contexts/ServicesContext";
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [domainUrl, setDomainUrl] = useState("");
+	const { services } = useServices();
 
 	// After mounting, we have access to the theme
 	useEffect(() => {
@@ -57,6 +59,20 @@ const Header = () => {
 		transition: { duration: 0.3 },
 	};
 
+	// Create navigation items with dynamic services
+	const navigationItems = headerData.navigation.main_menu.map((item) => {
+		if (item.title === "Services") {
+			return {
+				...item,
+				submenu: services.map((service) => ({
+					title: service.title,
+					link: `/services/${service.slug}`,
+				})),
+			};
+		}
+		return item;
+	});
+
 	return (
 		<motion.header
 			initial="initial"
@@ -91,97 +107,91 @@ const Header = () => {
 
 						{/* Desktop Navigation */}
 						<nav className="hidden lg:flex items-center space-x-6">
-							{headerData.navigation.main_menu.map(
-								(item: MenuItem, index) => (
-									<motion.div
-										key={item.title}
-										initial={{ opacity: 0, y: -20 }}
-										animate={{ opacity: 1, y: 0 }}
-										transition={{ delay: index * 0.1 }}
-										className="relative group">
-										{item.submenu ? (
-											<button
-												className="text-[#2D4A0F] hover:text-[#86B82D] flex items-center font-medium transition-colors duration-200 text-sm"
-												onClick={() =>
-													toggleDropdown(item.title)
-												}>
-												{item.title}
-												<svg
-													className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24">
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth={2}
-														d="M19 9l-7 7-7-7"
-													/>
-												</svg>
-											</button>
-										) : (
-											<Link
-												href={getFullUrl(item.link)}
-												className="text-[#2D4A0F] hover:text-[#86B82D] font-medium transition-colors duration-200 text-sm"
-												onClick={() =>
-													setIsMenuOpen(false)
-												}>
-												{item.title}
-											</Link>
-										)}
+							{navigationItems.map((item: MenuItem, index) => (
+								<motion.div
+									key={item.title}
+									initial={{ opacity: 0, y: -20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ delay: index * 0.1 }}
+									className="relative group">
+									{item.submenu ? (
+										<button
+											className="text-[#2D4A0F] hover:text-[#86B82D] flex items-center font-medium transition-colors duration-200 text-sm"
+											onClick={() =>
+												toggleDropdown(item.title)
+											}>
+											{item.title}
+											<svg
+												className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24">
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M19 9l-7 7-7-7"
+												/>
+											</svg>
+										</button>
+									) : (
+										<Link
+											href={getFullUrl(item.link)}
+											className="text-[#2D4A0F] hover:text-[#86B82D] font-medium transition-colors duration-200 text-sm"
+											onClick={() =>
+												setIsMenuOpen(false)
+											}>
+											{item.title}
+										</Link>
+									)}
 
-										{/* Dropdown Menu */}
-										{item.submenu && (
-											<div className="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-												<div className="py-1">
-													{item.submenu.map(
-														(
-															subItem: SubMenuItem,
-															subIndex
-														) => (
-															<motion.div
-																key={
-																	subItem.title
-																}
-																initial={{
-																	opacity: 0,
-																	x: -20,
-																}}
-																animate={{
-																	opacity: 1,
-																	x: 0,
-																}}
-																transition={{
-																	delay:
-																		subIndex *
-																		0.05,
+									{/* Dropdown Menu */}
+									{item.submenu && (
+										<div className="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+											<div className="py-1">
+												{item.submenu.map(
+													(
+														subItem: SubMenuItem,
+														subIndex
+													) => (
+														<motion.div
+															key={subItem.title}
+															initial={{
+																opacity: 0,
+																x: -20,
+															}}
+															animate={{
+																opacity: 1,
+																x: 0,
+															}}
+															transition={{
+																delay:
+																	subIndex *
+																	0.05,
+															}}>
+															<Link
+																href={getFullUrl(
+																	subItem.link
+																)}
+																className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#86B82D]/10 hover:text-[#86B82D] transition-colors duration-200"
+																onClick={() => {
+																	setIsMenuOpen(
+																		false
+																	);
+																	setActiveDropdown(
+																		null
+																	);
 																}}>
-																<Link
-																	href={getFullUrl(
-																		subItem.link
-																	)}
-																	className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#B9FB4B] hover:text-white transition-colors duration-200"
-																	onClick={() => {
-																		setIsMenuOpen(
-																			false
-																		);
-																		setActiveDropdown(
-																			null
-																		);
-																	}}>
-																	{
-																		subItem.title
-																	}
-																</Link>
-															</motion.div>
-														)
-													)}
-												</div>
+																{subItem.title}
+															</Link>
+														</motion.div>
+													)
+												)}
 											</div>
-										)}
-									</motion.div>
-								)
-							)}
+										</div>
+									)}
+								</motion.div>
+							))}
 						</nav>
 
 						{/* Mobile Menu Button */}
@@ -213,102 +223,97 @@ const Header = () => {
 						transition={{ duration: 0.3 }}
 						className="lg:hidden bg-white border-t border-gray-100">
 						<div className="container mx-auto px-4 py-3">
-							{headerData.navigation.main_menu.map(
-								(item: MenuItem, index) => (
-									<motion.div
-										key={item.title}
-										initial={{ opacity: 0, x: -20 }}
-										animate={{ opacity: 1, x: 0 }}
-										transition={{ delay: index * 0.1 }}>
-										{item.submenu ? (
-											<div>
-												<button
-													className="w-full text-left py-2.5 text-[#2D4A0F] font-medium flex items-center justify-between text-sm"
-													onClick={() =>
-														toggleDropdown(
-															item.title
-														)
-													}>
-													{item.title}
-													<svg
-														className={`w-4 h-4 transition-transform duration-200 ${
-															activeDropdown ===
-															item.title
-																? "rotate-180"
-																: ""
-														}`}
-														fill="none"
-														stroke="currentColor"
-														viewBox="0 0 24 24">
-														<path
-															strokeLinecap="round"
-															strokeLinejoin="round"
-															strokeWidth={2}
-															d="M19 9l-7 7-7-7"
-														/>
-													</svg>
-												</button>
-												{activeDropdown ===
-													item.title && (
-													<div className="pl-4 border-l border-gray-200 ml-2">
-														{item.submenu.map(
-															(
-																subItem: SubMenuItem,
-																subIndex
-															) => (
-																<motion.div
-																	key={
-																		subItem.title
-																	}
-																	initial={{
-																		opacity: 0,
-																		x: -20,
-																	}}
-																	animate={{
-																		opacity: 1,
-																		x: 0,
-																	}}
-																	transition={{
-																		delay:
-																			subIndex *
-																			0.05,
-																	}}>
-																	<Link
-																		href={getFullUrl(
-																			subItem.link
-																		)}
-																		className="block py-2 text-sm text-gray-600 hover:text-[#86B82D] transition-colors duration-200"
-																		onClick={() => {
-																			setIsMenuOpen(
-																				false
-																			);
-																			setActiveDropdown(
-																				null
-																			);
-																		}}>
-																		{
-																			subItem.title
-																		}
-																	</Link>
-																</motion.div>
-															)
-														)}
-													</div>
-												)}
-											</div>
-										) : (
-											<Link
-												href={getFullUrl(item.link)}
-												className="block py-2.5 text-[#2D4A0F] font-medium hover:text-[#86B82D] transition-colors duration-200 text-sm"
+							{navigationItems.map((item: MenuItem, index) => (
+								<motion.div
+									key={item.title}
+									initial={{ opacity: 0, x: -20 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: index * 0.1 }}>
+									{item.submenu ? (
+										<div>
+											<button
+												className="w-full text-left py-2.5 text-[#2D4A0F] font-medium flex items-center justify-between text-sm"
 												onClick={() =>
-													setIsMenuOpen(false)
+													toggleDropdown(item.title)
 												}>
 												{item.title}
-											</Link>
-										)}
-									</motion.div>
-								)
-							)}
+												<svg
+													className={`w-4 h-4 transition-transform duration-200 ${
+														activeDropdown ===
+														item.title
+															? "rotate-180"
+															: ""
+													}`}
+													fill="none"
+													stroke="currentColor"
+													viewBox="0 0 24 24">
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={2}
+														d="M19 9l-7 7-7-7"
+													/>
+												</svg>
+											</button>
+											{activeDropdown === item.title && (
+												<div className="pl-4 border-l border-gray-200 ml-2">
+													{item.submenu.map(
+														(
+															subItem: SubMenuItem,
+															subIndex
+														) => (
+															<motion.div
+																key={
+																	subItem.title
+																}
+																initial={{
+																	opacity: 0,
+																	x: -20,
+																}}
+																animate={{
+																	opacity: 1,
+																	x: 0,
+																}}
+																transition={{
+																	delay:
+																		subIndex *
+																		0.05,
+																}}>
+																<Link
+																	href={getFullUrl(
+																		subItem.link
+																	)}
+																	className="block py-2 text-sm text-gray-600 hover:text-[#86B82D] transition-colors duration-200"
+																	onClick={() => {
+																		setIsMenuOpen(
+																			false
+																		);
+																		setActiveDropdown(
+																			null
+																		);
+																	}}>
+																	{
+																		subItem.title
+																	}
+																</Link>
+															</motion.div>
+														)
+													)}
+												</div>
+											)}
+										</div>
+									) : (
+										<Link
+											href={getFullUrl(item.link)}
+											className="block py-2.5 text-[#2D4A0F] font-medium hover:text-[#86B82D] transition-colors duration-200 text-sm"
+											onClick={() =>
+												setIsMenuOpen(false)
+											}>
+											{item.title}
+										</Link>
+									)}
+								</motion.div>
+							))}
 						</div>
 					</motion.div>
 				)}
