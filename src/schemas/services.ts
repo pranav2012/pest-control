@@ -67,12 +67,6 @@ export default {
                                     of: [{ type: 'string' }],
                                 },
                                 {
-                                    name: 'areas_covered',
-                                    title: 'Areas Covered',
-                                    type: 'array',
-                                    of: [{ type: 'string' }],
-                                },
-                                {
                                     name: 'service_features',
                                     title: 'Service Features',
                                     type: 'array',
@@ -87,11 +81,6 @@ export default {
                                 {
                                     name: 'warranty',
                                     title: 'Warranty',
-                                    type: 'string',
-                                },
-                                {
-                                    name: 'service_area',
-                                    title: 'Service Area',
                                     type: 'string',
                                 },
                                 {

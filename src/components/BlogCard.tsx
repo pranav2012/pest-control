@@ -6,7 +6,7 @@ import Image from "next/image";
 import { urlFor } from "@/lib/sanity.config";
 
 interface BlogCardProps {
-	_id: string;
+	_key: string;
 	title: string;
 	slug: string;
 	summary: string;

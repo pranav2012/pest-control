@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import BlogCard from "@/components/BlogCard";
 
 interface Blog {
-	_id: string;
+	_key: string;
 	title: string;
 	slug: string;
 	summary: string;
@@ -209,13 +209,13 @@ export default function BlogsClient({ initialBlogs }: BlogsClientProps) {
 						<AnimatePresence>
 							{filteredBlogs.map((blog) => (
 								<motion.div
-									key={blog._id}
+									key={blog._key}
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: -20 }}
 									transition={{ duration: 0.3 }}>
 									<BlogCard
-										_id={blog._id}
+										_key={blog._key}
 										title={blog.title}
 										slug={blog.slug}
 										summary={blog.summary}

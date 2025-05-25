@@ -9,6 +9,19 @@ import {
 import { urlFor } from "@/lib/sanity.config";
 import { client } from "@/lib/sanity.config";
 
+interface Blog {
+	_key: string;
+	title: string;
+	slug: string;
+	summary: string;
+	image: string;
+	imageAlt: string;
+	content: any;
+	author: string;
+	publishedAt: string;
+	tags: string[];
+}
+
 const components: Partial<PortableTextReactComponents> = {
 	block: {
 		h1: ({ children }: PortableTextComponentProps<any>) => (

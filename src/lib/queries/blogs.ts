@@ -15,8 +15,8 @@ export interface Blog {
 }
 
 export const blogsQuery = groq`
-  *[_type == "blog"] | order(publishedAt desc) {
-    _id,
+  *[_type == "blogs"][0].blogs[] | order(publishedAt desc) {
+    _key,
     title,
     "slug": slug.current,
     summary,
@@ -29,8 +29,8 @@ export const blogsQuery = groq`
 `
 
 export const blogBySlugQuery = groq`
-  *[_type == "blog" && slug.current == $slug][0] {
-    _id,
+  *[_type == "blogs"][0].blogs[slug.current == $slug][0] {
+    _key,
     title,
     "slug": slug.current,
     summary,

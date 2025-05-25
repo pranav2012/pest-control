@@ -34,10 +34,7 @@ export default async function ServicesPage() {
 									{service.description}
 								</p>
 								<div className="flex flex-wrap gap-2">
-									{(
-										service.details.pests_covered ||
-										service.details.areas_covered
-									)
+									{service.details.pests_covered
 										?.slice(0, 3)
 										.map((item: string) => (
 											<span
@@ -46,6 +43,12 @@ export default async function ServicesPage() {
 												{item}
 											</span>
 										))}
+									{!service.details.pests_covered &&
+										service.details.service_area && (
+											<span className="relative inline-flex items-center rounded-lg bg-[#B9FB4B]/10 px-3 py-1 text-xs font-medium text-[#B9FB4B] ring-1 ring-[#B9FB4B]/20">
+												{service.details.service_area}
+											</span>
+										)}
 								</div>
 								<span className="inline-block mt-4 text-[#B9FB4B] font-medium group-hover:text-white transition-colors">
 									Learn More &rarr;
