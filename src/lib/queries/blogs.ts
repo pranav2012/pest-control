@@ -2,7 +2,7 @@ import { groq } from 'next-sanity'
 import { client } from '../sanity.config';
 
 export interface Blog {
-  _id: string;
+  _key: string;
   title: string;
   slug: string;
   summary: string;

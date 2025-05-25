@@ -3,7 +3,7 @@ import { blogsQuery } from "@/lib/queries/blogs";
 import BlogsClient from "./BlogsClient";
 
 interface Blog {
-	_id: string;
+	_key: string;
 	title: string;
 	slug: string;
 	summary: string;
