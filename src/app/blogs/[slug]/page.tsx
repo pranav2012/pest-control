@@ -107,7 +107,7 @@ export default async function BlogPage({ params }: any) {
 	}
 
 	return (
-		<article className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-900/95 text-white border-b border-gray-800">
+		<article className="min-h-screen bg-white text-gray-900 border-b border-gray-200">
 			<div className="container mx-auto px-4 py-12 max-w-4xl">
 				{blog.image && (
 					<div className="relative h-[400px] w-full mb-8 rounded-xl overflow-hidden">
@@ -118,16 +118,16 @@ export default async function BlogPage({ params }: any) {
 							className="object-cover"
 							priority
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
+						<div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
 					</div>
 				)}
 
-				<div className="prose prose-lg max-w-none prose-invert">
-					<h1 className="text-4xl font-bold mb-4 text-white">
+				<div className="prose prose-lg max-w-none">
+					<h1 className="text-4xl font-bold mb-4 text-gray-900">
 						{blog.title}
 					</h1>
 
-					<div className="flex items-center gap-4 text-gray-400 mb-8">
+					<div className="flex items-center gap-4 text-gray-600 mb-8">
 						<span>By {blog.author}</span>
 						<span className="text-[#B9FB4B]">•</span>
 						<time dateTime={blog.publishedAt}>
@@ -140,14 +140,14 @@ export default async function BlogPage({ params }: any) {
 							{blog.tags.map((tag: string) => (
 								<span
 									key={tag}
-									className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
+									className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
 									{tag}
 								</span>
 							))}
 						</div>
 					)}
 
-					<div className="prose prose-lg max-w-none prose-invert">
+					<div className="prose prose-lg max-w-none">
 						<PortableText
 							value={blog.content}
 							components={components}
@@ -155,7 +155,7 @@ export default async function BlogPage({ params }: any) {
 					</div>
 				</div>
 			</div>
-			<div className="h-32 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900" />
+			<div className="h-32 bg-gradient-to-b from-transparent via-white/50 to-white" />
 		</article>
 	);
 }

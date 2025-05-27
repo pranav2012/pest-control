@@ -51,7 +51,7 @@ export default async function ServicePage({ params }: any) {
 	const whatsappLink = `https://api.whatsapp.com/send?phone=918882002546&text=${whatsappMessage}`;
 
 	return (
-		<main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+		<main className="min-h-screen bg-white">
 			{/* Hero Section */}
 			<div className="relative">
 				<div className="absolute inset-0">
@@ -62,19 +62,19 @@ export default async function ServicePage({ params }: any) {
 						className="object-cover"
 						priority
 					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
+					<div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent" />
 				</div>
 				<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
 					<div className="max-w-3xl">
-						<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+						<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
 							{service.title}
 						</h1>
 						<div className="h-1.5 w-20 sm:w-24 bg-[#B9FB4B] mt-3 sm:mt-4 rounded-full" />
-						<p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/80 max-w-2xl">
+						<p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl">
 							{service.description}
 						</p>
 						{service.date && (
-							<div className="mt-4 flex items-center gap-2 text-white/60">
+							<div className="mt-4 flex items-center gap-2 text-gray-500">
 								<Calendar className="h-4 w-4" />
 								<span className="text-sm">
 									Last updated:{" "}
@@ -101,68 +101,68 @@ export default async function ServicePage({ params }: any) {
 						{/* About Service */}
 						{service.about_service &&
 							service.about_service.length > 0 && (
-								<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+								<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
 									<div className="flex items-center gap-3 mb-4 sm:mb-6">
-										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-											<FileText className="h-5 w-5 text-[#B9FB4B]" />
+										<div className="rounded-full bg-[#B9FB4B]/10 p-2">
+											<FileText className="h-5 w-5 text-[#2D4A0F]" />
 										</div>
-										<h2 className="text-lg sm:text-xl font-semibold text-white">
+										<h2 className="text-lg sm:text-xl font-semibold text-gray-900">
 											About This Service
 										</h2>
 									</div>
-									<div className="prose prose-invert max-w-none">
+									<div className="prose max-w-none">
 										<PortableText
 											value={service.about_service}
 											components={{
 												block: {
 													h2: ({ children }) => (
-														<h2 className="text-xl font-bold text-white mt-6 mb-3">
+														<h2 className="text-xl font-bold text-gray-900 mt-6 mb-3">
 															{children}
 														</h2>
 													),
 													h3: ({ children }) => (
-														<h3 className="text-lg font-bold text-white mt-4 mb-2">
+														<h3 className="text-lg font-bold text-gray-900 mt-4 mb-2">
 															{children}
 														</h3>
 													),
 													normal: ({ children }) => (
-														<p className="text-white/90 mb-4 leading-relaxed">
+														<p className="text-gray-600 mb-4 leading-relaxed">
 															{children}
 														</p>
 													),
 													blockquote: ({
 														children,
 													}) => (
-														<blockquote className="border-l-4 border-[#B9FB4B] pl-4 italic text-white/80 my-4 bg-white/5 p-4 rounded-lg">
+														<blockquote className="border-l-4 border-[#B9FB4B] pl-4 italic text-gray-600 my-4 bg-gray-50 p-4 rounded-lg">
 															{children}
 														</blockquote>
 													),
 												},
 												marks: {
 													strong: ({ children }) => (
-														<strong className="font-bold text-white">
+														<strong className="font-bold text-gray-900">
 															{children}
 														</strong>
 													),
 													em: ({ children }) => (
-														<em className="italic text-white/90">
+														<em className="italic text-gray-600">
 															{children}
 														</em>
 													),
 													code: ({ children }) => (
-														<code className="bg-white/10 px-1.5 py-0.5 rounded text-[#B9FB4B] font-mono text-sm">
+														<code className="bg-gray-100 px-1.5 py-0.5 rounded text-[#B9FB4B] font-mono text-sm">
 															{children}
 														</code>
 													),
 												},
 												list: {
 													bullet: ({ children }) => (
-														<ul className="list-disc list-inside space-y-2 text-white/90 mb-4">
+														<ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
 															{children}
 														</ul>
 													),
 													number: ({ children }) => (
-														<ol className="list-decimal list-inside space-y-2 text-white/90 mb-4">
+														<ol className="list-decimal list-inside space-y-2 text-gray-600 mb-4">
 															{children}
 														</ol>
 													),
@@ -184,10 +184,10 @@ export default async function ServicePage({ params }: any) {
 																}
 																width={800}
 																height={400}
-																className="rounded-lg ring-1 ring-white/10"
+																className="rounded-lg ring-1 ring-gray-200"
 															/>
 															{value.caption && (
-																<p className="text-sm text-white/60 mt-2 text-center">
+																<p className="text-sm text-gray-500 mt-2 text-center">
 																	{
 																		value.caption
 																	}
@@ -203,12 +203,12 @@ export default async function ServicePage({ params }: any) {
 							)}
 
 						{/* Service Features */}
-						<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+						<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
 							<div className="flex items-center gap-3 mb-4 sm:mb-6">
-								<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-									<ListChecks className="h-5 w-5 text-[#B9FB4B]" />
+								<div className="rounded-full bg-[#B9FB4B]/10 p-2">
+									<ListChecks className="h-5 w-5 text-[#2D4A0F]" />
 								</div>
-								<h2 className="text-lg sm:text-xl font-semibold text-white">
+								<h2 className="text-lg sm:text-xl font-semibold text-gray-900">
 									What's Included
 								</h2>
 							</div>
@@ -217,11 +217,11 @@ export default async function ServicePage({ params }: any) {
 									(feature: string) => (
 										<div
 											key={feature}
-											className="flex items-center gap-2 sm:gap-3 rounded-xl bg-white/5 p-3 sm:p-4 ring-1 ring-white/10">
+											className="flex items-center gap-2 sm:gap-3 rounded-xl bg-white p-3 sm:p-4 ring-1 ring-gray-200">
 											<div className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-[#B9FB4B]/10">
-												<CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#B9FB4B]" />
+												<CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#2D4A0F]" />
 											</div>
-											<span className="text-sm text-white/90">
+											<span className="text-sm text-gray-600">
 												{feature}
 											</span>
 										</div>
@@ -233,12 +233,12 @@ export default async function ServicePage({ params }: any) {
 						{/* Treatment Details */}
 						{service.details.treatment_details &&
 							service.details.treatment_details.length > 0 && (
-								<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+								<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
 									<div className="flex items-center gap-3 mb-4 sm:mb-6">
-										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-											<Wrench className="h-5 w-5 text-[#B9FB4B]" />
+										<div className="rounded-full bg-[#B9FB4B]/10 p-2">
+											<Wrench className="h-5 w-5 text-[#2D4A0F]" />
 										</div>
-										<h2 className="text-lg sm:text-xl font-semibold text-white">
+										<h2 className="text-lg sm:text-xl font-semibold text-gray-900">
 											Treatment Details
 										</h2>
 									</div>
@@ -247,13 +247,13 @@ export default async function ServicePage({ params }: any) {
 											(detail: any) => (
 												<div
 													key={detail.title}
-													className="flex flex-col sm:flex-row gap-4 sm:gap-6 rounded-xl bg-white/5 p-4 sm:p-6 ring-1 ring-white/10">
+													className="flex flex-col sm:flex-row gap-4 sm:gap-6 rounded-xl bg-white p-4 sm:p-6 ring-1 ring-gray-200">
 													{detail.image &&
 														detail.image.src &&
 														detail.image.src.startsWith(
 															"http"
 														) && (
-															<div className="relative h-48 sm:h-64 w-full sm:w-64 shrink-0 overflow-hidden rounded-xl ring-1 ring-white/10">
+															<div className="relative h-48 sm:h-64 w-full sm:w-64 shrink-0 overflow-hidden rounded-xl ring-1 ring-gray-200">
 																<Image
 																	src={
 																		detail
@@ -284,7 +284,7 @@ export default async function ServicePage({ params }: any) {
 														<h3 className="text-base sm:text-lg font-medium text-[#B9FB4B] mb-2">
 															{detail.title}
 														</h3>
-														<p className="text-sm text-white/90 leading-relaxed">
+														<p className="text-sm text-gray-600 leading-relaxed">
 															{detail.description}
 														</p>
 													</div>
@@ -299,12 +299,12 @@ export default async function ServicePage({ params }: any) {
 						{service.details.maintenance_contracts &&
 							service.details.maintenance_contracts.length >
 								0 && (
-								<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+								<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
 									<div className="flex items-center gap-3 mb-4 sm:mb-6">
-										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-											<FileText className="h-5 w-5 text-[#B9FB4B]" />
+										<div className="rounded-full bg-[#B9FB4B]/10 p-2">
+											<FileText className="h-5 w-5 text-[#2D4A0F]" />
 										</div>
-										<h2 className="text-lg sm:text-xl font-semibold text-white">
+										<h2 className="text-lg sm:text-xl font-semibold text-gray-900">
 											Maintenance Contracts
 										</h2>
 									</div>
@@ -314,17 +314,17 @@ export default async function ServicePage({ params }: any) {
 												<div
 													key={contract.title}
 													className="rounded-xl bg-gradient-to-br from-[#B9FB4B]/10 to-transparent p-4 sm:p-6 ring-1 ring-[#B9FB4B]/20">
-													<h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+													<h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
 														{contract.title}
 													</h3>
-													<p className="text-sm text-white/90">
+													<p className="text-sm text-gray-600">
 														{contract.description}
 													</p>
 												</div>
 											)
 										)}
 									</div>
-									<p className="mt-3 sm:mt-4 text-sm text-white/60">
+									<p className="mt-3 sm:mt-4 text-sm text-gray-500">
 										* Contract terms and conditions apply.
 										Contact us for detailed information.
 									</p>
@@ -336,20 +336,20 @@ export default async function ServicePage({ params }: any) {
 					<div className="space-y-6 sm:space-y-8">
 						{/* Service Info Card */}
 						{service.details.warranty && (
-							<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
-								<h2 className="text-lg font-semibold text-white mb-3 sm:mb-4">
+							<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
+								<h2 className="text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
 									Service Information
 								</h2>
 								<div className="space-y-3 sm:space-y-4">
 									<div className="flex items-center gap-3">
-										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-											<Shield className="h-4 w-4 text-[#B9FB4B]" />
+										<div className="rounded-full bg-[#B9FB4B]/10 p-2">
+											<Shield className="h-4 w-4 text-[#2D4A0F]" />
 										</div>
 										<div>
-											<p className="text-sm font-medium text-white/90">
+											<p className="text-sm font-medium text-gray-900">
 												Warranty
 											</p>
-											<p className="text-sm text-white/60">
+											<p className="text-sm text-gray-600">
 												{service.details.warranty}
 											</p>
 										</div>
@@ -361,8 +361,8 @@ export default async function ServicePage({ params }: any) {
 						{/* Pests Covered */}
 						{service.details.pests_covered &&
 							service.details.pests_covered.length > 0 && (
-								<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
-									<h2 className="text-lg font-semibold text-white mb-3 sm:mb-4">
+								<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
+									<h2 className="text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
 										Pests Covered
 									</h2>
 									<div className="flex flex-wrap gap-2">
@@ -370,8 +370,8 @@ export default async function ServicePage({ params }: any) {
 											(pest: string) => (
 												<span
 													key={pest}
-													className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-sm text-white/90 ring-1 ring-white/10">
-													<Bug className="h-3.5 w-3.5 text-[#B9FB4B]" />
+													className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm text-gray-600 ring-1 ring-gray-200">
+													<Bug className="h-3.5 w-3.5 text-[#2D4A0F]" />
 													{pest}
 												</span>
 											)
@@ -383,12 +383,12 @@ export default async function ServicePage({ params }: any) {
 						{/* Pricing */}
 						{service.details.pricing &&
 							service.details.pricing.length > 0 && (
-								<div className="rounded-2xl bg-gray-900/50 p-4 sm:p-6 ring-1 ring-white/10">
+								<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
 									<div className="flex items-center gap-3 mb-3 sm:mb-4">
-										<div className="rounded-full bg-[#B9FB4B]/20 p-2">
-											<IndianRupee className="h-4 w-4 text-[#B9FB4B]" />
+										<div className="rounded-full bg-[#B9FB4B]/10 p-2">
+											<IndianRupee className="h-4 w-4 text-[#2D4A0F]" />
 										</div>
-										<h2 className="text-lg font-semibold text-white">
+										<h2 className="text-lg font-semibold text-gray-900">
 											Pricing
 										</h2>
 									</div>
@@ -397,9 +397,9 @@ export default async function ServicePage({ params }: any) {
 											(price: any) => (
 												<div
 													key={price.type}
-													className="flex items-center justify-between gap-3 sm:gap-4 rounded-xl bg-white/5 p-3 sm:p-4 ring-1 ring-white/10">
+													className="flex items-center justify-between gap-3 sm:gap-4 rounded-xl bg-white p-3 sm:p-4 ring-1 ring-gray-200">
 													<div>
-														<p className="text-sm font-medium text-white/90">
+														<p className="text-sm font-medium text-gray-900">
 															{price.type}
 														</p>
 														<p className="text-base sm:text-lg font-semibold text-[#B9FB4B]">
@@ -407,13 +407,13 @@ export default async function ServicePage({ params }: any) {
 														</p>
 													</div>
 													<div className="rounded-full bg-[#B9FB4B]/10 p-2 ring-1 ring-[#B9FB4B]/20">
-														<CheckCircle2 className="h-4 w-4 text-[#B9FB4B]" />
+														<CheckCircle2 className="h-4 w-4 text-[#2D4A0F]" />
 													</div>
 												</div>
 											)
 										)}
 									</div>
-									<p className="mt-3 sm:mt-4 text-sm text-white/60">
+									<p className="mt-3 sm:mt-4 text-sm text-gray-500">
 										* Prices may vary based on property size
 										and specific requirements
 									</p>
