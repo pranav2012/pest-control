@@ -306,7 +306,7 @@ const Footer = ({ services }: FooterProps) => {
 				href={`https://wa.me/${footerData.contact_info.whatsapp}`}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="fixed bottom-6 right-6 bg-[#B9FB4B] text-white p-4 rounded-full shadow-lg hover:bg-[#86B82D] transition-all duration-300 hover:scale-110 z-50">
+				className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 hover:scale-110 z-50">
 				<WhatsAppIcon className="w-8 h-8" />
 			</Link>
 		</footer>

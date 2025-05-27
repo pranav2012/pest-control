@@ -85,7 +85,7 @@ const ServiceCard = ({
 				href={fullWhatsappLink}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#B9FB4B] to-[#86B82D] text-white shadow-lg shadow-[#B9FB4B]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#B9FB4B]/30"
+				className="absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-lg shadow-[#25D366]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/30"
 				onClick={(e) => e.stopPropagation()}>
 				<WhatsAppIcon />
 			</a>

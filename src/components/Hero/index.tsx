@@ -188,14 +188,14 @@ const Hero = () => {
 									}
 									className={`group relative overflow-hidden ${
 										button.type === "whatsapp"
-											? "bg-[#B9FB4B]"
+											? "bg-[#25D366]"
 											: "bg-white"
 									} rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold transition-transform duration-300 hover:scale-105 shadow-lg flex-1 sm:flex-initial`}>
 									<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
 									<span
 										className={
 											button.type === "whatsapp"
-												? "text-gray-900"
+												? "text-white"
 												: "text-[#2D4A0F]"
 										}>
 										<div className="flex items-center justify-center gap-2">

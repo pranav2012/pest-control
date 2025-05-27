@@ -425,7 +425,7 @@ export default async function ServicePage({ params }: any) {
 							href={whatsappLink}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="flex items-center justify-center gap-2 rounded-xl bg-[#B9FB4B] px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium text-gray-900 shadow-lg shadow-[#B9FB4B]/20 transition-all hover:bg-[#86B82D] hover:shadow-xl hover:shadow-[#B9FB4B]/30">
+							className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#128C7E] hover:shadow-xl hover:shadow-[#25D366]/30">
 							<WhatsAppIcon className="h-4 w-4 sm:h-5 sm:w-5" />
 							{service.details?.pricing &&
 							service.details.pricing.length > 0
