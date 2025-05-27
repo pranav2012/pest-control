@@ -118,7 +118,7 @@ export default async function BlogPage({ params }: any) {
 							className="object-cover"
 							priority
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
+						<div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent" />
 					</div>
 				)}
 

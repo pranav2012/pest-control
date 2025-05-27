@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import heroData from "@/content/hero.json";
 import { FormField, HeroData } from "@/types/hero";
 import Image from "next/image";
+import { useServices } from "@/contexts/ServicesContext";
 
 const Hero = () => {
 	const [formData, setFormData] = useState<Record<string, string>>({});
@@ -13,6 +14,7 @@ const Hero = () => {
 	const [submitStatus, setSubmitStatus] = useState<
 		"idle" | "success" | "error"
 	>("idle");
+	const { services } = useServices();
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
@@ -355,15 +357,13 @@ const Hero = () => {
 												<option value="">
 													Select a service
 												</option>
-												{field.options?.map(
-													(option) => (
-														<option
-															key={option}
-															value={option}>
-															{option}
-														</option>
-													)
-												)}
+												{services.map((service) => (
+													<option
+														key={service.slug}
+														value={service.title}>
+														{service.title}
+													</option>
+												))}
 											</select>
 										) : field.type === "textarea" ? (
 											<textarea
