@@ -203,32 +203,34 @@ export default async function ServicePage({ params }: any) {
 							)}
 
 						{/* Service Features */}
-						<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
-							<div className="bg-gradient-to-r from-gray-900/95 to-gray-800/95 px-4 py-2 rounded-lg shadow-md mb-4 sm:mb-6">
-								<div className="flex items-center gap-3">
-									<ListChecks className="h-5 w-5 text-[#B9FB4B]" />
-									<h2 className="text-lg sm:text-xl font-semibold text-[#B9FB4B]">
-										What's Included
-									</h2>
+						{service?.details?.service_features ? (
+							<div className="rounded-2xl bg-gray-50 p-4 sm:p-6 ring-1 ring-gray-200">
+								<div className="bg-gradient-to-r from-gray-900/95 to-gray-800/95 px-4 py-2 rounded-lg shadow-md mb-4 sm:mb-6">
+									<div className="flex items-center gap-3">
+										<ListChecks className="h-5 w-5 text-[#B9FB4B]" />
+										<h2 className="text-lg sm:text-xl font-semibold text-[#B9FB4B]">
+											What's Included
+										</h2>
+									</div>
+								</div>
+								<div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+									{service.details.service_features.map(
+										(feature: string) => (
+											<div
+												key={feature}
+												className="flex items-center gap-2 sm:gap-3 rounded-xl bg-white p-3 sm:p-4 ring-1 ring-gray-200">
+												<div className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-[#374151]/10">
+													<CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#374151]" />
+												</div>
+												<span className="text-sm text-gray-600">
+													{feature}
+												</span>
+											</div>
+										)
+									)}
 								</div>
 							</div>
-							<div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-								{service.details.service_features.map(
-									(feature: string) => (
-										<div
-											key={feature}
-											className="flex items-center gap-2 sm:gap-3 rounded-xl bg-white p-3 sm:p-4 ring-1 ring-gray-200">
-											<div className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-[#374151]/10">
-												<CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#374151]" />
-											</div>
-											<span className="text-sm text-gray-600">
-												{feature}
-											</span>
-										</div>
-									)
-								)}
-							</div>
-						</div>
+						) : null}
 
 						{/* Treatment Details */}
 						{service.details.treatment_details &&
