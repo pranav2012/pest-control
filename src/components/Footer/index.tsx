@@ -236,16 +236,29 @@ const Footer = ({ services }: FooterProps) => {
 										className="text-gray-400 hover:text-[#B9FB4B] transition-colors duration-300 text-sm">
 										+91 8882002546
 									</a>
+									<a
+										href="tel:+919958138256"
+										className="text-gray-400 hover:text-[#B9FB4B] transition-colors duration-300 text-sm">
+										+91 9958138256
+									</a>
 								</div>
 							</div>
 							{/* Mobile view */}
 							<div className="md:hidden flex flex-col space-y-2">
 								<a
-									href="tel:+918882002546"
+									href="tel:08882002546"
 									className="flex items-center space-x-3 p-3 bg-[#B9FB4B]/5 rounded-lg hover:bg-[#B9FB4B]/10 transition-colors duration-300">
 									<Phone className="w-5 h-5 text-[#B9FB4B]" />
 									<span className="text-gray-400 text-sm">
 										+91 8882002546
+									</span>
+								</a>
+								<a
+									href="tel:09958138256"
+									className="flex items-center space-x-3 p-3 bg-[#B9FB4B]/5 rounded-lg hover:bg-[#B9FB4B]/10 transition-colors duration-300">
+									<Phone className="w-5 h-5 text-[#B9FB4B]" />
+									<span className="text-gray-400 text-sm">
+										+91 9958138256
 									</span>
 								</a>
 							</div>
@@ -301,14 +314,32 @@ const Footer = ({ services }: FooterProps) => {
 				</div>
 			</div>
 
-			{/* WhatsApp Button */}
-			<Link
-				href={`https://wa.me/${footerData.contact_info.whatsapp}`}
-				target="_blank"
-				rel="noopener noreferrer"
-				className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 hover:scale-110 z-50">
-				<WhatsAppIcon className="w-8 h-8" />
-			</Link>
+			{/* Floating Action Buttons */}
+			<div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+				{/* Call Button */}
+				<Link href="tel:08882002546" className="group relative">
+					<div className="bg-[#B9FB4B] text-gray-900 p-4 rounded-full shadow-lg hover:bg-[#A5E03A] transition-all duration-300 hover:scale-110">
+						<Phone className="w-6 h-6" />
+					</div>
+					<span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+						Call Us
+					</span>
+				</Link>
+
+				{/* WhatsApp Button */}
+				<Link
+					href={`https://wa.me/${footerData.contact_info.whatsapp}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="group relative">
+					<div className="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 hover:scale-110">
+						<WhatsAppIcon className="w-6 h-6" />
+					</div>
+					<span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+						Chat on WhatsApp
+					</span>
+				</Link>
+			</div>
 		</footer>
 	);
 };
