@@ -66,7 +66,7 @@ export default async function ServicePage({ params }: any) {
 				</div>
 				<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
 					<div className="max-w-3xl">
-						<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+						<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-4">
 							{service.title}
 						</h1>
 						<div className="h-1.5 w-20 sm:w-24 bg-[#B9FB4B] mt-3 sm:mt-4 rounded-full" />
