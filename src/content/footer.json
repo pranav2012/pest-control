@@ -4,17 +4,17 @@
 		"social_links": [
 			{
 				"platform": "Facebook",
-				"link": "#",
+				"link": "https://www.facebook.com/share/1W1QbccC8X/",
 				"icon": "facebook"
 			},
 			{
 				"platform": "Instagram",
-				"link": "#",
+				"link": "https://www.instagram.com/abc_pestsolutions?igsh=MW4zc2Jzam1jdzI4MA==",
 				"icon": "instagram"
 			},
 			{
 				"platform": "WhatsApp",
-				"link": "#",
+				"link": "https://api.whatsapp.com/send?phone=918882002546",
 				"icon": "whatsapp"
 			}
 		]

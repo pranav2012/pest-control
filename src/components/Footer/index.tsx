@@ -134,7 +134,7 @@ const Footer = ({ services }: FooterProps) => {
 					{/* Company Info */}
 					<div className="lg:col-span-4 space-y-4 lg:space-y-6">
 						<h2 className="text-xl lg:text-2xl font-bold text-[#B9FB4B]">
-							Alpha Beneficent Care
+							Alpha Beneficent Care Pvt. Ltd.
 						</h2>
 						<p className="text-sm text-gray-400 leading-relaxed">
 							{footerData.company_info.description}
