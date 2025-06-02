@@ -6,7 +6,10 @@ const nextConfig: NextConfig = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })({
   reactStrictMode: true,
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -31,6 +34,8 @@ const nextConfig: NextConfig = withBundleAnalyzer({
     ],
   },
   staticPageGenerationTimeout: 120,
+  basePath: '',
+  assetPrefix: '/',
 });
 
 export default nextConfig;

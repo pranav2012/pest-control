@@ -19,12 +19,6 @@ import { PortableText } from "@portabletext/react";
 export const dynamic = "force-static";
 export const revalidate = false;
 
-interface Props {
-	params: {
-		slug: string;
-	};
-}
-
 // Generate static params for all services
 export async function generateStaticParams() {
 	const { services } = await getServicesData();
@@ -33,7 +27,7 @@ export async function generateStaticParams() {
 	}));
 }
 
-export default async function ServicePage({ params }: Props) {
+export default async function ServicePage({ params }: any) {
 	const service = await getServiceBySlug(params.slug);
 
 	if (!service) {

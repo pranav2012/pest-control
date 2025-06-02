@@ -16,6 +16,7 @@ const inter = Inter({
 	display: "swap",
 	variable: "--font-inter",
 	adjustFontFallback: false,
+	preload: true,
 });
 
 const poppins = Poppins({
@@ -23,6 +24,7 @@ const poppins = Poppins({
 	subsets: ["latin"],
 	display: "swap",
 	variable: "--font-poppins",
+	preload: true,
 });
 
 export const metadata: Metadata = {
@@ -87,10 +89,11 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: ChildrenProps) {
 	// Fetch services data for the header
 	const services = await getServicesData();
-	const headerServices = services?.services?.map((service) => ({
-		title: service.title,
-		slug: service.slug,
-	})) || [];
+	const headerServices =
+		services?.services?.map((service) => ({
+			title: service.title,
+			slug: service.slug,
+		})) || [];
 
 	return (
 		<html lang="en" suppressHydrationWarning className="overflow-x-hidden">

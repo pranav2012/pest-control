@@ -100,9 +100,7 @@ export const revalidate = false;
 
 export default async function BlogPage({
 	params,
-}: {
-	params: { slug: string };
-}) {
+}: any) {
 	const blog = await getBlogBySlug(params.slug);
 	if (!blog) {
 		notFound();

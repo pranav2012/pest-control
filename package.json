@@ -10,8 +10,10 @@
 	},
 	"scripts": {
 		"dev": "next dev --turbo",
-		"build": "npm run fetch-cms-data && next build",
+		"build": "pnpm run fetch-cms-data && next build",
 		"start": "next start",
+		"export": "rm -rf out && pnpm run build",
+		"serve": "npx serve out",
 		"ngrok": "ngrok http 3000",
 		"migrate:services": "node scripts/migrate-services.js",
 		"delete:services": "node scripts/delete-services.js",
