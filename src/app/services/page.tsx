@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getServices } from "@/lib/queries";
+import { getServicesData } from "@/lib/data";
 
 export default async function ServicesPage() {
-	const services = await getServices();
+	const services = await getServicesData();
+
+	if (!services?.services) return null;
 
 	return (
 		<main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-8">
@@ -12,7 +14,7 @@ export default async function ServicesPage() {
 					Our Services
 				</h1>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{services.map((service) => (
+					{services.services.map((service) => (
 						<Link
 							key={service.slug}
 							href={`/services/${service.slug}`}

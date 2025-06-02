@@ -1,20 +1,15 @@
+import { getServiceBySlug, getServicesData } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { getServiceBySlug, getServices } from "@/lib/queries";
-import { client } from "@/lib/sanity.config";
 import {
-	ClipboardList,
 	Wrench,
 	ListChecks,
 	CheckCircle2,
 	FileText,
 	Shield,
-	MapPin,
 	Bug,
 	IndianRupee,
 	ChevronRight,
-	ArrowLeft,
 	Calendar,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/Services";
@@ -24,26 +19,26 @@ import { PortableText } from "@portabletext/react";
 export const dynamic = "force-static";
 export const revalidate = false;
 
-// Generate static params for all services
-export async function generateStaticParams() {
-	const services = await getServices();
-	return services
-		.map((service) => {
-			if (!service.slug) {
-				console.warn(`Service "${service.title}" is missing a slug`);
-				return null;
-			}
-			return {
-				slug: service.slug.toString(),
-			};
-		})
-		.filter(Boolean);
+interface Props {
+	params: {
+		slug: string;
+	};
 }
 
-export default async function ServicePage({ params }: any) {
+// Generate static params for all services
+export async function generateStaticParams() {
+	const { services } = await getServicesData();
+	return services.map((service) => ({
+		slug: service.slug,
+	}));
+}
+
+export default async function ServicePage({ params }: Props) {
 	const service = await getServiceBySlug(params.slug);
 
-	if (!service) return notFound();
+	if (!service) {
+		notFound();
+	}
 
 	const whatsappMessage = encodeURIComponent(
 		`Hi, I am interested in your ${service.title.toLowerCase()} services. Please provide more information.`

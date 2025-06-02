@@ -1,0 +1,29 @@
+{
+  "section_title": "Our Professional Process",
+  "side_image": {
+    "alt": "Professional Pest Control Expert at Work",
+    "src": "/images/process/side-image.jpg"
+  },
+  "steps": [
+    {
+      "description": "Our certified experts conduct a thorough inspection of your property to identify pest types, infestation levels, and potential entry points.",
+      "icon": "/images/process/initial-assessment.jpg",
+      "title": "Initial Assessment"
+    },
+    {
+      "description": "We develop a tailored treatment strategy based on the inspection findings, considering your specific requirements and property characteristics.",
+      "icon": "/images/process/custom-planning.jpg",
+      "title": "Custom Planning"
+    },
+    {
+      "description": "Our skilled technicians execute the treatment plan using eco-friendly, professional-grade solutions that are safe for your family and pets.",
+      "icon": "/images/process/expert-treatment.jpg",
+      "title": "Expert Treatment"
+    },
+    {
+      "description": "We provide continuous monitoring and preventive measures to ensure long-lasting protection, backed by our satisfaction guarantee.",
+      "icon": "/images/process/ongoing-protection.jpg",
+      "title": "Ongoing Protection"
+    }
+  ]
+}

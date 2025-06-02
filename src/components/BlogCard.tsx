@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/lib/sanity.config";
 
 interface BlogCardProps {
 	_key: string;

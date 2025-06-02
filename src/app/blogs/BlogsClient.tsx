@@ -2,39 +2,27 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Skeleton } from "@/components/ui/skeleton";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import BlogCard from "@/components/BlogCard";
-
-interface Blog {
-	_key: string;
-	title: string;
-	slug: string;
-	summary: string;
-	image: string;
-	imageAlt: string;
-	author: string;
-	publishedAt: string;
-	tags: string[];
-}
+import { Blog } from "@/lib/data";
 
 interface BlogsClientProps {
-	initialBlogs: Blog[];
+	blogs: Blog[];
 }
 
-export default function BlogsClient({ initialBlogs }: BlogsClientProps) {
+export default function BlogsClient({ blogs }: BlogsClientProps) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [debouncedQuery, setDebouncedQuery] = useState("");
 	const [sortBy, setSortBy] = useState("newest");
 	const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
-	const [blogs, setBlogs] = useState<Blog[]>(initialBlogs);
+	const [blogsState, setBlogs] = useState<Blog[]>(blogs);
 
-	// Update blogs when initialBlogs changes (during revalidation)
+	// Update blogs when blogs changes (during revalidation)
 	useEffect(() => {
-		setBlogs(initialBlogs);
-	}, [initialBlogs]);
+		setBlogs(blogs);
+	}, [blogs]);
 
 	// Debounce search query
 	useEffect(() => {
@@ -43,7 +31,7 @@ export default function BlogsClient({ initialBlogs }: BlogsClientProps) {
 	}, [searchQuery]);
 
 	// Filter and sort blogs
-	const filteredBlogs = blogs
+	const filteredBlogs = blogsState
 		.filter(
 			(blog) =>
 				blog.title

@@ -1,34 +1,23 @@
-import { client } from "@/lib/sanity.config";
-import { blogsQuery } from "@/lib/queries/blogs";
+import { getBlogsData } from "@/lib/data";
 import BlogsClient from "./BlogsClient";
 
-interface Blog {
-	_key: string;
-	title: string;
-	slug: string;
-	summary: string;
-	image: string;
-	imageAlt: string;
-	author: string;
-	publishedAt: string;
-	tags: string[];
+export default async function BlogsPage() {
+	const blogs = await getBlogsData();
+	return <BlogsClient blogs={blogs} />;
 }
 
-// Enable static generation with on-demand revalidation
-export const dynamic = "force-static";
-export const revalidate = false;
-
-// Generate static params for all blog posts
+// This runs at build time only
 export async function generateStaticParams() {
-	const blogs = await client.fetch<Blog[]>(blogsQuery);
+	const blogs = await getBlogsData();
 	return blogs.map((blog) => ({
 		slug: blog.slug,
 	}));
 }
 
-export default async function BlogsPage() {
-	// Fetch blogs from Sanity
-	const blogs = await client.fetch<Blog[]>(blogsQuery);
-
-	return <BlogsClient initialBlogs={blogs} />;
+// This runs at build time only
+export async function generateMetadata() {
+	return {
+		title: "Blogs",
+		description: "Explore our collection of blog posts",
+	};
 }

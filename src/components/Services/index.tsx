@@ -1,10 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Service } from "@/types/services";
-import { useState } from "react";
 
 export const WhatsAppIcon = ({
 	className = "h-4 w-4",

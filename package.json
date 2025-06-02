@@ -6,17 +6,18 @@
 	"private": true,
 	"type": "module",
 	"engines": {
-		"node": ">=20.0.0"
+		"node": ">=18.0.0"
 	},
 	"scripts": {
 		"dev": "next dev --turbo",
-		"build": "next build",
+		"build": "npm run fetch-cms-data && next build",
 		"start": "next start",
 		"ngrok": "ngrok http 3000",
 		"migrate:services": "node scripts/migrate-services.js",
 		"delete:services": "node scripts/delete-services.js",
 		"migrate:blogs": "node scripts/migrate-blogs.js",
-		"delete:blogs": "node scripts/delete-blogs.js"
+		"delete:blogs": "node scripts/delete-blogs.js",
+		"fetch-cms-data": "node scripts/fetch-cms-data.js"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.3",
@@ -46,6 +47,7 @@
 		"react-icons": "^5.5.0",
 		"react-slick": "^0.30.3",
 		"sanity": "^3.88.3",
+		"sharp": "^0.33.2",
 		"slick-carousel": "^1.8.1",
 		"tailwind-merge": "^3.3.0",
 		"winston": "^3.17.0"

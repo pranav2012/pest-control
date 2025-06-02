@@ -7,9 +7,9 @@ import Script from "next/script";
 import ClientLayout from "@/components/ClientLayout";
 import { QueryProvider } from "@/providers/query";
 import { ThemeProvider } from "@/providers/theme";
-import { getServices } from "@/lib/queries";
 import "@/styles/globals.css";
 import type { ChildrenProps } from "@/types";
+import { getServicesData } from "@/lib/data";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -86,8 +86,8 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: ChildrenProps) {
 	// Fetch services data for the header
-	const services = await getServices();
-	const headerServices = services?.map((service) => ({
+	const services = await getServicesData();
+	const headerServices = services?.services?.map((service) => ({
 		title: service.title,
 		slug: service.slug,
 	})) || [];

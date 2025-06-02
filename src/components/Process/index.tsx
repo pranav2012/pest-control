@@ -26,25 +26,16 @@ const ProcessStepCard = ({
 	step: ProcessStep;
 	index: number;
 }) => {
-	const [svgContent, setSvgContent] = useState<string>("");
-
-	useEffect(() => {
-		const fetchSvg = async () => {
-			try {
-				const response = await fetch(step.icon);
-				const svgText = await response.text();
-				const modifiedSvg = svgText.replace(
-					"<svg",
-					'<svg width="48" height="48" class="w-8 h-8"'
-				);
-				setSvgContent(modifiedSvg);
-			} catch (error) {
-				console.error("Error fetching SVG:", error);
-			}
+	// Map step titles to icon names
+	const getIconPath = (title: string) => {
+		const iconMap: { [key: string]: string } = {
+			"Initial Assessment": "/images/icons/inspection.svg",
+			"Custom Planning": "/images/icons/planning.svg",
+			"Expert Treatment": "/images/icons/treatment.svg",
+			"Ongoing Protection": "/images/icons/protection.svg",
 		};
-
-		fetchSvg();
-	}, [step.icon]);
+		return iconMap[title] || "/images/icons/inspection.svg";
+	};
 
 	return (
 		<motion.div
@@ -67,9 +58,12 @@ const ProcessStepCard = ({
 					transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
 					viewport={{ once: true }}
 					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#B9FB4B]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-					<div
+					<Image
+						src={getIconPath(step.title)}
+						alt={`${step.title} icon`}
+						width={32}
+						height={32}
 						className="text-[#B9FB4B]"
-						dangerouslySetInnerHTML={{ __html: svgContent }}
 					/>
 				</motion.div>
 			</div>

@@ -1,13 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getBlogPost, type Blog, blogsQuery } from "@/lib/queries/blogs";
+import { getBlogBySlug, getBlogsData } from "@/lib/data";
 import {
 	PortableText,
 	PortableTextReactComponents,
 	PortableTextComponentProps,
 } from "@portabletext/react";
-import { urlFor } from "@/lib/sanity.config";
-import { client } from "@/lib/sanity.config";
 
 const components: Partial<PortableTextReactComponents> = {
 	block: {
@@ -71,7 +69,7 @@ const components: Partial<PortableTextReactComponents> = {
 				<figure className="my-8">
 					<div className="relative w-full h-[400px] rounded-lg overflow-hidden">
 						<Image
-							src={urlFor(value).url()}
+							src={value.asset._ref}
 							alt={value.alt || ""}
 							fill
 							className="object-cover"
@@ -90,7 +88,7 @@ const components: Partial<PortableTextReactComponents> = {
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
-	const blogs = await client.fetch<Blog[]>(blogsQuery);
+	const blogs = await getBlogsData();
 	return blogs.map((blog) => ({
 		slug: blog.slug,
 	}));
@@ -100,8 +98,12 @@ export async function generateStaticParams() {
 export const dynamic = "force-static";
 export const revalidate = false;
 
-export default async function BlogPage({ params }: any) {
-	const blog = await getBlogPost(params.slug);
+export default async function BlogPage({
+	params,
+}: {
+	params: { slug: string };
+}) {
+	const blog = await getBlogBySlug(params.slug);
 	if (!blog) {
 		notFound();
 	}
