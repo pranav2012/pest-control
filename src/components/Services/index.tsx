@@ -94,13 +94,7 @@ const ServiceCard = ({
 };
 
 const Services = ({ initialData }: { initialData: any }) => {
-	if (!initialData) {
-		return (
-			<div className="min-h-[600px] flex items-center justify-center">
-				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#25D366]"></div>
-			</div>
-		);
-	}
+	if (!initialData) return null;
 
 	return (
 		<section

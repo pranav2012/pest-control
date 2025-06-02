@@ -87,10 +87,10 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: ChildrenProps) {
 	// Fetch services data for the header
 	const services = await getServices();
-	const headerServices = services.map((service) => ({
+	const headerServices = services?.map((service) => ({
 		title: service.title,
 		slug: service.slug,
-	}));
+	})) || [];
 
 	return (
 		<html lang="en" suppressHydrationWarning className="overflow-x-hidden">
