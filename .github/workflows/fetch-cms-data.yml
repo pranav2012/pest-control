@@ -5,6 +5,10 @@ on:
     repository_dispatch:
         types: [cms_update] # Triggered when webhook sends event with type 'cms_update'
 
+permissions:
+    contents: write
+    pull-requests: write
+
 jobs:
     fetch-and-commit:
         runs-on: ubuntu-latest
