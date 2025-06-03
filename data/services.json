@@ -1572,14 +1572,7 @@
             "title": "Premium Protection"
           }
         ],
-        "pests_covered": [
-          "Rats",
-          "Mice",
-          "Rodents",
-          "House Rats",
-          "Field Rats",
-          "Bandicoots"
-        ],
+        "pests_covered": null,
         "pricing": [
           {
             "_key": "1bhk",
@@ -2231,9 +2224,7 @@
       "description": "Our bird netting solutions can provide an immediate, effective, and discreet solution to rid an area of pest bird problems. Our nets are carefully designed to provide 100% exclusion of birds. They aim to eliminate birds from roosting and nesting in areas. These roosting and netting areas are typically very popular because they can provide a “home” for a large number of birds.",
       "details": {
         "maintenance_contracts": null,
-        "pests_covered": [
-          "birds"
-        ],
+        "pests_covered": null,
         "pricing": null,
         "service_features": [
           "Professional Bird Net Installation",
@@ -2341,10 +2332,7 @@
       "description": "In today's times, hygiene and sanitization are crucial, and basic cleaning methods aren't enough to eliminate harmful germs and viruses. Effective sanitization requires special disinfectants. Urban Company offers home and office sanitization services using authorized disinfectants, following strict safety protocols and high service standards, making it a trusted choice.",
       "details": {
         "maintenance_contracts": null,
-        "pests_covered": [
-          "bacteria",
-          "viruses"
-        ],
+        "pests_covered": null,
         "pricing": null,
         "service_features": null,
         "treatment_details": [
