@@ -110,82 +110,130 @@ async function ensureDirectoryExists(dirPath) {
 	}
 }
 
-// Download and optimize image
+// Process images in batches
+async function processBatch(items, processFn, batchSize = 2) {
+	const results = [];
+	for (let i = 0; i < items.length; i += batchSize) {
+		const batch = items.slice(i, i + batchSize);
+		const batchResults = await Promise.all(batch.map(processFn));
+		results.push(...batchResults);
+		// Force garbage collection between batches
+		if (global.gc) {
+			global.gc();
+		}
+	}
+	return results;
+}
+
+// Download and optimize image with minimal memory usage
 async function downloadAndOptimizeImage(url, outputPath) {
 	try {
-		const response = await fetch(url);
-		const buffer = await response.arrayBuffer();
+		// Check if file already exists
+		try {
+			await fs.access(outputPath);
+			console.log(`Image already exists at ${outputPath}, skipping...`);
+			const publicPath = path.relative(
+				path.join(__dirname, "..", "public"),
+				outputPath
+			);
+			return `/${publicPath}`;
+		} catch {
+			// File doesn't exist, proceed with download and processing
+			const response = await fetch(url);
+			const buffer = await response.arrayBuffer();
 
-		// Optimize image using sharp
-		await sharp(Buffer.from(buffer))
-			.resize(1200, 800, { fit: "inside", withoutEnlargement: true })
-			.jpeg({ quality: 80, progressive: true })
-			.toFile(outputPath);
+			// Optimize image using sharp with minimal memory settings but maintaining quality
+			await sharp(Buffer.from(buffer), {
+				limitInputPixels: 5000000, // 5MP limit
+				sequentialRead: true,
+				limitMemory: true, // Enable memory limiting
+			})
+				.resize(1200, 800, {
+					// Restored original dimensions
+					fit: "inside",
+					withoutEnlargement: true,
+					fastShrinkOnLoad: true,
+				})
+				.jpeg({
+					quality: 80, // Restored original quality
+					progressive: true,
+					optimizeScans: true,
+				})
+				.toFile(outputPath);
 
-		// Convert the path to be relative to the public directory and ensure it starts with a forward slash
-		const publicPath = path.relative(
-			path.join(__dirname, "..", "public"),
-			outputPath
-		);
-		return `/${publicPath}`;
+			const publicPath = path.relative(
+				path.join(__dirname, "..", "public"),
+				outputPath
+			);
+			return `/${publicPath}`;
+		}
 	} catch (error) {
 		console.error(`Error processing image ${url}:`, error);
-		return url; // Return original URL if processing fails
+		return url;
 	}
 }
 
-// Process services data
+// Process services data in batches
 async function processServicesData() {
 	const servicesData = await client.fetch(getServicesData);
 
-	// Process images in services
-	for (const service of servicesData.services) {
-		if (service.image?.src) {
-			const imagePath = path.join(
-				__dirname,
-				"..",
-				"public",
-				"images",
-				"services",
-				`${service.slug}.jpg`
-			);
-			await ensureDirectoryExists(path.dirname(imagePath));
-			service.image.src = await downloadAndOptimizeImage(
-				service.image.src,
-				imagePath
-			);
-		}
-
-		// Process treatment details images
-		if (service.details?.treatment_details) {
-			for (const detail of service.details.treatment_details) {
-				if (detail.image?.src) {
-					const imagePath = path.join(
-						__dirname,
-						"..",
-						"public",
-						"images",
-						"services",
-						`${service.slug}-${detail.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
-					);
-					await ensureDirectoryExists(path.dirname(imagePath));
-					detail.image.src = await downloadAndOptimizeImage(
-						detail.image.src,
-						imagePath
-					);
-				}
+	// Process services in batches
+	await processBatch(
+		servicesData.services,
+		async (service) => {
+			if (service.image?.src) {
+				const imagePath = path.join(
+					__dirname,
+					"..",
+					"public",
+					"images",
+					"services",
+					`${service.slug}.jpg`
+				);
+				await ensureDirectoryExists(path.dirname(imagePath));
+				service.image.src = await downloadAndOptimizeImage(
+					service.image.src,
+					imagePath
+				);
 			}
-		}
-	}
+
+			// Process treatment details in batches
+			if (service.details?.treatment_details) {
+				await processBatch(
+					service.details.treatment_details,
+					async (detail) => {
+						if (detail.image?.src) {
+							const imagePath = path.join(
+								__dirname,
+								"..",
+								"public",
+								"images",
+								"services",
+								`${service.slug}-${detail.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
+							);
+							await ensureDirectoryExists(
+								path.dirname(imagePath)
+							);
+							detail.image.src = await downloadAndOptimizeImage(
+								detail.image.src,
+								imagePath
+							);
+						}
+					},
+					1
+				); // Process one treatment detail at a time
+			}
+		},
+		1
+	); // Process one service at a time
 
 	return servicesData;
 }
 
-// Process process data
+// Process process data in batches
 async function processProcessData() {
 	const processData = await client.fetch(getProcessData);
 
-	// Process side image
 	if (processData.side_image?.src) {
 		const imagePath = path.join(
 			__dirname,
@@ -202,43 +250,57 @@ async function processProcessData() {
 		);
 	}
 
-	// Process step icons
-	for (const step of processData.steps) {
-		if (step.icon) {
-			const imagePath = path.join(
-				__dirname,
-				"..",
-				"public",
-				"images",
-				"process",
-				`${step.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
-			);
-			await ensureDirectoryExists(path.dirname(imagePath));
-			step.icon = await downloadAndOptimizeImage(step.icon, imagePath);
-		}
-	}
+	// Process step icons in batches
+	await processBatch(
+		processData.steps,
+		async (step) => {
+			if (step.icon) {
+				const imagePath = path.join(
+					__dirname,
+					"..",
+					"public",
+					"images",
+					"process",
+					`${step.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
+				);
+				await ensureDirectoryExists(path.dirname(imagePath));
+				step.icon = await downloadAndOptimizeImage(
+					step.icon,
+					imagePath
+				);
+			}
+		},
+		1
+	); // Process one step at a time
 
 	return processData;
 }
 
-// Process blogs data
+// Process blogs data in batches
 async function processBlogsData() {
 	const blogs = await client.fetch(blogsQuery);
 
-	for (const blog of blogs) {
-		if (blog.image) {
-			const imagePath = path.join(
-				__dirname,
-				"..",
-				"public",
-				"images",
-				"blogs",
-				`${blog.slug}.jpg`
-			);
-			await ensureDirectoryExists(path.dirname(imagePath));
-			blog.image = await downloadAndOptimizeImage(blog.image, imagePath);
-		}
-	}
+	await processBatch(
+		blogs,
+		async (blog) => {
+			if (blog.image) {
+				const imagePath = path.join(
+					__dirname,
+					"..",
+					"public",
+					"images",
+					"blogs",
+					`${blog.slug}.jpg`
+				);
+				await ensureDirectoryExists(path.dirname(imagePath));
+				blog.image = await downloadAndOptimizeImage(
+					blog.image,
+					imagePath
+				);
+			}
+		},
+		1
+	); // Process one blog at a time
 
 	return blogs;
 }
@@ -258,28 +320,24 @@ async function fetchAndSaveData() {
 			path.join(__dirname, "..", "public", "images", "blogs")
 		);
 
-		// Fetch and process data
-		const [servicesData, processData, blogsData] = await Promise.all([
-			processServicesData(),
-			processProcessData(),
-			processBlogsData(),
-		]);
+		// Process data sequentially instead of in parallel
+		const servicesData = await processServicesData();
+		const processData = await processProcessData();
+		const blogsData = await processBlogsData();
 
 		// Save data to JSON files
-		await Promise.all([
-			fs.writeFile(
-				path.join(__dirname, "..", "data", "services.json"),
-				JSON.stringify(servicesData, null, 2)
-			),
-			fs.writeFile(
-				path.join(__dirname, "..", "data", "process.json"),
-				JSON.stringify(processData, null, 2)
-			),
-			fs.writeFile(
-				path.join(__dirname, "..", "data", "blogs.json"),
-				JSON.stringify(blogsData, null, 2)
-			),
-		]);
+		await fs.writeFile(
+			path.join(__dirname, "..", "data", "services.json"),
+			JSON.stringify(servicesData, null, 2)
+		);
+		await fs.writeFile(
+			path.join(__dirname, "..", "data", "process.json"),
+			JSON.stringify(processData, null, 2)
+		);
+		await fs.writeFile(
+			path.join(__dirname, "..", "data", "blogs.json"),
+			JSON.stringify(blogsData, null, 2)
+		);
 
 		console.log("Successfully fetched and saved all data");
 	} catch (error) {

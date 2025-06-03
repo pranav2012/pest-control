@@ -10,7 +10,7 @@
 	},
 	"scripts": {
 		"dev": "next dev --turbo",
-		"build": "pnpm run fetch-cms-data && next build",
+		"build": "NODE_OPTIONS='--max-old-space-size=512' pnpm run fetch-cms-data && next build",
 		"start": "next start",
 		"export": "rm -rf out && pnpm run build",
 		"serve": "npx serve out",
@@ -19,7 +19,7 @@
 		"delete:services": "node scripts/delete-services.js",
 		"migrate:blogs": "node scripts/migrate-blogs.js",
 		"delete:blogs": "node scripts/delete-blogs.js",
-		"fetch-cms-data": "node scripts/fetch-cms-data.js"
+		"fetch-cms-data": "NODE_OPTIONS='--max-old-space-size=512' node scripts/fetch-cms-data.js"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.3",
