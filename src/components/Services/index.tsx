@@ -75,17 +75,17 @@ const ServiceCard = ({
 						<span className="group/btn relative text-sm font-medium text-[#B9FB4B] transition-colors hover:text-white">
 							Learn More
 						</span>
+						<a
+							href={fullWhatsappLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/30"
+							onClick={(e) => e.stopPropagation()}>
+							<WhatsAppIcon />
+						</a>
 					</div>
 				</div>
 			</Link>
-			<a
-				href={fullWhatsappLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				className="absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-lg shadow-[#25D366]/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/30"
-				onClick={(e) => e.stopPropagation()}>
-				<WhatsAppIcon />
-			</a>
 		</div>
 	);
 };
