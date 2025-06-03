@@ -75,19 +75,6 @@ const getServicesData = `*[_type == "services"][0] {
 	}
 }`;
 
-const getProcessData = `*[_type == "process"][0] {
-	section_title,
-	steps[] {
-		title,
-		description,
-		"icon": icon.asset->url
-	},
-	side_image {
-		"src": src.asset->url,
-		alt
-	}
-}`;
-
 const blogsQuery = `*[_type == "blogs"][0].blogs[] | order(publishedAt desc) {
 	_key,
 	title,
@@ -230,52 +217,6 @@ async function processServicesData() {
 	return servicesData;
 }
 
-// Process process data in batches
-async function processProcessData() {
-	const processData = await client.fetch(getProcessData);
-
-	if (processData.side_image?.src) {
-		const imagePath = path.join(
-			__dirname,
-			"..",
-			"public",
-			"images",
-			"process",
-			"side-image.jpg"
-		);
-		await ensureDirectoryExists(path.dirname(imagePath));
-		processData.side_image.src = await downloadAndOptimizeImage(
-			processData.side_image.src,
-			imagePath
-		);
-	}
-
-	// Process step icons in batches
-	await processBatch(
-		processData.steps,
-		async (step) => {
-			if (step.icon) {
-				const imagePath = path.join(
-					__dirname,
-					"..",
-					"public",
-					"images",
-					"process",
-					`${step.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
-				);
-				await ensureDirectoryExists(path.dirname(imagePath));
-				step.icon = await downloadAndOptimizeImage(
-					step.icon,
-					imagePath
-				);
-			}
-		},
-		1
-	); // Process one step at a time
-
-	return processData;
-}
-
 // Process blogs data in batches
 async function processBlogsData() {
 	const blogs = await client.fetch(blogsQuery);
@@ -314,25 +255,17 @@ async function fetchAndSaveData() {
 			path.join(__dirname, "..", "public", "images", "services")
 		);
 		await ensureDirectoryExists(
-			path.join(__dirname, "..", "public", "images", "process")
-		);
-		await ensureDirectoryExists(
 			path.join(__dirname, "..", "public", "images", "blogs")
 		);
 
 		// Process data sequentially instead of in parallel
 		const servicesData = await processServicesData();
-		const processData = await processProcessData();
 		const blogsData = await processBlogsData();
 
 		// Save data to JSON files
 		await fs.writeFile(
 			path.join(__dirname, "..", "data", "services.json"),
 			JSON.stringify(servicesData, null, 2)
-		);
-		await fs.writeFile(
-			path.join(__dirname, "..", "data", "process.json"),
-			JSON.stringify(processData, null, 2)
 		);
 		await fs.writeFile(
 			path.join(__dirname, "..", "data", "blogs.json"),
