@@ -15,7 +15,8 @@
 		"start": "next start",
 		"export": "rm -rf out && pnpm run build",
 		"serve": "npx serve out",		
-		"fetch-cms-data": "node scripts/fetch-cms-data.js"
+		"fetch-cms-data": "node scripts/fetch-cms-data.js",
+		"redeploy": "bash scripts/redeploy.sh"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.3",

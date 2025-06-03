@@ -27,7 +27,7 @@ jobs:
               run: pnpm install
 
             - name: Build application
-              run: pnpm run build
+              run: pnpm run build:dev
 
             - name: Deploy to Hostinger VPS
               uses: appleboy/ssh-action@master
@@ -36,8 +36,7 @@ jobs:
                   username: ${{ secrets.HOSTINGER_USERNAME }}
                   key: ${{ secrets.HOSTINGER_SSH_KEY }}
                   script: |
-                      cd /path/to/your/project
+                      cd ~/website/pest-control
                       git pull origin main
                       pnpm install
-                      pnpm run build
-                      pm2 restart your-app-name
+                      pnpm run redeploy
