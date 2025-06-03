@@ -6,7 +6,6 @@ import Script from "next/script";
 
 import ClientLayout from "@/components/ClientLayout";
 import { QueryProvider } from "@/providers/query";
-import { ThemeProvider } from "@/providers/theme";
 import "@/styles/globals.css";
 import type { ChildrenProps } from "@/types";
 import { getServicesData } from "@/lib/data";
@@ -112,24 +111,19 @@ export default async function RootLayout({ children }: ChildrenProps) {
 			</head>
 			<body
 				className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem>
-					<QueryProvider>
-						<ClientLayout services={headerServices}>
-							{children}
-						</ClientLayout>
-						<Toaster
-							position="bottom-right"
-							toastOptions={{
-								className:
-									"bg-[var(--card)] text-[var(--foreground)] border-[var(--border)]",
-								duration: 3000,
-							}}
-						/>
-					</QueryProvider>
-				</ThemeProvider>
+				<QueryProvider>
+					<ClientLayout services={headerServices}>
+						{children}
+					</ClientLayout>
+					<Toaster
+						position="bottom-right"
+						toastOptions={{
+							className:
+								"bg-[var(--card)] text-[var(--foreground)] border-[var(--border)]",
+							duration: 3000,
+						}}
+					/>
+				</QueryProvider>
 			</body>
 		</html>
 	);
