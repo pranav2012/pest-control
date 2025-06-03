@@ -96,10 +96,6 @@ export async function getServicesData() {
     return loadJsonFile<{ services: Service[] }>('services.json');
 }
 
-export async function getProcessData() {
-    return loadJsonFile<Process>('process.json');
-}
-
 export async function getBlogsData() {
     return loadJsonFile<Blog[]>('blogs.json');
 }

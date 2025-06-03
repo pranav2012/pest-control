@@ -6,7 +6,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import DelhiNCR from "@/components/DelhiNCR";
 import Branches from "@/components/Branches";
-import { getServicesData, getProcessData } from "@/lib/data";
+import { getServicesData } from "@/lib/data";
 
 // Enable static generation with on-demand revalidation
 export const dynamic = "force-static";
@@ -14,9 +14,8 @@ export const revalidate = false;
 
 export default async function Home() {
 	// Fetch data server-side
-	const [servicesData, processData] = await Promise.all([
+	const [servicesData] = await Promise.all([
 		getServicesData(),
-		getProcessData(),
 	]);
 
 	return (
@@ -24,7 +23,7 @@ export default async function Home() {
 			<Hero />
 			<Services initialData={servicesData} />
 			<DelhiNCR />
-			<Process initialData={processData} />
+			<Process />
 			<Branches />
 		</main>
 	);

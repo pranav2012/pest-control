@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 interface ProcessStep {
 	title: string;
@@ -19,6 +18,40 @@ interface ProcessData {
 	};
 }
 
+const processData = {
+	section_title: "Our Professional Process",
+	steps: [
+		{
+			description:
+				"Our certified experts conduct a thorough inspection of your property to identify pest types, infestation levels, and potential entry points.",
+			icon: "/images/icons/inspection.svg",
+			title: "Initial Assessment",
+		},
+		{
+			description:
+				"We develop a tailored treatment strategy based on the inspection findings, considering your specific requirements and property characteristics.",
+			icon: "/images/icons/planning.svg",
+			title: "Custom Planning",
+		},
+		{
+			description:
+				"Our skilled technicians execute the treatment plan using eco-friendly, professional-grade solutions that are safe for your family and pets.",
+			icon: "/images/icons/treatment.svg",
+			title: "Expert Treatment",
+		},
+		{
+			description:
+				"We provide continuous monitoring and preventive measures to ensure long-lasting protection, backed by our satisfaction guarantee.",
+			icon: "/images/icons/protection.svg",
+			title: "Ongoing Protection",
+		},
+	],
+	side_image: {
+		src: "/images/process/side-image.jpg",
+		alt: "Professional Pest Control Expert at Work",
+	},
+} as ProcessData;
+
 const ProcessStepCard = ({
 	step,
 	index,
@@ -26,17 +59,6 @@ const ProcessStepCard = ({
 	step: ProcessStep;
 	index: number;
 }) => {
-	// Map step titles to icon names
-	const getIconPath = (title: string) => {
-		const iconMap: { [key: string]: string } = {
-			"Initial Assessment": "/images/icons/inspection.svg",
-			"Custom Planning": "/images/icons/planning.svg",
-			"Expert Treatment": "/images/icons/treatment.svg",
-			"Ongoing Protection": "/images/icons/protection.svg",
-		};
-		return iconMap[title] || "/images/icons/inspection.svg";
-	};
-
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: 20 }}
@@ -59,7 +81,7 @@ const ProcessStepCard = ({
 					viewport={{ once: true }}
 					className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#B9FB4B]/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
 					<Image
-						src={getIconPath(step.title)}
+						src={step.icon}
 						alt={`${step.title} icon`}
 						width={32}
 						height={32}
@@ -86,9 +108,7 @@ const ProcessStepCard = ({
 	);
 };
 
-const Process = ({ initialData }: { initialData: ProcessData }) => {
-	if (!initialData) return null;
-
+const Process = () => {
 	return (
 		<section className="relative py-16 md:py-20 lg:py-32 overflow-hidden bg-gray-900">
 			{/* Background Pattern */}
@@ -103,7 +123,7 @@ const Process = ({ initialData }: { initialData: ProcessData }) => {
 					viewport={{ once: true }}
 					className="max-w-3xl mx-auto text-center mb-12 md:mb-16 lg:mb-24">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-						{initialData.section_title}
+						{processData.section_title}
 					</h2>
 					<div className="w-20 h-1 bg-[#B9FB4B] mx-auto rounded-full mb-6" />
 					<p className="text-base md:text-lg text-gray-200">
@@ -115,7 +135,7 @@ const Process = ({ initialData }: { initialData: ProcessData }) => {
 				<div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-12 items-start">
 					{/* Process Steps */}
 					<div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 relative">
-						{initialData.steps.map((step, index) => (
+						{processData.steps.map((step, index) => (
 							<ProcessStepCard
 								key={step.title}
 								step={step}
@@ -137,8 +157,8 @@ const Process = ({ initialData }: { initialData: ProcessData }) => {
 
 							{/* Image */}
 							<Image
-								src={initialData.side_image.src}
-								alt={initialData.side_image.alt}
+								src={processData.side_image.src}
+								alt={processData.side_image.alt}
 								fill
 								className="object-cover transition-transform duration-700 hover:scale-105"
 								priority

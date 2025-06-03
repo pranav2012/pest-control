@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, FormEvent, useEffect } from "react";
+import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import heroData from "@/content/hero.json";
-import { FormField, HeroData } from "@/types/hero";
+import { FormField } from "@/types/hero";
 import Image from "next/image";
 import { useServices } from "@/contexts/ServicesContext";
 
