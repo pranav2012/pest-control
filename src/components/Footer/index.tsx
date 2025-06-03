@@ -318,11 +318,12 @@ const Footer = ({ services }: FooterProps) => {
 			<div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
 				{/* Call Button */}
 				<Link href="tel:08882002546" className="group relative">
-					<div className="bg-[#B9FB4B] text-gray-900 p-4 rounded-full shadow-lg hover:bg-[#A5E03A] transition-all duration-300 hover:scale-110">
-						<Phone className="w-6 h-6" />
+					<div className="relative bg-[#2563EB] text-white p-4 rounded-full shadow-lg hover:bg-[#1D4ED8] transition-all duration-300 hover:scale-110">
+						<div className="absolute inset-0 rounded-full animate-[ping_3s_ease-in-out_infinite] bg-[#2563EB] opacity-10"></div>
+						<Phone className="w-6 h-6 relative z-10" />
 					</div>
-					<span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-						Call Us
+					<span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+						Call Us Now
 					</span>
 				</Link>
 
