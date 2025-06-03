@@ -56,20 +56,19 @@ const ServiceCard = ({
 					</p>
 
 					{/* Tags */}
-					<div className="flex flex-wrap gap-2">
-						{(
-							service.details.pests_covered ||
-							service.details.areas_covered
-						)
-							?.slice(0, 3)
-							.map((item) => (
-								<span
-									key={item}
-									className="relative inline-flex items-center rounded-lg bg-[#B9FB4B]/10 px-3 py-1 text-xs font-medium text-[#B9FB4B] ring-1 ring-[#B9FB4B]/20">
-									{item}
-								</span>
-							))}
-					</div>
+					{service?.details?.pests_covered ? (
+						<div className="flex flex-wrap gap-2">
+							{service.details.pests_covered
+								?.slice(0, 3)
+								.map((item) => (
+									<span
+										key={item}
+										className="relative inline-flex items-center rounded-lg bg-[#B9FB4B]/10 px-3 py-1 text-xs font-medium text-[#B9FB4B] ring-1 ring-[#B9FB4B]/20">
+										{item}
+									</span>
+								))}
+						</div>
+					) : null}
 
 					{/* Action Buttons */}
 					<div className="flex items-center justify-between border-t border-gray-700 pt-4 mt-4">
