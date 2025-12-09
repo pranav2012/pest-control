@@ -1,9 +1,5 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Types
 export type Service = {
@@ -87,7 +83,7 @@ export type Blog = {
 
 // Data loading functions
 async function loadJsonFile<T>(filename: string): Promise<T> {
-    const filePath = path.join(__dirname, '..', '..', 'data', filename);
+    const filePath = path.join(process.cwd(), 'data', filename);
     const data = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(data) as T;
 }

@@ -23,7 +23,7 @@ const stats = [
 	{
 		icon: MapPin,
 		value: "100%",
-		label: "Delhi NCR Coverage",
+		label: "Pan India Coverage",
 	},
 ];
 
@@ -46,7 +46,7 @@ const features = [
 	{
 		title: "Comprehensive Coverage",
 		description:
-			"Complete pest control solutions for residential and commercial properties across Delhi NCR.",
+			"Complete pest control solutions for residential and commercial properties across Pan India.",
 	},
 ];
 
@@ -67,13 +67,13 @@ const DelhiNCR = () => {
 					viewport={{ once: true }}
 					className="max-w-3xl mx-auto text-center mb-16">
 					<h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-						Best Pest Control Service in Delhi NCR
+						Best Pest Control Service Pan India
 					</h2>
 					<div className="w-20 h-1 bg-[#B9FB4B] mx-auto rounded-full mb-6" />
 					<p className="text-lg text-gray-200">
 						We use innovative and thorough strategies to deliver
 						eco-friendly pest removal services to homeowners,
-						companies, and municipalities across Delhi NCR.
+						companies, and municipalities across Pan India.
 					</p>
 				</motion.div>
 
@@ -114,7 +114,7 @@ const DelhiNCR = () => {
 						<div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
 							<Image
 								src="/images/hero2.png"
-								alt="Professional Pest Control Service in Delhi NCR"
+								alt="Professional Pest Control Service Pan India"
 								fill
 								className="object-cover"
 							/>

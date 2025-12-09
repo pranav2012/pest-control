@@ -1,70 +1,70 @@
 {
-  "main_content": {
-    "title": "Alpha Beneficent Care Pvt. Ltd.",
-    "subtitle": "Best Pest Control Services in Delhi NCR",
-    "cta_buttons": [
-      {
-        "text": "Whatsapp Chat",
-        "link": "https://api.whatsapp.com/send?phone=918882002546&",
-        "type": "whatsapp"
-      },
-      {
-        "text": "Call Now",
-        "link": "tel:08882002546",
-        "type": "phone"
-      }
-    ],
-    "google_reviews": {
-      "rating": 4.9,
-      "total_reviews": 189,
-      "url": "https://www.google.com/maps/place/Alpha+Beneficent+Care+Pvt.+Ltd.+Pest+Control+Services/@28.5246378,77.1822044,17z/data=!4m8!3m7!1s0x390d1f66d177066d:0x8686294ea8036d58!8m2!3d28.5246378!4d77.1822044!9m1!1b1!16s%2Fg%2F11rqjbst2t"
-    }
-  },
-  "contact_form": {
-    "title": "Get in Touch",
-    "fields": [
-      {
-        "type": "text",
-        "name": "name",
-        "label": "Name",
-        "placeholder": "Name",
-        "required": true
-      },
-      {
-        "type": "tel",
-        "name": "phone",
-        "label": "Phone",
-        "placeholder": "Phone",
-        "required": true,
-        "pattern": "[0-9()#&+*-=.]*"
-      },
-      {
-        "type": "select",
-        "name": "service",
-        "label": "Services",
-        "required": true,
-        "options": [
-          "General Pest Control",
-          "Mosquitoes / Flies Control",
-          "Pre-Construction Termite Control",
-          "Post-Construction Termite Control",
-          "Wood Borer",
-          "Sanitization Services",
-          "Bed Bugs Control",
-          "Other"
-        ]
-      },
-      {
-        "type": "textarea",
-        "name": "message",
-        "label": "Message",
-        "placeholder": "Message",
-        "required": false
-      }
-    ],
-    "submit_button": {
-      "text": "Send",
-      "type": "submit"
-    }
-  }
-} 
+	"main_content": {
+		"title": "Alpha Beneficent Care Pvt. Ltd.",
+		"subtitle": "Best Pest Control Services Pan India",
+		"cta_buttons": [
+			{
+				"text": "Whatsapp Chat",
+				"link": "https://api.whatsapp.com/send?phone=918882002546&",
+				"type": "whatsapp"
+			},
+			{
+				"text": "Call Now",
+				"link": "tel:08882002546",
+				"type": "phone"
+			}
+		],
+		"google_reviews": {
+			"rating": 4.9,
+			"total_reviews": 189,
+			"url": "https://www.google.com/maps/place/Alpha+Beneficent+Care+Pvt.+Ltd.+Pest+Control+Services/@28.5246378,77.1822044,17z/data=!4m8!3m7!1s0x390d1f66d177066d:0x8686294ea8036d58!8m2!3d28.5246378!4d77.1822044!9m1!1b1!16s%2Fg%2F11rqjbst2t"
+		}
+	},
+	"contact_form": {
+		"title": "Get in Touch",
+		"fields": [
+			{
+				"type": "text",
+				"name": "name",
+				"label": "Name",
+				"placeholder": "Name",
+				"required": true
+			},
+			{
+				"type": "tel",
+				"name": "phone",
+				"label": "Phone",
+				"placeholder": "Phone",
+				"required": true,
+				"pattern": "[0-9()#&+*-=.]*"
+			},
+			{
+				"type": "select",
+				"name": "service",
+				"label": "Services",
+				"required": true,
+				"options": [
+					"General Pest Control",
+					"Mosquitoes / Flies Control",
+					"Pre-Construction Termite Control",
+					"Post-Construction Termite Control",
+					"Wood Borer",
+					"Sanitization Services",
+					"Bed Bugs Control",
+					"Other"
+				]
+			},
+			{
+				"type": "textarea",
+				"name": "message",
+				"label": "Message",
+				"placeholder": "Message",
+				"required": false
+			}
+		],
+		"submit_button": {
+			"text": "Send",
+			"type": "submit"
+		}
+	}
+}

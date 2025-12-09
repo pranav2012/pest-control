@@ -27,11 +27,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-	title: "Alpha Beneficent Care - Best Pest Control Services in Delhi NCR",
+	title: "Alpha Beneficent Care - Best Pest Control Services Pan India",
 	description:
-		"Professional pest control services in Delhi NCR. We offer general pest control, termite control, mosquito control, and more with eco-friendly solutions.",
+		"Professional pest control services across Pan India. We offer general pest control, termite control, mosquito control, and more with eco-friendly solutions.",
 	keywords:
-		"pest control, delhi ncr, termite control, mosquito control, bed bugs control, sanitization services",
+		"pest control, pan india, termite control, mosquito control, bed bugs control, sanitization services",
 	metadataBase: new URL("https://alphabenificentcare.com"),
 	icons: {
 		icon: [
@@ -72,16 +72,16 @@ export const metadata: Metadata = {
 		type: "website",
 		locale: "en_IN",
 		url: "https://alphabenificentcare.com",
-		title: "Alpha Beneficent Care - Best Pest Control Services in Delhi NCR",
+		title: "Alpha Beneficent Care - Best Pest Control Services Pan India",
 		description:
-			"Professional pest control services in Delhi NCR with eco-friendly solutions",
+			"Professional pest control services across Pan India with eco-friendly solutions",
 		siteName: "Alpha Beneficent Care",
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: "Alpha Beneficent Care - Pest Control Services",
 		description:
-			"Professional pest control services in Delhi NCR with eco-friendly solutions",
+			"Professional pest control services across Pan India with eco-friendly solutions",
 	},
 };
 
