@@ -60,11 +60,11 @@ importers:
         specifier: ^0.511.0
         version: 0.511.0(react@19.1.0)
       next:
-        specifier: ^15.3.6
-        version: 15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^15.5.9
+        version: 15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-sanity:
         specifier: ^9.11.1
-        version: 9.11.1(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/icons@3.7.0(react@19.1.0))(@sanity/types@3.88.3(@types/react@19.1.4))(@sanity/ui@2.15.17(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)))(next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(sanity@3.88.3(@emotion/is-prop-valid@1.2.2)(@types/node@22.15.18)(@types/react@19.1.4)(immer@10.1.1)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)
+        version: 9.11.1(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/icons@3.7.0(react@19.1.0))(@sanity/types@3.88.3(@types/react@19.1.4))(@sanity/ui@2.15.17(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)))(next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(sanity@3.88.3(@emotion/is-prop-valid@1.2.2)(@types/node@22.15.18)(@types/react@19.1.4)(immer@10.1.1)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -72,10 +72,10 @@ importers:
         specifier: ^8.5.3
         version: 8.5.3
       react:
-        specifier: ^19.0.1
+        specifier: ^19.0.3
         version: 19.1.0
       react-dom:
-        specifier: ^19.0.1
+        specifier: ^19.0.3
         version: 19.1.0(react@19.1.0)
       react-hot-toast:
         specifier: ^2.5.2
@@ -1510,8 +1510,8 @@ packages:
   '@next/bundle-analyzer@15.3.2':
     resolution: {integrity: sha512-zY5O1PNKNxWEjaFX8gKzm77z2oL0cnj+m5aiqNBgay9LPLCDO13Cf+FJONeNq/nJjeXptwHFT9EMmTecF9U4Iw==}
 
-  '@next/env@15.5.7':
-    resolution: {integrity: sha512-4h6Y2NyEkIEN7Z8YxkA27pq6zTkS09bUSYC0xjd0NpwFxjnIKeZEeH591o5WECSmjpUhLn3H2QLJcDye3Uzcvg==}
+  '@next/env@15.5.9':
+    resolution: {integrity: sha512-4GlTZ+EJM7WaW2HEZcyU317tIQDjkQIyENDLxYJfSWlfqguN+dHkZgyQTV/7ykvobU7yEH5gKvreNrH4B6QgIg==}
 
   '@next/swc-darwin-arm64@15.5.7':
     resolution: {integrity: sha512-IZwtxCEpI91HVU/rAUOOobWSZv4P2DeTtNaCdHqLcTJU4wdNXgAySvKa/qJCgR5m6KI8UsKDXtO2B31jcaw1Yw==}
@@ -4320,8 +4320,8 @@ packages:
       react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
       react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
-  next@15.5.7:
-    resolution: {integrity: sha512-+t2/0jIJ48kUpGKkdlhgkv+zPTEOoXyr60qXe68eB/pl3CMJaLeIGjzp5D6Oqt25hCBiBTt8wEeeAzfJvUKnPQ==}
+  next@15.5.9:
+    resolution: {integrity: sha512-agNLK89seZEtC5zUHwtut0+tNrc0Xw4FT/Dg+B/VLEo9pAcS9rtTKpek3V6kVcVwsB2YlqMaHdfZL4eLEVYuCg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -7278,7 +7278,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@next/env@15.5.7': {}
+  '@next/env@15.5.9': {}
 
   '@next/swc-darwin-arm64@15.5.7':
     optional: true
@@ -7911,13 +7911,13 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@sanity/next-loader@1.6.0(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@sanity/next-loader@1.6.0(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@sanity/client': 7.2.1(debug@4.4.1)
       '@sanity/comlink': 3.0.3
       '@sanity/presentation-comlink': 1.0.19(@sanity/client@7.2.1)(@sanity/types@3.88.3(@types/react@19.1.4))
       dequal: 2.0.3
-      next: 15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       use-effect-event: 1.0.2(react@19.1.0)
     transitivePeerDependencies:
@@ -8137,7 +8137,7 @@ snapshots:
     optionalDependencies:
       '@sanity/types': 3.88.3(@types/react@19.1.4)(debug@4.4.1)
 
-  '@sanity/visual-editing@2.13.21(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)':
+  '@sanity/visual-editing@2.13.21(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)':
     dependencies:
       '@sanity/comlink': 3.0.3
       '@sanity/icons': 3.7.0(react@19.1.0)
@@ -8160,7 +8160,7 @@ snapshots:
       xstate: 5.19.3
     optionalDependencies:
       '@sanity/client': 7.2.1(debug@4.4.1)
-      next: 15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - '@sanity/types'
@@ -10246,20 +10246,20 @@ snapshots:
 
   nanoid@5.1.5: {}
 
-  next-sanity@9.11.1(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/icons@3.7.0(react@19.1.0))(@sanity/types@3.88.3(@types/react@19.1.4))(@sanity/ui@2.15.17(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)))(next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(sanity@3.88.3(@emotion/is-prop-valid@1.2.2)(@types/node@22.15.18)(@types/react@19.1.4)(immer@10.1.1)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3):
+  next-sanity@9.11.1(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/icons@3.7.0(react@19.1.0))(@sanity/types@3.88.3(@types/react@19.1.4))(@sanity/ui@2.15.17(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)))(next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(sanity@3.88.3(@emotion/is-prop-valid@1.2.2)(@types/node@22.15.18)(@types/react@19.1.4)(immer@10.1.1)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3):
     dependencies:
       '@portabletext/react': 3.2.1(react@19.1.0)
       '@sanity/client': 7.2.1(debug@4.4.1)
       '@sanity/icons': 3.7.0(react@19.1.0)
-      '@sanity/next-loader': 1.6.0(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+      '@sanity/next-loader': 1.6.0(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@sanity/preview-kit': 6.1.1(@sanity/types@3.88.3(@types/react@19.1.4))(react@19.1.0)
       '@sanity/preview-url-secret': 2.1.11(@sanity/client@7.2.1)
       '@sanity/types': 3.88.3(@types/react@19.1.4)(debug@4.4.1)
       '@sanity/ui': 2.15.17(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
-      '@sanity/visual-editing': 2.13.21(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)
+      '@sanity/visual-editing': 2.13.21(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.2.1)(@sanity/types@3.88.3(@types/react@19.1.4))(next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-is@18.3.1)(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)
       groq: 3.88.3
       history: 5.3.0
-      next: 15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       sanity: 3.88.3(@emotion/is-prop-valid@1.2.2)(@types/node@22.15.18)(@types/react@19.1.4)(immer@10.1.1)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(styled-components@6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
@@ -10279,9 +10279,9 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  next@15.5.7(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.5.9(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      '@next/env': 15.5.7
+      '@next/env': 15.5.9
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001718
       postcss: 8.4.31
